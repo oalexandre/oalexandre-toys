@@ -1,4 +1,4 @@
-import { WhatsApp, QrCode, Link, Speed, Business, Campaign } from "@mui/icons-material";
+import { WhatsApp, QrCode, Link, Speed } from "@mui/icons-material";
 import { Box, Typography, Alert, Chip, Divider } from "@mui/material";
 
 import PageTitle from "../../../components/common/PageTitle";

@@ -78,7 +78,7 @@ const ModalContainer = styled("div")({
   width: "32.5%",
   height: "47.5%",
 });
-const FeedbackForm = ({ onClose, cardTitle }) => {
+const _FeedbackForm = ({ onClose, cardTitle }) => {
   const [feedbackSent, setFeedbackSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const form = useRef();

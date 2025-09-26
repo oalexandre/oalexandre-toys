@@ -1,4 +1,4 @@
-import { Code, Security, Build, School, Warning } from "@mui/icons-material";
+import { Code, Security, Build, School } from "@mui/icons-material";
 import { Box, Typography, Alert, Chip, Divider } from "@mui/material";
 
 import PageTitle from "../../../components/common/PageTitle";

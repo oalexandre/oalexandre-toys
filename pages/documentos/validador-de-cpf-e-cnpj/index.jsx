@@ -1,4 +1,4 @@
-import { VerifiedUser, Code, Speed, Security, Build, CheckCircle } from "@mui/icons-material";
+import { VerifiedUser, Speed, Security, CheckCircle } from "@mui/icons-material";
 import { Box, Typography, Alert, Chip, Divider } from "@mui/material";
 
 import PageTitle from "../../../components/common/PageTitle";

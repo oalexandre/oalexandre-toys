@@ -1,4 +1,4 @@
-import { QrCode, Download, Palette, Security, Speed, CloudOff } from "@mui/icons-material";
+import { QrCode, Download, Palette, Security } from "@mui/icons-material";
 import { Box, Typography, Alert, Chip, Divider } from "@mui/material";
 
 import PageTitle from "../../../components/common/PageTitle";

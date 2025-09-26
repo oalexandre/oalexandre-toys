@@ -1,4 +1,4 @@
-import { CurrencyExchange, Warning, Speed, Public, Info, TrendingUp } from "@mui/icons-material";
+import { CurrencyExchange, Warning, Speed, Public } from "@mui/icons-material";
 import { Box, Typography, Alert, Chip, Divider } from "@mui/material";
 
 import PageTitle from "../../../components/common/PageTitle";

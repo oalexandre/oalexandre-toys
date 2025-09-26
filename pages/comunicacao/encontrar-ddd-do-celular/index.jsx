@@ -1,4 +1,4 @@
-import { Phone, LocationOn, Search, Speed, Map, Security } from "@mui/icons-material";
+import { LocationOn, Speed, Map, Security } from "@mui/icons-material";
 import { Box, Typography, Alert, Chip, Divider } from "@mui/material";
 
 import PageTitle from "../../../components/common/PageTitle";

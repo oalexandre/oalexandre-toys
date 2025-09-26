@@ -1,4 +1,5 @@
 import CloseIcon from "@mui/icons-material/Close";
+import LaunchIcon from "@mui/icons-material/Launch";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   Box,
@@ -10,6 +11,7 @@ import {
   AppBar,
   Drawer,
   useMediaQuery,
+  Button,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useRouter } from "next/router";
@@ -81,7 +83,19 @@ const Layout = ({ children }) => {
 
       <Divider sx={{ mt: "auto" }} />
 
-      <Box sx={{ p: 2 }}>
+      <Box sx={{ p: 2, display: "flex", flexDirection: "column", gap: 1 }}>
+        <Button
+          variant="outlined"
+          color="primary"
+          startIcon={<LaunchIcon />}
+          href="https://oalexandre.com.br"
+          target="_blank"
+          rel="noopener noreferrer"
+          fullWidth
+          sx={{ mb: 1 }}
+        >
+          oAlexandre.com.br
+        </Button>
         <FeedBackToggle />
       </Box>
     </>
