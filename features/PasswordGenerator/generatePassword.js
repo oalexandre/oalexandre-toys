@@ -1,25 +1,42 @@
 import { includedItems } from '../../constants/passwordGenerator'
 
+// Função para gerar números aleatórios criptograficamente seguros
+const getSecureRandomInt = (max) => {
+    const array = new Uint32Array(1);
+    crypto.getRandomValues(array);
+    return array[0] % max;
+}
+
+// Função para embaralhar array usando crypto.getRandomValues()
+const secureArrayShuffle = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = getSecureRandomInt(i + 1);
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+}
+
 const getRandomSymbol = () => {
     const symbols = '!@#$%&*'
-    return symbols[Math.floor(Math.random() * symbols.length)]
+    return symbols[getSecureRandomInt(symbols.length)]
 }
 
 const getRandomNumber = (excludeSimilar) => {
     const items = [3, 4, 6, 7, 9]
 
     if (excludeSimilar) {
-        return items[Math.floor(Math.random() * items.length)]
+        return items[getSecureRandomInt(items.length)]
     } else {
-        return +String.fromCharCode(Math.floor(Math.random() * 10) + 48)
+        return +String.fromCharCode(getSecureRandomInt(10) + 48)
     }
 }
 
 const getRandomLower = (excludeSimilar) => {
     if (excludeSimilar) {
-        return includedItems[Math.floor(Math.random() * includedItems.length)]
+        return includedItems[getSecureRandomInt(includedItems.length)]
     } else {
-        return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+        return String.fromCharCode(getSecureRandomInt(26) + 97)
     }
 }
 
@@ -27,9 +44,9 @@ const getRandomUpper = (excludeSimilar) => {
     const items = includedItems.map((letter) => letter.toUpperCase())
 
     if (excludeSimilar) {
-        return items[Math.floor(Math.random() * items.length)]
+        return items[getSecureRandomInt(items.length)]
     } else {
-        return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
+        return String.fromCharCode(getSecureRandomInt(26) + 65)
     }
 }
 
@@ -40,7 +57,11 @@ const randomGenerator = {
     upperCase: getRandomUpper,
 }
 
-const shuffle = (str) => [...str].sort(() => Math.random() - 0.5).join('')
+// Embaralhar usando crypto.getRandomValues() ao invés de Math.random()
+const shuffle = (str) => {
+    const chars = [...str];
+    return secureArrayShuffle(chars).join('');
+}
 
 export const generatePassword = (symbols, numbers, lowerCase, upperCase, excludeSimilar, length) => {
     const typesCount = symbols + numbers + lowerCase + upperCase

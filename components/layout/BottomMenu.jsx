@@ -1,21 +1,7 @@
+import { BottomNavigation, BottomNavigationAction, Box, CssBaseline, Paper } from "@mui/material";
 import { useEffect, useRef } from "react";
 
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Box,
-  CssBaseline,
-  Paper,
-} from "@mui/material";
-
-const BottomMenu = ({
-  screen,
-  handleScreen,
-  navItems,
-  isFocused,
-  activeListId,
-  children,
-}) => {
+const BottomMenu = ({ screen, handleScreen, navItems, isFocused, activeListId, children }) => {
   const ref = useRef(null);
 
   useEffect(() => {

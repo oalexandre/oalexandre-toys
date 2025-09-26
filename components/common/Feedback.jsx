@@ -1,22 +1,4 @@
-import React, { useRef, useState } from "react";
-import { createTheme, styled } from "@mui/material/styles";
-import Button from "@mui/material/Button";
-import Modal from "@mui/material/Modal";
-import TextField from "@mui/material/TextField";
-import {
-  Avatar,
-  Box,
-  CircularProgress,
-  Divider,
-  Link,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Snackbar,
-  Typography,
-} from "@mui/material";
-import { Card, CardHeader, IconButton } from "@mui/material";
+import emailjs from "@emailjs/browser";
 import {
   EmojiObjects,
   SentimentVerySatisfied,
@@ -32,10 +14,30 @@ import {
   Info,
   ClosedCaption,
   Close,
+  GitHub,
 } from "@mui/icons-material";
-import emailjs from "@emailjs/browser";
+import {
+  Avatar,
+  Box,
+  CircularProgress,
+  Divider,
+  Link,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Snackbar,
+  Typography,
+} from "@mui/material";
+import { Card, CardHeader, IconButton } from "@mui/material";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
+import { createTheme, styled } from "@mui/material/styles";
+import TextField from "@mui/material/TextField";
 import Image from "next/image";
-import logo from "../../public/logos/logo.png";
+import React, { useRef, useState } from "react";
+
+import logo from "../../public/logos/oalexandre-logo.png";
 
 const theme = createTheme({
   palette: {
@@ -90,23 +92,18 @@ const FeedbackForm = ({ onClose, cardTitle }) => {
   const [loading, setLoading] = useState(false);
   const form = useRef();
 
-  const sendEmail = (e) => {
+  const sendEmail = e => {
     e.preventDefault();
     setLoading(true);
 
     emailjs
-      .sendForm(
-        "service_po4i0lq",
-        "template_bh05x9j",
-        form.current,
-        "5tHrtJW8RbpwtZGcP"
-      )
+      .sendForm("service_po4i0lq", "template_bh05x9j", form.current, "5tHrtJW8RbpwtZGcP")
       .then(
-        (result) => {
+        result => {
           console.log(result.text);
           setFeedbackSent(true);
         },
-        (error) => {
+        error => {
           console.log(error.text);
         }
       )
@@ -116,12 +113,7 @@ const FeedbackForm = ({ onClose, cardTitle }) => {
   return (
     <form ref={form} onSubmit={sendEmail}>
       <Box sx={{ textAlign: "center", mb: 1 }}>
-        <Image
-          src={logo}
-          alt="Logo azul da empresa aupi"
-          width={90}
-          height={35}
-        />
+        <Image src={logo} alt="Logo da oAlexandre Toys" width={90} height={105} />
 
         <Typography
           sx={{
@@ -160,11 +152,7 @@ const FeedbackForm = ({ onClose, cardTitle }) => {
             type="submit"
             disabled={loading}
           >
-            {loading ? (
-              <CircularProgress size={24} sx={{ color: "#fff" }} />
-            ) : (
-              "Enviar"
-            )}
+            {loading ? <CircularProgress size={24} sx={{ color: "#fff" }} /> : "Enviar"}
           </Button>
           <Button variant="outlined" sx={{ ml: 2, mt: 2 }} onClick={onClose}>
             Cancelar
@@ -241,14 +229,48 @@ const FeedbackCard = ({ cardTitle, cardIcon }) => {
 
       <FeedbackModal open={open} onClose={handleClose}>
         <ModalContainer>
-          <FeedbackForm
-            onClose={handleClose}
-            cardTitle={cardTitle}
-            cardIcon={cardIcon}
-          />
+          <FeedbackForm onClose={handleClose} cardTitle={cardTitle} cardIcon={cardIcon} />
         </ModalContainer>
       </FeedbackModal>
     </>
+  );
+};
+
+const IssuesCard = () => {
+  const handleClick = () => {
+    window.open(
+      "https://github.com/oalexandre/oalexandre-toys/issues",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
+  return (
+    <Card
+      variant="filled"
+      onClick={handleClick}
+      sx={{
+        "&:hover": {
+          boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.3)",
+          backgroundColor: "#404040",
+        },
+        marginTop: "1rem",
+        backgroundColor: "#333333",
+        cursor: "pointer",
+        transition: "all 0.5s ease",
+        width: "100%",
+      }}
+    >
+      <CardHeader
+        avatar={
+          <Avatar>
+            <GitHub />
+          </Avatar>
+        }
+        title="Reportar Erro ou Solicitar Recurso"
+        subheader="Abrir issue no GitHub do projeto"
+      />
+    </Card>
   );
 };
 
@@ -305,21 +327,10 @@ function ContatoForm() {
         }}
         variant="h4"
       >
-        Contatos Aupi
+        Contatos oAlexandre Toys
       </Typography>
 
       <List>
-        <ListItem>
-          <ListItemIcon>
-            <Phone />
-          </ListItemIcon>
-          <ListItemText
-            sx={{
-              color: "#f2f2f2",
-            }}
-            primary="(47) 4101-1253"
-          />
-        </ListItem>
         <ListItem>
           <ListItemIcon>
             <Email />
@@ -328,22 +339,18 @@ function ContatoForm() {
             sx={{
               color: "#f2f2f2",
             }}
-            primary="contato@aupi.com.br"
+            primary="eusou@oalexandre.com.br"
           />
         </ListItem>
         <Divider />
         <ListItem>
           <ListItemIcon>
-            <Facebook />
+            <GitHub />
           </ListItemIcon>
           <ListItemText
             primary={
-              <Link
-                href="https://www.facebook.com/aupisolucoes"
-                target="_blank"
-                rel="noopener"
-              >
-                facebook.com/aupisolucoes
+              <Link href="https://github.com/oalexandre" target="_blank" rel="noopener">
+                github.com/oalexandre
               </Link>
             }
           />
@@ -354,12 +361,8 @@ function ContatoForm() {
           </ListItemIcon>
           <ListItemText
             primary={
-              <Link
-                href="https://www.instagram.com/aupisolucoes"
-                target="_blank"
-                rel="noopener"
-              >
-                @aupisolucoes
+              <Link href="https://www.instagram.com/oalexandre" target="_blank" rel="noopener">
+                @oalexandre
               </Link>
             }
           />
@@ -370,8 +373,8 @@ function ContatoForm() {
           </ListItemIcon>
           <ListItemText
             primary={
-              <Link href="https://aupi.com.br" target="_blank" rel="noopener">
-                aupi.com.br
+              <Link href="https://oalexandre.com.br" target="_blank" rel="noopener">
+                oalexandre.com.br
               </Link>
             }
           />
@@ -400,19 +403,9 @@ const Feedback = () => {
         <div>
           <ModalFirst>
             <Box sx={{ textAlign: "center", mb: 3 }}>
-              <Image
-                src={logo}
-                alt="Logo azul da empresa aupi"
-                width={90}
-                height={32}
-              />
+              <Image src={logo} alt="Logo da oAlexandre Toys" width={90} height={105} />
             </Box>
-            <FeedbackCard cardTitle="Reportar um erro" cardIcon="report" />
-
-            <FeedbackCard
-              cardTitle="Solicitação de recurso"
-              cardIcon="request"
-            />
+            <IssuesCard />
 
             <ContatoCard cardTitle="Entre em contato" cardIcon="contact" />
           </ModalFirst>

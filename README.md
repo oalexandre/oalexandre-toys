@@ -1,27 +1,196 @@
-# Aupi Tools
-Ferramentas para facilitar a vida das pessoas, sendo elas desenvolvedoras ou não.
+# oAlexandre Toys
 
-## Para Executar
-Para executar o aplicativo, você pode usar os seguintes comandos.
+🧸 **Ferramentas Práticas que Você Realmente Precisa**
 
-- Para começar clone o repositorio:
+Coleção de ferramentas online gratuitas criadas para resolver problemas do dia a dia - de geração de senhas seguras até validação de documentos brasileiros.
 
-  ```sh
-     git clone https://github.com/aupigit/whatsapp-link-genne.git
-  ```
+## 🎯 Sobre o Projeto
 
-- Para instalar as dependencias
+**oAlexandre Toys** nasceu como um projeto de treino em Next.js, sem pretensão além de praticar e aprender. A ideia era treinar o framework enquanto construía ferramentas que eu mesmo precisava no dia a dia - como gerar senhas seguras, validar CPF/CNPJ ou criar links do WhatsApp.
 
-  ```sh
-  yarn install ou yarn
-  ```
-- Para rodar o projeto
-  ```sh
-  yarn dev
-  ```
+Por consequência, as ferramentas acabaram sendo realmente úteis e funcionais, então decidi colocar no ar para que outras pessoas pudessem se beneficiar também. É um projeto simples, feito com carinho e foco total na privacidade - tudo funciona localmente no navegador.
 
-## Como contribuir
+🌐 **Acesse em**: [toys.oalexandre.com.br](https://toys.oalexandre.com.br)
 
-Fork este repositório, edite e envie uma solicitação pull.
+> 💭 *"Não tem a pretensão de ser nada além de um treino de Next.js, mas acabou sendo útil e por isso foi ao ar."*
 
-Por favor, seja muito claro em suas mensagens de commit e pull request, mensagens de pull request vazias podem ser rejeitadas sem motivo.
+## 🚀 Ferramentas Disponíveis
+
+### 🔐 **Segurança**
+- **Gerador de Senhas Seguras**: Criação criptograficamente segura usando `crypto.getRandomValues()`
+- **Consulta de IP Público**: Descubra seu IP externo instantaneamente
+
+### 📱 **Comunicação**
+- **Gerador de Links WhatsApp**: Links permanentes com mensagens predefinidas e QR codes
+- **Consulta DDD**: Identifique estados brasileiros por código DDD
+
+### 📄 **Documentos**
+- **Gerador de CPF**: Números válidos para testes e desenvolvimento
+- **Gerador de CNPJ**: Documentos corporativos para sistemas B2B
+- **Validador CPF/CNPJ**: Verificação oficial com algoritmos da Receita Federal
+
+### 🛠️ **Utilitários**
+- **Gerador de QR Code**: Códigos que nunca expiram, suporte a múltiplos formatos
+- **Sorteador Automático**: Números aleatórios criptograficamente seguros
+- **Conversor de Moedas**: 160+ moedas mundiais com dados em tempo real
+
+## 💻 Stack Tecnológica
+
+- **Framework**: Next.js 12.2.2
+- **UI Library**: React 18.2.0
+- **Design System**: Material-UI (MUI)
+- **Styling**: Emotion/CSS-in-JS
+- **PWA**: next-pwa com Service Workers
+- **Code Quality**: ESLint + Prettier
+- **SEO**: Schema.org structured data
+- **Runtime**: Node.js >= 22.20.0
+
+## 📦 Como Executar
+
+### Pré-requisitos
+- Node.js 22.20.0 ou superior
+- npm
+
+### Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/oalexandre/whatsapp-link-genne.git
+   cd whatsapp-link-genne
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+3. Execute o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+
+4. Acesse o projeto em [http://localhost:3000](http://localhost:3000)
+
+## 📜 Scripts Disponíveis
+
+### 🔧 **Desenvolvimento**
+```bash
+npm run dev          # Servidor de desenvolvimento na porta 3000
+npm run build        # Build de produção otimizado
+npm run start        # Inicia servidor de produção
+```
+
+### 🎨 **Qualidade de Código**
+```bash
+npm run lint         # Verifica problemas no código
+npm run lint:fix     # Corrige problemas automaticamente
+npm run lint:strict  # Análise rigorosa (zero warnings)
+npm run format       # Formata código com Prettier
+npm run format:check # Verifica formatação sem alterar
+npm run type-check   # Verifica tipos TypeScript
+npm run code-quality # Executa todos os checks de qualidade
+npm run fix-all      # Corrige lint + formatação de uma vez
+```
+
+### 🚀 **Deploy**
+```bash
+npm run deploy      # Deploy para Vercel
+npm run staging     # Build para ambiente de staging
+```
+
+## 🌐 Produção
+
+O projeto está hospedado e disponível em:
+- **URL Principal**: [toys.oalexandre.com.br](https://toys.oalexandre.com.br)
+- **URL Vercel**: [oalexandre-toys.vercel.app](https://oalexandre-toys.vercel.app)
+
+## 🎯 **Características Técnicas**
+
+### 🔒 **Privacidade & Segurança**
+- **Processamento 100% Local**: Todas as operações executam no navegador
+- **Zero Armazenamento**: Nenhum dado pessoal é salvo ou transmitido
+- **LGPD Compliant**: Totalmente conforme com lei de proteção de dados
+- **Criptografia Segura**: Uso de `crypto.getRandomValues()` para aleatoriedade
+
+### ⚡ **Performance & UX**
+- **PWA Completo**: Instalável e funciona offline
+- **SEO Otimizado**: Schema.org structured data em todas as páginas
+- **Responsivo**: Design adaptativo para todos os dispositivos
+- **Acessibilidade**: ARIA labels e navegação semântica
+
+### 🛠️ **Qualidade de Código**
+- **ESLint**: Configuração profissional com regras customizadas
+- **Prettier**: Formatação automática e consistente
+- **TypeScript**: Tipagem opcional para melhor manutenibilidade
+- **Import Organization**: Imports organizados automaticamente
+
+## 🤝 Como Contribuir
+
+### 1. **Setup do Ambiente**
+```bash
+git clone https://github.com/oalexandre/oalexandre-toys.git
+cd oalexandre-toys
+npm install
+npm run dev
+```
+
+### 2. **Padrões de Código**
+```bash
+# Antes de commitar, sempre execute:
+npm run fix-all        # Corrige formatação e lint
+npm run code-quality   # Verifica qualidade geral
+```
+
+### 3. **Fluxo de Contribuição**
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Execute `npm run fix-all` antes de commitar
+4. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+5. Push para a branch (`git push origin feature/AmazingFeature`)
+6. Abra um Pull Request
+
+### 4. **Diretrizes**
+- **Commits**: Use mensagens descritivas em português ou inglês
+- **Código**: Mantenha a filosofia de privacidade e processamento local
+- **Testes**: Teste todas as funcionalidades antes do PR
+- **Documentação**: Atualize README se necessário
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE.txt](LICENSE.txt) para mais detalhes.
+
+## 🐛 **Reportar Problemas**
+
+Encontrou um bug ou tem uma sugestão?
+
+🔗 **[Abra uma issue no GitHub](https://github.com/oalexandre/oalexandre-toys/issues)**
+
+## 📊 **Estatísticas do Projeto**
+
+- **🛠️ Ferramentas**: 11 utilitários funcionais
+- **📱 Páginas**: 100% responsivas
+- **🔒 Privacidade**: Zero dados armazenados
+- **⚡ Performance**: PWA completo
+- **🎯 SEO**: Schema.org em todas as páginas
+- **📦 Bundle**: Otimizado com Next.js
+- **🧪 Qualidade**: ESLint + Prettier
+
+## 📧 Contato
+
+- **🌐 Website**: [oalexandre.com.br](https://oalexandre.com.br)
+- **📧 Email**: eusou@oalexandre.com.br
+- **📱 Instagram**: [@oalexandre](https://www.instagram.com/oalexandre)
+- **💼 LinkedIn**: [linkedin.com/in/oalexandre](https://linkedin.com/in/oalexandre)
+- **🐙 GitHub**: [github.com/oalexandre](https://github.com/oalexandre)
+
+---
+
+<div align="center">
+
+**Desenvolvido com ❤️ por [oAlexandre](https://oalexandre.com.br)**
+
+*"Começou como treino de Next.js, virou ferramenta útil. Cada funcionalidade foi criada porque eu precisava dela na vida real. Se você também precisa, é só usar - sem cadastro, sem custo, sem complicação."*
+
+⭐ **Se este projeto te ajudou, deixe uma estrela no GitHub!**
+
+</div>

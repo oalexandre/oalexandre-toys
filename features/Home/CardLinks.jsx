@@ -45,7 +45,7 @@ const CardLinks = ({ routes }) => {
                             </IconButton>
                         </Link>
                     </Box>
-                    <CardContent>
+                    <CardContent sx={{ textAlign: 'center' }}>
                         <Typography gutterBottom variant='h5' component='div'>
                             {homeName}
                         </Typography>

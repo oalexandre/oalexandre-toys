@@ -3,7 +3,7 @@ User-agent: *
 Disallow: /api/
 
 # Host
-Host: https://tools.aupi.com.br
+Host: https://toys.oalexandre.com.br
 
 # Sitemaps
-Sitemap: https://tools.aupi.com.br/sitemap.xml
+Sitemap: https://toys.oalexandre.com.br/sitemap.xml

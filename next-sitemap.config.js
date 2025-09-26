@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-    siteUrl: process.env.SITE_URL || 'https://tools.aupi.com.br',
+    siteUrl: process.env.SITE_URL || 'https://toys.oalexandre.com.br',
     generateRobotsTxt: true,
     exclude: ['/api/*'],
     robotsTxtOptions: {

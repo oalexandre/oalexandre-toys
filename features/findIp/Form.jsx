@@ -37,10 +37,7 @@ const Form = () => {
 
   return (
     <Container component="main">
-      <PageTitle>Qual meu IP?</PageTitle>
-      <Typography variant="subtitle1" sx={{ mt: 1 }}>
-        Descubra seu endereço IPv4
-      </Typography>
+
       <Paper elevation={3} sx={{ p: 3, mt: 5 }}>
         {/* Adiciona o CircularProgress enquanto isLoading for verdadeiro */}
         {isLoading ? (

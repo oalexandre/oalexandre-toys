@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 const Document = () => {
   return (
-    <Html lang="en">
+    <Html lang="pt-BR">
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -15,42 +15,15 @@ const Document = () => {
         <meta name="theme-color" content="#527dc6" />
         <meta name="apple-mobile-web-app-status-bar" content="#527dc6" />
 
-        <link rel="shortcut icon" href="/logos/favicon.ico" />
-        <link rel="icon" href="/logos/favicon.ico" />
+        <link rel="shortcut icon" href="/logos/oalexandre-logo.png" />
+        <link rel="icon" href="/logos/oalexandre-logo.png" />
 
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="1200x630"
-          href="/logos/favicon.ico"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="192x192"
-          href="/logos/favicon.ico"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="512x512"
-          href="/logos/favicon.ico"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="1200x630"
-          href="/logos/favicon.ico"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="192x192"
-          href="/logos/favicon.ico"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="512x512"
-          href="/logos/favicon.ico"
-        />
+        <link rel="icon" type="image/png" sizes="1200x630" href="/logos/oalexandre-logo.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/logos/oalexandre-logo.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/logos/oalexandre-logo.png" />
+        <link rel="apple-touch-icon" sizes="1200x630" href="/logos/oalexandre-logo.png" />
+        <link rel="apple-touch-icon" sizes="192x192" href="/logos/oalexandre-logo.png" />
+        <link rel="apple-touch-icon" sizes="512x512" href="/logos/oalexandre-logo.png" />
 
         <link rel="manifest" href="/manifest.json" />
 

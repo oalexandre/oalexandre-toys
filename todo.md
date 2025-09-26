@@ -1,17 +1,5 @@
-* Tools
-     - [] Whatsapp
-     - [] Qr code
-1. Sitewide
-    - [ ] Bundle analyzer remove unused code
-    - [ ] Focus select disable for mobile
-    - [ ] Ignore public readme images
-    - [ ] PWA \_redirects precache error
-
-2. Item Picker
-    - [ ] Ouput to comma, pipe
-
-3. Todo List
-    - [ ] Edit
-        - [ ] rearrangeable list
-    - [ ] View
-        - [ ] sorts lists by title, updated, created, type and favorites
+* Todo:
+    [ ] Criar ferramenta para gerar botão de whatsapp flutuante para injetar em site sde forma simples com CSS e html inbutido. Fazer isso com possibilidade de customizar algumas coisas, tipo cor do ícone, posição dele no site (top left, top cente, botton left e etc.)
+    [ ] criar ferramenta de gerar CPFs em lote
+    [ ] ferramenta para gerar cnpj em lotes
+    [ ] ferramenta para valdiar cpfs/cnpj em lotes

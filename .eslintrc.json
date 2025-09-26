@@ -1,3 +1,106 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "jsx-a11y",
+    "import",
+    "prettier"
+  ],
+  "rules": {
+    // Prettier integration
+    "prettier/prettier": ["error", {
+      "semi": true,
+      "singleQuote": false,
+      "tabWidth": 2,
+      "trailingComma": "es5",
+      "printWidth": 100,
+      "endOfLine": "lf"
+    }],
+
+    // React specific rules
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "react/no-unescaped-entities": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+
+    // TypeScript specific rules
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": "warn",
+
+    // Import/Export rules
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "import/no-unresolved": "off",
+    "import/no-named-as-default": "off",
+
+    // Accessibility rules (relaxed for tools project)
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/no-noninteractive-element-interactions": "warn",
+
+    // General JavaScript rules
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-debugger": "warn",
+    "no-unused-vars": "off", // Handled by TypeScript
+    "prefer-const": "warn",
+    "no-var": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    ".next/",
+    "out/",
+    "public/sw.js",
+    "service-worker.js"
+  ]
 }

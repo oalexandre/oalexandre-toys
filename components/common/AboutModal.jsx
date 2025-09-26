@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Email, Facebook, Info, Instagram, Phone, Public } from "@mui/icons-material";
 import {
   Button,
   Dialog,
@@ -12,14 +12,7 @@ import {
   Divider,
   Link,
 } from "@mui/material";
-import {
-  Email,
-  Facebook,
-  Info,
-  Instagram,
-  Phone,
-  Public,
-} from "@mui/icons-material";
+import { useState } from "react";
 
 function Modal() {
   const [open, setOpen] = useState(false);
@@ -66,7 +59,7 @@ function Contato() {
           <ListItemIcon>
             <Email />
           </ListItemIcon>
-          <ListItemText primary="contato@aupi.com.br" />
+          <ListItemText primary="contato@toys.oalexandre.com.br" />
         </ListItem>
         <Divider />
         <ListItem>
@@ -75,12 +68,8 @@ function Contato() {
           </ListItemIcon>
           <ListItemText
             primary={
-              <Link
-                href="https://www.facebook.com/aupisolucoes"
-                target="_blank"
-                rel="noopener"
-              >
-                facebook.com/aupisolucoes
+              <Link href="https://www.facebook.com/oalexandre" target="_blank" rel="noopener">
+                facebook.com/oalexandre
               </Link>
             }
           />
@@ -91,12 +80,8 @@ function Contato() {
           </ListItemIcon>
           <ListItemText
             primary={
-              <Link
-                href="https://www.instagram.com/aupisolucoes"
-                target="_blank"
-                rel="noopener"
-              >
-                @aupisolucoes
+              <Link href="https://www.instagram.com/oalexandre" target="_blank" rel="noopener">
+                @oalexandre
               </Link>
             }
           />
@@ -107,8 +92,8 @@ function Contato() {
           </ListItemIcon>
           <ListItemText
             primary={
-              <Link href="https://aupi.com.br" target="_blank" rel="noopener">
-                aupi.com.br
+              <Link href="https://toys.oalexandre.com.br" target="_blank" rel="noopener">
+                toys.oalexandre.com.br
               </Link>
             }
           />

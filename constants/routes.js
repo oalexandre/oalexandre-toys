@@ -13,7 +13,7 @@ import {
   Phone,
   Security,
   TollOutlined,
-  WhatsappOutlined,
+  WhatsApp,
 } from "@mui/icons-material";
 import TagIcon from "@mui/icons-material/Tag";
 export const mainRoutes = [
@@ -28,32 +28,32 @@ export const mainRoutes = [
 
 export const allRoutes = [
   {
-    path: "/comunicacao/whatsapp-link",
-    name: "Link para Whatsapp",
-    homeName: "Gerador de Link para Whatsapp",
-    key: "todo-list",
-    icon: <WhatsappOutlined />,
-    description: "Crie seu Whatsapp Link.",
+    path: "/comunicacao/gerador-de-link-de-whatsapp",
+    name: "Gerador de Link de WhatsApp",
+    homeName: "Gerador de Link de WhatsApp",
+    key: "gerador-link-whatsapp",
+    icon: <WhatsApp />,
+    description: "Crie links do WhatsApp com mensagens predefinidas e QR codes",
   },
   {
-    path: "/utilitario/qr-code",
+    path: "/utilitario/gerador-de-qrcode",
     name: "Gerador de QR Code",
-    homeName: "Gerador de QR code",
-    key: "qr-code-generator",
+    homeName: "Gerador de QR Code",
+    key: "gerador-qrcode",
     icon: <QrCodeIcon />,
-    description: "Crie seu QR code",
+    description: "Gere QR codes personalizados que nunca expiram",
   },
   {
-    path: "/securanca/password",
-    name: "Gerador de Senhas",
-    homeName: "Gerador de Senhas",
-    key: "password-generator",
+    path: "/seguranca/gerador-de-senha-segura",
+    name: "Gerador de Senha Segura",
+    homeName: "Gerador de Senha Segura",
+    key: "gerador-senha-segura",
     icon: <KeyIcon />,
-    description: "Crie Senhas Fortes",
+    description: "Gere senhas seguras e criptograficamente fortes",
   },
 
   {
-    path: "/documentos/cpf-generator",
+    path: "/documentos/gerador-de-cpf",
     name: "Gerador de CPF",
     homeName: "Gerador de CPF",
     key: "cpf-documentos",
@@ -61,7 +61,7 @@ export const allRoutes = [
     description: "Gerador de CPF",
   },
   {
-    path: "/documentos/cnpj-generator",
+    path: "/documentos/gerador-de-cnpj",
     name: "Gerador de CNPJ",
     homeName: "Gerador de CNPJ",
     key: "cnpj-documentos",
@@ -69,23 +69,23 @@ export const allRoutes = [
     description: "Gerador de CNPJ",
   },
   {
-    path: "/utilitario/number-picker",
-    name: "Gerador de Números",
-    homeName: "Gerador de Números",
-    key: "number-picker-generator",
+    path: "/utilitario/sorteador-automatico",
+    name: "Sorteador Automático",
+    homeName: "Sorteador Automático",
+    key: "sorteador-automatico",
     icon: <TagIcon />,
-    description: "Gere números aleatórios",
+    description: "Sorteie números aleatórios para rifas e promoções",
   },
   {
-    path: "/securanca/find-ip",
-    name: "Descubra seu IP",
-    homeName: "Saiba seu IP",
-    key: "find-Ip",
+    path: "/seguranca/qual-o-meu-ip",
+    name: "Qual o Meu IP",
+    homeName: "Qual o Meu IP",
+    key: "qual-meu-ip",
     icon: <FindInPage />,
-    description: "Descubra seu IP",
+    description: "Descubra seu endereço IP público instantaneamente",
   },
   {
-    path: "/documentos/cpf-cnpj-validate",
+    path: "/documentos/validador-de-cpf-e-cnpj",
     name: "Validador de CPF e CNPJ",
     homeName: "Validador de CPF e CNPJ",
     key: "cpf-cnpj-validate",
@@ -94,12 +94,12 @@ export const allRoutes = [
   },
 
   {
-    path: "/comunicacao/find-phone",
-    name: "Qual o estado do telefone",
-    homeName: "Qual o estado do telefone",
-    key: "cpf-cnpj-validate",
+    path: "/comunicacao/encontrar-ddd-do-celular",
+    name: "Encontrar DDD do Celular",
+    homeName: "Encontrar DDD do Celular",
+    key: "encontrar-ddd-celular",
     icon: <Phone />,
-    description: "Qual o estado do telefone",
+    description: "Descubra o estado pelo DDD do telefone",
   },
 
   {
@@ -114,20 +114,20 @@ export const allRoutes = [
 
 export const utilsRoutes = [
   {
-    path: "/utilitario/qr-code",
+    path: "/utilitario/gerador-de-qrcode",
     name: "Gerador de QR Code",
-    homeName: "Gerador de QR code",
-    key: "qr-code-generator",
+    homeName: "Gerador de QR Code",
+    key: "gerador-qrcode",
     icon: <QrCodeIcon />,
-    description: "Crie seu QR code",
+    description: "Gere QR codes personalizados que nunca expiram",
   },
   {
-    path: "/utilitario/number-picker",
-    name: "Gerador de Números",
-    homeName: "Gerador de Números",
-    key: "number-picker-generator",
+    path: "/utilitario/sorteador-automatico",
+    name: "Sorteador Automático",
+    homeName: "Sorteador Automático",
+    key: "sorteador-automatico",
     icon: <TagIcon />,
-    description: "Gere números aleatórios",
+    description: "Sorteie números aleatórios para rifas e promoções",
   },
   {
     path: "/utilitario/cotacao-moeda",
@@ -141,27 +141,27 @@ export const utilsRoutes = [
 
 export const comunicacaoRoutes = [
   {
-    path: "/comunicacao/find-phone",
-    name: "Qual o estado do telefone",
-    homeName: "Qual o estado do telefone",
-    key: "cpf-cnpj-validate",
+    path: "/comunicacao/encontrar-ddd-do-celular",
+    name: "Encontrar DDD do Celular",
+    homeName: "Encontrar DDD do Celular",
+    key: "encontrar-ddd-celular",
     icon: <Phone />,
-    description: "Qual o estado do telefone",
+    description: "Descubra o estado pelo DDD do telefone",
   },
 
   {
-    path: "/comunicacao/whatsapp-link",
-    name: "Link para Whatsapp",
-    homeName: "Gerador de Link para Whatsapp",
-    key: "todo-list",
-    icon: <WhatsappOutlined />,
-    description: "Crie seu Whatsapp Link.",
+    path: "/comunicacao/gerador-de-link-de-whatsapp",
+    name: "Gerador de Link de WhatsApp",
+    homeName: "Gerador de Link de WhatsApp",
+    key: "gerador-link-whatsapp",
+    icon: <WhatsApp />,
+    description: "Crie links do WhatsApp com mensagens predefinidas e QR codes",
   },
 ];
 
 export const documentosRoutes = [
   {
-    path: "/documentos/cpf-generator",
+    path: "/documentos/gerador-de-cpf",
     name: "Gerador de CPF",
     homeName: "Gerador de CPF",
     key: "cpf-documentos",
@@ -169,7 +169,7 @@ export const documentosRoutes = [
     description: "Gerador de CPF",
   },
   {
-    path: "/documentos/cnpj-generator",
+    path: "/documentos/gerador-de-cnpj",
     name: "Gerador de CNPJ",
     homeName: "Gerador de CNPJ",
     key: "cnpj-documentos",
@@ -177,7 +177,7 @@ export const documentosRoutes = [
     description: "Gerador de CNPJ",
   },
   {
-    path: "/documentos/cpf-cnpj-validate",
+    path: "/documentos/validador-de-cpf-e-cnpj",
     name: "Validador de CPF e CNPJ",
     homeName: "Validador de CPF e CNPJ",
     key: "cpf-cnpj-validate",
@@ -188,20 +188,20 @@ export const documentosRoutes = [
 
 export const securityRoutes = [
   {
-    path: "/securanca/find-ip",
-    name: "Descubra seu IP",
-    homeName: "Saiba seu IP",
-    key: "find-Ip",
+    path: "/seguranca/qual-o-meu-ip",
+    name: "Qual o Meu IP",
+    homeName: "Qual o Meu IP",
+    key: "qual-meu-ip",
     icon: <FindInPage />,
-    description: "Descubra seu IP",
+    description: "Descubra seu endereço IP público instantaneamente",
   },
   {
-    path: "/securanca/password",
-    name: "Gerador de Senhas",
-    homeName: "Gerador de Senhas",
-    key: "password-generator",
+    path: "/seguranca/gerador-de-senha-segura",
+    name: "Gerador de Senha Segura",
+    homeName: "Gerador de Senha Segura",
+    key: "gerador-senha-segura",
     icon: <KeyIcon />,
-    description: "Crie Senhas Fortes",
+    description: "Gere senhas seguras e criptograficamente fortes",
   },
 ];
 

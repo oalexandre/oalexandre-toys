@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.pnp.js
+.yarn/
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+
+# Generated files
+public/sw.js
+service-worker.js
+**/sw.js
+**/workbox-*.js
+
+# Config files
+package-lock.json
+yarn.lock
+.env*
+
+# Documentation
+*.md
+README.md
+LICENSE.txt
+
+# Cache
+.cache/
+.eslintcache
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+tmp/
+temp/

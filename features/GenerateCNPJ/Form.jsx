@@ -49,8 +49,6 @@ const Form = () => {
   return (
     <>
       <Container component="main">
-        <PageTitle>Gerador de CNPJ</PageTitle>
-        <Typography>Use números de CNPJ válidos em testes.</Typography>
         <Paper elevation={3} sx={{ p: 3, mt: 5 }}>
           <ServicesButton documentType={documentType} onGenerate={onGenerate} />
 

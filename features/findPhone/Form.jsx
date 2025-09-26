@@ -35,10 +35,6 @@ function App() {
   };
   return (
     <Container component="main">
-      <PageTitle>Buscador de Estado pelo Número de Telefone</PageTitle>
-      <Typography sx={{ my: 2 }}>
-        Encontre o estado através do número de telefone
-      </Typography>
 
       <Paper elevation={3} sx={{ p: 3, mt: 5 }}>
         <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>

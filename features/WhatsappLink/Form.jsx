@@ -69,11 +69,16 @@ const Form = () => {
     return (
       <Container>
         <Paper elevation={3} sx={{ p: 3 }}>
-          <Typography variant="subtitle1" sx={{ mb: 2 }}>
+          <Typography variant="subtitle1" sx={{
+            mb: 2,
+            wordBreak: 'break-all',
+            overflowWrap: 'break-word',
+            fontSize: { xs: '0.75rem', sm: '1rem' }
+          }}>
             {urlState}
           </Typography>
 
-          <Stack direction="row" spacing={1}>
+          <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
             <Box>
               <Button
                 sx={{ mt: 3, mb: 2 }}
@@ -199,20 +204,6 @@ const Form = () => {
 
         {!isSubmitting && (
           <Container component="main">
-            <PageTitle>Whatsapp Link</PageTitle>
-            <Typography
-              sx={{
-                marginTop: 2,
-                display: "flex",
-                flexDirection: "column",
-              }}
-              paragraph
-              mb={5}
-            >
-              Crie botões e links de whataspp com mesagens pré-definidas, ou
-              apenas crie links de whataspp a partir dos números, assim você não
-              precisa mais adicionar um contato para iniciar uma conversa.
-            </Typography>
             <CssBaseline />
             <Paper elevation={3} sx={{ p: 3, mt: 5 }}>
               <Box

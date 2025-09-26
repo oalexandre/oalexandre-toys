@@ -1,9 +1,9 @@
-import TodoStateProvider from "../../../context/TodoContext";
-
-import SEO from "../../../components/common/SEO";
-import PageTitle from "../../../components/common/PageTitle";
-import Screen from "../../../features/WhatsappLink/Screens";
 import { Box, Typography } from "@mui/material";
+
+import PageTitle from "../../../components/common/PageTitle";
+import SEO from "../../../components/common/SEO";
+import TodoStateProvider from "../../../context/TodoContext";
+import Screen from "../../../features/WhatsappLink/Screens";
 
 const TodoList = () => {
   return (

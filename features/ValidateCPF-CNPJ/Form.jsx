@@ -42,18 +42,7 @@ const Validator = () => {
     //   }}
     // >
     <Container component="main">
-      <PageTitle>Validador de CPF e CNPJ</PageTitle>
-      <Typography
-        sx={{
-          marginTop: 2,
-          display: "flex",
-          flexDirection: "column",
-        }}
-        paragraph
-        mb={3}
-      >
-        Valide CPF e CNPJ
-      </Typography>
+
       <Paper elevation={3} sx={{ p: 3, mt: 5 }}>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <TextField

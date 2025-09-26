@@ -51,18 +51,6 @@ const Form = () => {
   return (
     <>
       <Container component="main">
-        <PageTitle>Gerador CPF</PageTitle>
-        <Typography
-          sx={{
-            marginTop: 2,
-            display: "flex",
-            flexDirection: "column",
-          }}
-          paragraph
-          mb={3}
-        >
-          Use números de CPF válidos em testes.
-        </Typography>
         <Paper elevation={3} sx={{ p: 3, mt: 5 }}>
           <ServicesButton documentType={documentType} onGenerate={onGenerate} />
 
