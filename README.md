@@ -41,6 +41,7 @@ Por consequência, as ferramentas acabaram sendo realmente úteis e funcionais, 
 - **Design System**: Material-UI (MUI)
 - **Styling**: Emotion/CSS-in-JS
 - **PWA**: next-pwa com Service Workers
+- **Analytics**: Google Analytics 4
 - **Code Quality**: ESLint + Prettier
 - **SEO**: Schema.org structured data
 - **Runtime**: Node.js >= 22.20.0
@@ -64,12 +65,21 @@ Por consequência, as ferramentas acabaram sendo realmente úteis e funcionais, 
    npm install
    ```
 
-3. Execute o servidor de desenvolvimento:
+3. Configure as variáveis de ambiente:
+   ```bash
+   # Copie o arquivo de exemplo
+   cp .env.example .env.local
+
+   # Edite .env.local e adicione suas chaves
+   # NEXT_PUBLIC_GA_ID=seu-google-analytics-id
+   ```
+
+4. Execute o servidor de desenvolvimento:
    ```bash
    npm run dev
    ```
 
-4. Acesse o projeto em [http://localhost:3000](http://localhost:3000)
+5. Acesse o projeto em [http://localhost:3000](http://localhost:3000)
 
 ## 📜 Scripts Disponíveis
 
@@ -104,6 +114,14 @@ O projeto está hospedado e disponível em:
 - **URL Principal**: [toys.oalexandre.com.br](https://toys.oalexandre.com.br)
 - **URL Vercel**: [oalexandre-toys.vercel.app](https://oalexandre-toys.vercel.app)
 
+### Variáveis de Ambiente para Deploy
+
+Para deploy na Vercel ou outro serviço, configure as seguintes variáveis:
+
+```env
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX  # ID do Google Analytics
+```
+
 ## 🎯 **Características Técnicas**
 
 ### 🔒 **Privacidade & Segurança**
@@ -117,6 +135,7 @@ O projeto está hospedado e disponível em:
 - **SEO Otimizado**: Schema.org structured data em todas as páginas
 - **Responsivo**: Design adaptativo para todos os dispositivos
 - **Acessibilidade**: ARIA labels e navegação semântica
+- **Analytics**: Rastreamento de uso com Google Analytics 4
 
 ### 🛠️ **Qualidade de Código**
 - **ESLint**: Configuração profissional com regras customizadas
