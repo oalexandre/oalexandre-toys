@@ -1,18 +1,12 @@
 import emailjs from "@emailjs/browser";
 import {
-  EmojiObjects,
-  SentimentVerySatisfied,
   BugReportOutlined,
   EmojiObjectsOutlined,
-  Phone,
   Email,
-  Facebook,
   Instagram,
   Public,
-  ContactPage,
   ContactPageOutlined,
   Info,
-  ClosedCaption,
   Close,
   GitHub,
 } from "@mui/icons-material";
@@ -51,7 +45,6 @@ const theme = createTheme({
 });
 
 const FeedbackButton = styled(Button)({
-  color: theme.palette.background.default,
   backgroundColor: theme.palette.primary.main,
   color: "#f2f2f2",
   "&:hover": {

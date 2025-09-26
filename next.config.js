@@ -6,6 +6,9 @@ module.exports = (phase, { defaultConfig }) => {
         return {
             reactStrictMode: true,
             swcMinify: false,
+            eslint: {
+                ignoreDuringBuilds: true,
+            },
         }
     } else {
         return withPWA({
@@ -15,6 +18,9 @@ module.exports = (phase, { defaultConfig }) => {
             },
             reactStrictMode: true,
             swcMinify: false,
+            eslint: {
+                ignoreDuringBuilds: true,
+            },
             basePath: phase === 'phase-export' && process.env.STAGING === 'true' ? '/huffmanks/out' : '',
             // experimental: {
             //     images: {

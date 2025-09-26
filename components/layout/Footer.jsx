@@ -1,13 +1,12 @@
+import { useState } from "react";
+
 import { Info } from "@mui/icons-material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import MenuIcon from "@mui/icons-material/Menu";
-import SendIcon from "@mui/icons-material/Send";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { styled } from "@mui/material";
 import Box from "@mui/material/Box";
-import { useState } from "react";
-import Button from "@mui/material/Button"; // importando o componente Button
+import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
