@@ -3,9 +3,9 @@
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 // Track page views
-export const pageview = (url) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', GA_TRACKING_ID, {
+export const pageview = url => {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("config", GA_TRACKING_ID, {
       page_path: url,
     });
   }
@@ -13,8 +13,8 @@ export const pageview = (url) => {
 
 // Track custom events
 export const event = ({ action, category, label, value }) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', action, {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", action, {
       event_category: category,
       event_label: label,
       value: value,
@@ -23,28 +23,28 @@ export const event = ({ action, category, label, value }) => {
 };
 
 // Track tool usage
-export const trackToolUsage = (toolName, action = 'used') => {
+export const trackToolUsage = (toolName, action = "used") => {
   event({
     action: action,
-    category: 'Tool Usage',
+    category: "Tool Usage",
     label: toolName,
   });
 };
 
 // Track form submissions
-export const trackFormSubmission = (formName) => {
+export const trackFormSubmission = formName => {
   event({
-    action: 'submit',
-    category: 'Form',
+    action: "submit",
+    category: "Form",
     label: formName,
   });
 };
 
 // Track downloads
-export const trackDownload = (fileName) => {
+export const trackDownload = fileName => {
   event({
-    action: 'download',
-    category: 'File',
+    action: "download",
+    category: "File",
     label: fileName,
   });
 };

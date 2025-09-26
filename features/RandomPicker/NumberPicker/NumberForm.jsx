@@ -54,11 +54,7 @@ const NumberForm = ({
               {values.randomNumber.length > 0 ? (
                 <>
                   {values.randomNumber.map((number, index) => (
-                    <Output
-                      key={index}
-                      number={number}
-                      isLottery={values.isLottery}
-                    />
+                    <Output key={index} number={number} isLottery={values.isLottery} />
                   ))}
                   {values?.lotteryPower && (
                     <Output

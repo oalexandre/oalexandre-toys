@@ -1,26 +1,26 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
 
-import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
+import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect";
 
 export const useEventListener = (eventName, handler, element, options) => {
-    const savedHandler = useRef(handler)
+  const savedHandler = useRef(handler);
 
-    useIsomorphicLayoutEffect(() => {
-        savedHandler.current = handler
-    }, [handler])
+  useIsomorphicLayoutEffect(() => {
+    savedHandler.current = handler;
+  }, [handler]);
 
-    useEffect(() => {
-        const targetElement = element?.current || window
-        if (!(targetElement && targetElement.addEventListener)) {
-            return
-        }
+  useEffect(() => {
+    const targetElement = element?.current || window;
+    if (!(targetElement && targetElement.addEventListener)) {
+      return;
+    }
 
-        const eventListener = (event) => savedHandler.current(event)
+    const eventListener = event => savedHandler.current(event);
 
-        targetElement.addEventListener(eventName, eventListener, options)
+    targetElement.addEventListener(eventName, eventListener, options);
 
-        return () => {
-            targetElement.removeEventListener(eventName, eventListener)
-        }
-    }, [eventName, element, options])
-}
+    return () => {
+      targetElement.removeEventListener(eventName, eventListener);
+    };
+  }, [eventName, element, options]);
+};

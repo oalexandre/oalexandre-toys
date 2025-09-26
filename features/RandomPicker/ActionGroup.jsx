@@ -3,13 +3,7 @@ import NumbersIcon from "@mui/icons-material/Numbers";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
-const ActionGroup = ({
-  isDisabled,
-  generateAria,
-  handleClick,
-  handleCopy,
-  handleReset,
-}) => {
+const ActionGroup = ({ isDisabled, generateAria, handleClick, handleCopy, handleReset }) => {
   const styles = {
     button: {
       width: {

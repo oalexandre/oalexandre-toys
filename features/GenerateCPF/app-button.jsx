@@ -3,12 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import AppIcon from "./app-icon";
 import { Button } from "@mui/material";
-import {
-  Create,
-  Masks,
-  MasksOutlined,
-  MasksRounded,
-} from "@mui/icons-material";
+import { Create, Masks, MasksOutlined, MasksRounded } from "@mui/icons-material";
 import Hidden from "@mui/material/Hidden";
 import { ArrowsClockwise, MaskHappy, MaskSad } from "phosphor-react";
 

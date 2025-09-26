@@ -15,9 +15,7 @@ const CopyButton = ({ text }) => {
     <Tooltip title={copied ? "Copiado!" : "Copiar"}>
       <Button aria-label="Copiar" onClick={handleCopy} variant="contained">
         <Hidden smDown>{copied ? "Copiado" : "Copiar"}</Hidden>
-        <Hidden mdUp>
-          {copied ? <FileCopyRounded /> : <FileCopyOutlined />}
-        </Hidden>
+        <Hidden mdUp>{copied ? <FileCopyRounded /> : <FileCopyOutlined />}</Hidden>
       </Button>
     </Tooltip>
   );

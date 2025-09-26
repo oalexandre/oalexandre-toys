@@ -23,7 +23,7 @@ const Form = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onGenerate = (type) => {
+  const onGenerate = type => {
     setDocumentType(type);
     let doc = "";
 
@@ -34,15 +34,15 @@ const Form = () => {
     setDocument(doc);
   };
 
-  const onToggleMask = (mask) => {
+  const onToggleMask = mask => {
     setMask(mask);
 
     if (mask) {
-      setDocument((document) => {
+      setDocument(document => {
         return onSetMask(document, documentType);
       });
     } else {
-      setDocument((document) => document.replace(/[^\d]/g, ""));
+      setDocument(document => document.replace(/[^\d]/g, ""));
     }
   };
 
@@ -69,10 +69,7 @@ const Form = () => {
             <HStack>
               <CopyButton text={document} />
               <MaskButton mask={mask} onClick={() => onToggleMask(!mask)} />
-              <GenerateButton
-                icon={<ArrowsClockwise />}
-                onClick={() => onGenerate(documentType)}
-              />
+              <GenerateButton icon={<ArrowsClockwise />} onClick={() => onGenerate(documentType)} />
             </HStack>
           </Box>
         </Paper>

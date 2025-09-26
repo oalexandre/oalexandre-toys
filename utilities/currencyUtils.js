@@ -1,4 +1,4 @@
-export const getCurrencyName = (currency) => {
+export const getCurrencyName = currency => {
   switch (currency) {
     case "BRL":
       return "Real brasileiro";

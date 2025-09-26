@@ -1,107 +1,108 @@
-[{
-  "AC": {
-    "name": "Acre",
-    "areaCodes": ["68"]
-  },
-  "AL": {
-    "name": "Alagoas",
-    "areaCodes": ["82"]
-  },
-  "AP": {
-    "name": "Amapá",
-    "areaCodes": ["96"]
-  },
-  "AM": {
-    "name": "Amazonas",
-    "areaCodes": ["92", "97"]
-  },
-  "BA": {
-    "name": "Bahia",
-    "areaCodes": ["71", "73", "74", "75", "77"]
-  },
-  "CE": {
-    "name": "Ceará",
-    "areaCodes": ["85", "88"]
-  },
-  "DF": {
-    "name": "Distrito Federal",
-    "areaCodes": ["61"]
-  },
-  "ES": {
-    "name": "Espírito Santo",
-    "areaCodes": ["27", "28"]
-  },
-  "GO": {
-    "name": "Goiás",
-    "areaCodes": ["62", "64"]
-  },
-  "MA": {
-    "name": "Maranhão",
-    "areaCodes": ["98", "99"]
-  },
-  "MT": {
-    "name": "Mato Grosso",
-    "areaCodes": ["65", "66"]
-  },
-  "MS": {
-    "name": "Mato Grosso do Sul",
-    "areaCodes": ["67"]
-  },
-  "MG": {
-    "name": "Minas Gerais",
-    "areaCodes": ["31", "32", "33", "34", "35", "37", "38"]
-  },
-  "PA": {
-    "name": "Pará",
-    "areaCodes": ["91", "93", "94"]
-  },
-  "PB": {
-    "name": "Paraíba",
-    "areaCodes": ["83"]
-  },
-  "PR": {
-    "name": "Paraná",
-    "areaCodes": ["41", "42", "43", "44", "45", "46"]
-  },
-  "PE": {
-    "name": "Pernambuco",
-    "areaCodes": ["81", "87"]
-  },
-  "PI": {
-    "name": "Piauí",
-    "areaCodes": ["86", "89"]
-  },
-  "RJ": {
-    "name": "Rio de Janeiro",
-    "areaCodes": ["21", "22", "24"]
-  },
-  "RN": {
-    "name": "Rio Grande do Norte",
-    "areaCodes": ["84"]
-  },
-  "RS": {
-    "name": "Rio Grande do Sul",
-    "areaCodes": ["51", "53", "54", "55"]
-  },
-  "RO": {
-    "name": "Rondônia",
-    "areaCodes": ["69"]
-  },
-  "RR": {
-    "name": "Roraima",
-    "areaCodes": ["95"]
-  },
-  "SC": {
-    "name": "Santa Catarina",
-    "areaCodes": ["47", "48", "49"]
-  },
-  "SP": {
-    "name": "São Paulo",
-    "areaCodes": ["11", "12", "13", "14", "15", "16", "17", "18", "19"]
-  },
-  "SE": {
-    "name": "Sergipe",
-    "areaCodes": []
+[
+  {
+    "AC": {
+      "name": "Acre",
+      "areaCodes": ["68"]
+    },
+    "AL": {
+      "name": "Alagoas",
+      "areaCodes": ["82"]
+    },
+    "AP": {
+      "name": "Amapá",
+      "areaCodes": ["96"]
+    },
+    "AM": {
+      "name": "Amazonas",
+      "areaCodes": ["92", "97"]
+    },
+    "BA": {
+      "name": "Bahia",
+      "areaCodes": ["71", "73", "74", "75", "77"]
+    },
+    "CE": {
+      "name": "Ceará",
+      "areaCodes": ["85", "88"]
+    },
+    "DF": {
+      "name": "Distrito Federal",
+      "areaCodes": ["61"]
+    },
+    "ES": {
+      "name": "Espírito Santo",
+      "areaCodes": ["27", "28"]
+    },
+    "GO": {
+      "name": "Goiás",
+      "areaCodes": ["62", "64"]
+    },
+    "MA": {
+      "name": "Maranhão",
+      "areaCodes": ["98", "99"]
+    },
+    "MT": {
+      "name": "Mato Grosso",
+      "areaCodes": ["65", "66"]
+    },
+    "MS": {
+      "name": "Mato Grosso do Sul",
+      "areaCodes": ["67"]
+    },
+    "MG": {
+      "name": "Minas Gerais",
+      "areaCodes": ["31", "32", "33", "34", "35", "37", "38"]
+    },
+    "PA": {
+      "name": "Pará",
+      "areaCodes": ["91", "93", "94"]
+    },
+    "PB": {
+      "name": "Paraíba",
+      "areaCodes": ["83"]
+    },
+    "PR": {
+      "name": "Paraná",
+      "areaCodes": ["41", "42", "43", "44", "45", "46"]
+    },
+    "PE": {
+      "name": "Pernambuco",
+      "areaCodes": ["81", "87"]
+    },
+    "PI": {
+      "name": "Piauí",
+      "areaCodes": ["86", "89"]
+    },
+    "RJ": {
+      "name": "Rio de Janeiro",
+      "areaCodes": ["21", "22", "24"]
+    },
+    "RN": {
+      "name": "Rio Grande do Norte",
+      "areaCodes": ["84"]
+    },
+    "RS": {
+      "name": "Rio Grande do Sul",
+      "areaCodes": ["51", "53", "54", "55"]
+    },
+    "RO": {
+      "name": "Rondônia",
+      "areaCodes": ["69"]
+    },
+    "RR": {
+      "name": "Roraima",
+      "areaCodes": ["95"]
+    },
+    "SC": {
+      "name": "Santa Catarina",
+      "areaCodes": ["47", "48", "49"]
+    },
+    "SP": {
+      "name": "São Paulo",
+      "areaCodes": ["11", "12", "13", "14", "15", "16", "17", "18", "19"]
+    },
+    "SE": {
+      "name": "Sergipe",
+      "areaCodes": []
+    }
   }
-}]
-   
+]

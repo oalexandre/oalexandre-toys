@@ -3,11 +3,7 @@ import { useRef, useState } from "react";
 import { useGlobalState } from "../../hooks/useContext";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 import { generateRandomNumbers } from "../../utilities/generateRandomNumbers";
-import {
-  initialValues,
-  megaMillionsValues,
-  powerballValues,
-} from "../../constants/numberPicker";
+import { initialValues, megaMillionsValues, powerballValues } from "../../constants/numberPicker";
 
 export const useNumberPickerFormControls = () => {
   const resultRef = useRef(null);
@@ -17,24 +13,21 @@ export const useNumberPickerFormControls = () => {
 
   const [values, setValues] = useState(initialValues);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { value, name, type, checked } = e.target;
 
     if (name === "total" || name === "start" || name === "end") {
-      setValues((prev) => ({
+      setValues(prev => ({
         ...values,
-        [name]:
-          prev[name] === "" && parseInt(value) === 0
-            ? ""
-            : value.replace(/[^0-9]/g, ""),
+        [name]: prev[name] === "" && parseInt(value) === 0 ? "" : value.replace(/[^0-9]/g, ""),
       }));
     } else if (name === "powerball") {
-      setValues((prev) => ({
+      setValues(prev => ({
         ...powerballValues,
         isPowerball: !prev.isPowerball,
       }));
     } else if (name === "megaMillions") {
-      setValues((prev) => ({
+      setValues(prev => ({
         ...megaMillionsValues,
         isMegaMillions: !prev.isMegaMillions,
       }));
@@ -47,8 +40,7 @@ export const useNumberPickerFormControls = () => {
   };
 
   const handleClick = () => {
-    const { total, unique, sorted, start, end, isPowerball, isMegaMillions } =
-      values;
+    const { total, unique, sorted, start, end, isPowerball, isMegaMillions } = values;
 
     const lowerNumber = start < end ? start : end;
     const higherNumber = start > end ? start : end;
@@ -63,22 +55,15 @@ export const useNumberPickerFormControls = () => {
       isLottery
     );
 
-    const resultChildren = [...resultRef.current.children].map(
-      (child) => child.offsetWidth + 16
-    );
-    const resultChildrenWidth = resultChildren.reduce(
-      (prev, value) => prev + value,
-      0
-    );
+    const resultChildren = [...resultRef.current.children].map(child => child.offsetWidth + 16);
+    const resultChildrenWidth = resultChildren.reduce((prev, value) => prev + value, 0);
     const resultWidth = resultRef.current.offsetWidth;
 
     setValues({
       ...values,
       randomNumber: output,
       isLottery,
-      lotteryPower: isLottery
-        ? generateRandomNumbers(1, 1, isPowerball ? 26 : 25)
-        : "",
+      lotteryPower: isLottery ? generateRandomNumbers(1, 1, isPowerball ? 26 : 25) : "",
       resultIsCentered: resultChildrenWidth > resultWidth,
     });
   };

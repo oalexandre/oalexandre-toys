@@ -5,8 +5,8 @@ import { HexColorInput, HexColorPicker } from "react-colorful";
 import { initialValues } from "../../constants/popoverColorPicker";
 import { useClickOutside } from "../../hooks/useClickOutside";
 
-const HexColorInputCustom = forwardRef(function HexColorInputCustom(props, ref) {
-  const { inputRef, value, ...others } = props;
+const HexColorInputCustom = forwardRef(function HexColorInputCustom(props, _ref) {
+  const { value, ...others } = props;
   return <HexColorInput {...others} color={value} />;
 });
 

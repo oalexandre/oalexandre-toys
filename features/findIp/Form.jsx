@@ -21,15 +21,15 @@ const Form = () => {
   const isLargeScreen = useMediaQuery("(min-width:600px)");
 
   useEffect(() => {
-    axios.get("https://api.ipify.org?format=json").then((res) => {
+    axios.get("https://api.ipify.org?format=json").then(res => {
       const ipAddress = res.data.ip;
       axios
         .get(`https://ipapi.co/${ipAddress}/json/`)
-        .then((res) => {
+        .then(res => {
           setIpDetails(res.data);
           setIsLoading(false); // atualiza o estado para indicar que os dados foram carregados
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     });
@@ -37,7 +37,6 @@ const Form = () => {
 
   return (
     <Container component="main">
-
       <Paper elevation={3} sx={{ p: 3, mt: 5 }}>
         {/* Adiciona o CircularProgress enquanto isLoading for verdadeiro */}
         {isLoading ? (

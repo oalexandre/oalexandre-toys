@@ -14,32 +14,30 @@ const CurrencyConverter = () => {
   useEffect(() => {
     axios
       .get("https://api.exchangerate-api.com/v4/latest/USD")
-      .then((response) => {
+      .then(response => {
         const currencyArray = Object.keys(response.data.rates);
         setMoedas(
-          currencyArray.map((currency) => ({
+          currencyArray.map(currency => ({
             name: currency,
             label: `${currency} (${getCurrencyName(currency)})`,
             currency: getCurrencyName(currency),
           }))
         );
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }, []);
 
   const handleConverter = () => {
     if (!currencyInit || !currencyFinal) {
-      alert(
-        "Por favor, selecione as moedas de origem e destino antes de converter."
-      );
+      alert("Por favor, selecione as moedas de origem e destino antes de converter.");
       return;
     }
 
     axios
       .get(`https://api.exchangerate-api.com/v4/latest/${currencyInit.name}`)
-      .then((response) => {
+      .then(response => {
         const rate = response.data.rates[currencyFinal.name];
         setResultado(
           (valor * rate).toLocaleString("pt-br", {
@@ -48,7 +46,7 @@ const CurrencyConverter = () => {
           })
         );
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   };
@@ -61,7 +59,7 @@ const CurrencyConverter = () => {
     setCurrencyFinal(value);
   };
 
-  const handleChangeValor = (event) => {
+  const handleChangeValor = event => {
     setValor(event.target.value);
   };
 
@@ -75,19 +73,14 @@ const CurrencyConverter = () => {
                 <Autocomplete
                   id="de-select"
                   options={moedas}
-                  getOptionLabel={(option) =>
+                  getOptionLabel={option =>
                     option.currency && option.name
                       ? `${option.name} (${option.currency})`
                       : option.name
                   }
                   onChange={handleChangeCurrencyInit}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label="De:"
-                      variant="outlined"
-                      fullWidth
-                    />
+                  renderInput={params => (
+                    <TextField {...params} label="De:" variant="outlined" fullWidth />
                   )}
                 />
               </Grid>
@@ -95,19 +88,14 @@ const CurrencyConverter = () => {
                 <Autocomplete
                   id="para-select"
                   options={moedas}
-                  getOptionLabel={(option) =>
+                  getOptionLabel={option =>
                     option.currency && option.name
                       ? `${option.name} (${option.currency})`
                       : option.name
                   }
                   onChange={handleChangeCurrencyFinal}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label="Para:"
-                      variant="outlined"
-                      fullWidth
-                    />
+                  renderInput={params => (
+                    <TextField {...params} label="Para:" variant="outlined" fullWidth />
                   )}
                 />
               </Grid>
@@ -120,11 +108,7 @@ const CurrencyConverter = () => {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={handleConverter}
-                >
+                <Button variant="contained" color="primary" onClick={handleConverter}>
                   Converter
                 </Button>
               </Grid>
@@ -150,9 +134,8 @@ const CurrencyConverter = () => {
                 }}
               >
                 <Typography variant="subtitle1" align="center">
-                  ATENÇÃO: Os valores exibidos podem não ser precisos ou
-                  atualizados devido a possíveis variações na API ou fechamento
-                  do mercado local.
+                  ATENÇÃO: Os valores exibidos podem não ser precisos ou atualizados devido a
+                  possíveis variações na API ou fechamento do mercado local.
                 </Typography>
               </Box>
             )}

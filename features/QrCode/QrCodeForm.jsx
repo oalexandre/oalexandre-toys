@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Container,
-  Drawer,
-  IconButton,
-  Paper,
-  TextField,
-} from "@mui/material";
+import { Box, Button, Container, Drawer, IconButton, Paper, TextField } from "@mui/material";
 
 import { qrCodeInputs } from "../../constants/qrCode";
 import { qrCodePickers } from "../../constants/popoverColorPicker";
@@ -31,13 +23,9 @@ const QrCodeForm = ({
   return (
     <Paper elevation={1} sx={{ p: 5, mt: 5 }}>
       <Container maxWidth="sm" disableGutters sx={{ margin: 0 }}>
-        <Drawer
-          anchor="right"
-          open={colorPickerOpen}
-          onClose={() => setColorPickerOpen(false)}
-        >
+        <Drawer anchor="right" open={colorPickerOpen} onClose={() => setColorPickerOpen(false)}>
           <Box sx={{ p: 10 }}>
-            {qrCodePickers.map((picker) => (
+            {qrCodePickers.map(picker => (
               <PopoverColorPicker
                 key={picker.name}
                 label={picker?.label}
@@ -66,7 +54,7 @@ const QrCodeForm = ({
           autoComplete="off"
           sx={{ display: "flex", flexDirection: "column", gap: 3 }}
         >
-          {qrCodeInputs.map((input) => (
+          {qrCodeInputs.map(input => (
             <TextField
               key={input.name}
               type={input.type || "text"}
@@ -99,11 +87,7 @@ const QrCodeForm = ({
             handleChange={handleChange}
           />
 
-          <ActionGroup
-            values={values}
-            downloadUrl={downloadUrl}
-            handleReset={handleReset}
-          />
+          <ActionGroup values={values} downloadUrl={downloadUrl} handleReset={handleReset} />
         </Box>
       </Container>
     </Paper>

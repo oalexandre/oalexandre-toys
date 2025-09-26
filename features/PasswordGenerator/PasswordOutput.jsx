@@ -1,12 +1,7 @@
 import { useGlobalState } from "../../hooks/useContext";
 import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 
-import {
-  FormGroup,
-  IconButton,
-  InputAdornment,
-  TextField,
-} from "@mui/material";
+import { FormGroup, IconButton, InputAdornment, TextField } from "@mui/material";
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import VisibilityIcon from "@mui/icons-material/Visibility";

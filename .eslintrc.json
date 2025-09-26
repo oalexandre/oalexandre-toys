@@ -19,24 +19,20 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "react-hooks",
-    "@typescript-eslint",
-    "jsx-a11y",
-    "import",
-    "prettier"
-  ],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "jsx-a11y", "import", "prettier"],
   "rules": {
     // Prettier integration
-    "prettier/prettier": ["error", {
-      "semi": true,
-      "singleQuote": false,
-      "tabWidth": 2,
-      "trailingComma": "es5",
-      "printWidth": 100,
-      "endOfLine": "lf"
-    }],
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": true,
+        "singleQuote": false,
+        "tabWidth": 2,
+        "trailingComma": "es5",
+        "printWidth": 100,
+        "endOfLine": "lf"
+      }
+    ],
 
     // React specific rules
     "react/react-in-jsx-scope": "off",
@@ -56,14 +52,7 @@
     "import/order": [
       "warn",
       {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
@@ -96,11 +85,5 @@
       }
     }
   },
-  "ignorePatterns": [
-    "node_modules/",
-    ".next/",
-    "out/",
-    "public/sw.js",
-    "service-worker.js"
-  ]
+  "ignorePatterns": ["node_modules/", ".next/", "out/", "public/sw.js", "service-worker.js"]
 }

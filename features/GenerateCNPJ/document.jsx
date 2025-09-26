@@ -3,12 +3,12 @@ import { DocumentType } from "../../constants/enums";
 const initialArray = (total, number) => {
   return Array.from(Array(total), () => numberRandom(number));
 };
-const numberRandom = (number) => Math.round(Math.random() * number);
+const numberRandom = number => Math.round(Math.random() * number);
 const mod = (dividend, divider) => {
   return Math.round(dividend - Math.floor(dividend / divider) * divider);
 };
 
-export const onGenerateCNPJ = (masked) => {
+export const onGenerateCNPJ = masked => {
   const total = 8;
   const number = 9;
   const [n1, n2, n3, n4, n5, n6, n7, n8] = initialArray(total, number);
@@ -61,10 +61,7 @@ export const onGenerateCNPJ = (masked) => {
 export const onSetMask = (value, type) => {
   switch (type) {
     case DocumentType.CNPJ:
-      return value.replace(
-        /(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/g,
-        "$1.$2.$3/$4-$5"
-      );
+      return value.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/g, "$1.$2.$3/$4-$5");
 
     default:
       return value;

@@ -1,7 +1,5 @@
 import emailjs from "@emailjs/browser";
 import {
-  BugReportOutlined,
-  EmojiObjectsOutlined,
   Email,
   Instagram,
   Public,
@@ -92,12 +90,12 @@ const FeedbackForm = ({ onClose, cardTitle }) => {
     emailjs
       .sendForm("service_po4i0lq", "template_bh05x9j", form.current, "5tHrtJW8RbpwtZGcP")
       .then(
-        result => {
-          console.log(result.text);
+        _result => {
+          // Success - feedback sent
           setFeedbackSent(true);
         },
-        error => {
-          console.log(error.text);
+        _error => {
+          // Error handling - could add user notification here
         }
       )
       .finally(() => setLoading(false));
@@ -178,56 +176,57 @@ const FeedbackForm = ({ onClose, cardTitle }) => {
   );
 };
 
-const FeedbackCard = ({ cardTitle, cardIcon }) => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  let icon;
-  if (cardIcon === "report") {
-    icon = <BugReportOutlined />;
-  } else if (cardIcon === "request") {
-    icon = <EmojiObjectsOutlined />;
-  }
-
-  return (
-    <>
-      <Card
-        variant="filled"
-        onClick={handleOpen}
-        sx={{
-          "&:hover": {
-            boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.3)",
-            backgroundColor: "#404040",
-          },
-          marginTop: "1rem",
-          backgroundColor: "#333333",
-          cursor: "pointer",
-          transition: "all 0.5s ease",
-          width: "100%",
-        }}
-      >
-        <CardHeader
-          avatar={<Avatar>{icon}</Avatar>}
-          title={cardTitle}
-          subheader="Deixe aqui seu feedback"
-        />
-      </Card>
-
-      <FeedbackModal open={open} onClose={handleClose}>
-        <ModalContainer>
-          <FeedbackForm onClose={handleClose} cardTitle={cardTitle} cardIcon={cardIcon} />
-        </ModalContainer>
-      </FeedbackModal>
-    </>
-  );
-};
+// FeedbackCard component - currently not used but kept for future implementation
+// const FeedbackCard = ({ cardTitle, cardIcon }) => {
+//   const [open, setOpen] = useState(false);
+//
+//   const handleOpen = () => {
+//     setOpen(true);
+//   };
+//
+//   const handleClose = () => {
+//     setOpen(false);
+//   };
+//
+//   let icon;
+//   if (cardIcon === "report") {
+//     icon = <BugReportOutlined />;
+//   } else if (cardIcon === "request") {
+//     icon = <EmojiObjectsOutlined />;
+//   }
+//
+//   return (
+//     <>
+//       <Card
+//         variant="filled"
+//         onClick={handleOpen}
+//         sx={{
+//           "&:hover": {
+//             boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.3)",
+//             backgroundColor: "#404040",
+//           },
+//           marginTop: "1rem",
+//           backgroundColor: "#333333",
+//           cursor: "pointer",
+//           transition: "all 0.5s ease",
+//           width: "100%",
+//         }}
+//       >
+//         <CardHeader
+//           avatar={<Avatar>{icon}</Avatar>}
+//           title={cardTitle}
+//           subheader="Deixe aqui seu feedback"
+//         />
+//       </Card>
+//
+//       <FeedbackModal open={open} onClose={handleClose}>
+//         <ModalContainer>
+//           <FeedbackForm onClose={handleClose} cardTitle={cardTitle} cardIcon={cardIcon} />
+//         </ModalContainer>
+//       </FeedbackModal>
+//     </>
+//   );
+// };
 
 const IssuesCard = () => {
   const handleClick = () => {

@@ -34,8 +34,5 @@ export const generateRandomNumbers = (
 };
 
 const getRandomNumber = (min, max) => {
-  return (
-    Math.floor(Math.random() * (parseInt(max) - parseInt(min) + 1)) +
-    parseInt(min)
-  );
+  return Math.floor(Math.random() * (parseInt(max) - parseInt(min) + 1)) + parseInt(min);
 };

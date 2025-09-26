@@ -39,18 +39,16 @@ const Form = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [returnData, setReturnData] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     setIsSubmitting(true);
     let newPhone = phoneState.replace(/\D/g, "");
     setUrlState(
-      `https://api.whatsapp.com/send?phone=55${newPhone}&text=${encodeURIComponent(
-        messageState
-      )}`
+      `https://api.whatsapp.com/send?phone=55${newPhone}&text=${encodeURIComponent(messageState)}`
     );
   };
 
-  const copyToClipboard = (url) => {
+  const copyToClipboard = url => {
     navigator.clipboard.writeText(url);
     setCopyState("Copiado!");
     setTimeout(() => {
@@ -69,12 +67,15 @@ const Form = () => {
     return (
       <Container>
         <Paper elevation={3} sx={{ p: 3 }}>
-          <Typography variant="subtitle1" sx={{
-            mb: 2,
-            wordBreak: 'break-all',
-            overflowWrap: 'break-word',
-            fontSize: { xs: '0.75rem', sm: '1rem' }
-          }}>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              mb: 2,
+              wordBreak: "break-all",
+              overflowWrap: "break-word",
+              fontSize: { xs: "0.75rem", sm: "1rem" },
+            }}
+          >
             {urlState}
           </Typography>
 
@@ -148,7 +149,7 @@ const Form = () => {
             endIcon={<Download />}
             onClick={() => {
               const canvas = document.getElementById("qrCode");
-              canvas.toBlob((blob) => {
+              canvas.toBlob(blob => {
                 saveAs(blob, "qrcode.png");
               });
             }}
@@ -186,12 +187,7 @@ const Form = () => {
                 <CssBaseline />
 
                 <Paper elevation={3} sx={{ p: 3, mt: 5 }}>
-                  <Box
-                    component="form"
-                    onSubmit={handleSubmit}
-                    noValidate
-                    sx={{ mt: 1 }}
-                  >
+                  <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                     {urlState ? renderResult(urlState) : ""}
 
                     {/* </Box> */}
@@ -206,19 +202,14 @@ const Form = () => {
           <Container component="main">
             <CssBaseline />
             <Paper elevation={3} sx={{ p: 3, mt: 5 }}>
-              <Box
-                component="form"
-                onSubmit={handleSubmit}
-                noValidate
-                sx={{ mt: 1 }}
-              >
+              <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                 <MaskedInput
                   id="phone"
                   type="number"
                   mask={"(99) 99999-9999"}
                   name="phone"
                   label={"Escreva seu número de telefone aqui 📱"}
-                  onChange={(e) => setPhoneState(e.target.value)}
+                  onChange={e => setPhoneState(e.target.value)}
                   value={phoneState}
                 />
                 <TextField
@@ -229,7 +220,7 @@ const Form = () => {
                   id="message"
                   name="message"
                   placeholder="Ex: Olá em que posso ajudar"
-                  onChange={(e) => setMessageState(e.target.value)}
+                  onChange={e => setMessageState(e.target.value)}
                 />
 
                 <Button

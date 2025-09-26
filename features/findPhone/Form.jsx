@@ -10,7 +10,7 @@ import { blue } from "@mui/material/colors";
 function getStateFromPhone(phone) {
   const phoneDigits = phone.replace(/[^\d]/g, "");
   for (const [key, value] of Object.entries(statesData[0])) {
-    if (value.areaCodes?.some((code) => phoneDigits.startsWith(code))) {
+    if (value.areaCodes?.some(code => phoneDigits.startsWith(code))) {
       return key;
     }
   }
@@ -22,25 +22,21 @@ function App() {
   const [showResult, setShowResult] = useState(false);
   const [resultMessage, setResultMessage] = useState("");
 
-  const handlePhoneChange = (event) => {
+  const handlePhoneChange = event => {
     setPhone(event.target.value);
   };
 
   const handleButtonClick = () => {
     const state = getStateFromPhone(phone);
-    const message =
-      state !== "Não encontrado" ? `O estado é ${state}` : "Telefone inválido";
+    const message = state !== "Não encontrado" ? `O estado é ${state}` : "Telefone inválido";
     setResultMessage(message);
     setShowResult(true);
   };
   return (
     <Container component="main">
-
       <Paper elevation={3} sx={{ p: 3, mt: 5 }}>
         <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-          <Typography variant="h5">
-            Preencha um número de telefone abaixo
-          </Typography>
+          <Typography variant="h5">Preencha um número de telefone abaixo</Typography>
           <ArrowDownward sx={{ mr: 1 }} />
         </Box>
 
@@ -70,10 +66,7 @@ function App() {
                 <Box sx={{ bgcolor: blue[600], p: 1.2 }}>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <Phone sx={{ color: "common.white" }} />
-                    <Typography
-                      variant="subtitle1"
-                      sx={{ color: "common.white" }}
-                    >
+                    <Typography variant="subtitle1" sx={{ color: "common.white" }}>
                       {resultMessage}
                     </Typography>
                   </div>

@@ -1,3 +1,3 @@
 export const uniqueId = () => {
-    return Math.floor(Math.random() * Date.now()).toString()
-}
+  return Math.floor(Math.random() * Date.now()).toString();
+};

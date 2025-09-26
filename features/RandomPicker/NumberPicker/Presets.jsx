@@ -28,21 +28,13 @@ const Presets = ({ values, handleChange }) => {
         >
           <FormControlLabel
             control={
-              <Switch
-                checked={values.isPowerball}
-                onChange={handleChange}
-                name="powerball"
-              />
+              <Switch checked={values.isPowerball} onChange={handleChange} name="powerball" />
             }
             label="Powerball"
           />
           <FormControlLabel
             control={
-              <Switch
-                checked={values.isMegaMillions}
-                onChange={handleChange}
-                name="megaMillions"
-              />
+              <Switch checked={values.isMegaMillions} onChange={handleChange} name="megaMillions" />
             }
             label="Mega Millions"
           />

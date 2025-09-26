@@ -11,7 +11,7 @@ const Validator = () => {
   const [inputValue, setInputValue] = useState("");
   const [isValid, setIsValid] = useState(null);
 
-  const handleInputChange = (event) => {
+  const handleInputChange = event => {
     setInputValue(event.target.value);
     setIsValid(null);
     const { value } = event.target;
@@ -42,14 +42,9 @@ const Validator = () => {
     //   }}
     // >
     <Container component="main">
-
       <Paper elevation={3} sx={{ p: 3, mt: 5 }}>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <TextField
-            onChange={handleInputChange}
-            value={inputValue}
-            label="CPF ou CNPJ"
-          />
+          <TextField onChange={handleInputChange} value={inputValue} label="CPF ou CNPJ" />
           {isValid !== null && (
             <Box sx={{ display: "flex", mt: 2 }}>
               {isValid ? (
@@ -66,11 +61,7 @@ const Validator = () => {
             </Box>
           )}
           <Box sx={{ display: "flex", mt: 2 }}>
-            <Button
-              variant="contained"
-              onClick={handleValidate}
-              endIcon={<Send />}
-            >
+            <Button variant="contained" onClick={handleValidate} endIcon={<Send />}>
               Validar
             </Button>
           </Box>

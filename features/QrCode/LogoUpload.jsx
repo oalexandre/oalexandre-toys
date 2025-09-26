@@ -1,10 +1,4 @@
-import {
-  Button,
-  Checkbox,
-  FormControlLabel,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Button, Checkbox, FormControlLabel, Stack, Typography } from "@mui/material";
 
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
