@@ -1,4 +1,4 @@
-# oAlexandre Toys
+# oAlexandre Toys (Antigo Aupi Tools)
 
 🧸 **Ferramentas Práticas que Você Realmente Precisa**
 
@@ -6,7 +6,7 @@ Coleção de ferramentas online gratuitas criadas para resolver problemas do dia
 
 ## 🎯 Sobre o Projeto
 
-**oAlexandre Toys** nasceu como um projeto de treino em Next.js, sem pretensão além de praticar e aprender. A ideia era treinar o framework enquanto construía ferramentas que eu mesmo precisava no dia a dia - como gerar senhas seguras, validar CPF/CNPJ ou criar links do WhatsApp.
+**oAlexandre Toys** nasceu como um projeto de treino em Next.js na minha antiga empresa e com contribuição de outras pessoas, sem pretensão além de praticar e aprender. A ideia era treinar o framework enquanto construía ferramentas que precisávamos no dia a dia - como gerar senhas seguras, validar CPF/CNPJ ou criar links do WhatsApp.
 
 Por consequência, as ferramentas acabaram sendo realmente úteis e funcionais, então decidi colocar no ar para que outras pessoas pudessem se beneficiar também. É um projeto simples, feito com carinho e foco total na privacidade - tudo funciona localmente no navegador.
 
@@ -194,21 +194,13 @@ Encontrou um bug ou tem uma sugestão?
 - **📦 Bundle**: Otimizado com Next.js
 - **🧪 Qualidade**: ESLint + Prettier
 
-## 📧 Contato
-
-- **🌐 Website**: [oalexandre.com.br](https://oalexandre.com.br)
-- **📧 Email**: eusou@oalexandre.com.br
-- **📱 Instagram**: [@oalexandre](https://www.instagram.com/oalexandre)
-- **💼 LinkedIn**: [linkedin.com/in/oalexandre](https://linkedin.com/in/oalexandre)
-- **🐙 GitHub**: [github.com/oalexandre](https://github.com/oalexandre)
-
 ---
 
 <div align="center">
 
-**Desenvolvido com ❤️ por [oAlexandre](https://oalexandre.com.br)**
+**Mantido com ❤️ por [oAlexandre](https://oalexandre.com.br)**
 
-*"Começou como treino de Next.js, virou ferramenta útil. Cada funcionalidade foi criada porque eu precisava dela na vida real. Se você também precisa, é só usar - sem cadastro, sem custo, sem complicação."*
+*"Começou como treino de Next.js, virou ferramenta útil. Cada funcionalidade foi criada porque alguém precisava dela na vida real. Se você também precisa, é só usar - sem cadastro, sem custo, sem complicação."*
 
 ⭐ **Se este projeto te ajudou, deixe uma estrela no GitHub!**
 
