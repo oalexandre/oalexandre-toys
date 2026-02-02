@@ -41,4 +41,8 @@ const AspectRatio = () => {
   );
 };
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default AspectRatio;

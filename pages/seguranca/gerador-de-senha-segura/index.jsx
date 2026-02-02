@@ -418,4 +418,8 @@ const GeradorSenhaSegura = () => {
   );
 };
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default GeradorSenhaSegura;

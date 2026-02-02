@@ -349,4 +349,8 @@ const ValidadorCPFCNPJ = () => {
   );
 };
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default ValidadorCPFCNPJ;

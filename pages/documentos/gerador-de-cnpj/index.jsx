@@ -310,4 +310,8 @@ const GeradorCNPJ = () => {
   );
 };
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default GeradorCNPJ;

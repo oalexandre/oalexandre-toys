@@ -432,4 +432,8 @@ const CotacaoMoeda = () => {
   );
 };
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default CotacaoMoeda;

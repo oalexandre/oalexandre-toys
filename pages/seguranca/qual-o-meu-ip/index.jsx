@@ -394,4 +394,8 @@ const QualMeuIP = () => {
   );
 };
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default QualMeuIP;

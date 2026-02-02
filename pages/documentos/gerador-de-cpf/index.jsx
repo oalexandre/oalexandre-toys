@@ -240,4 +240,8 @@ const GeradorCPF = () => {
   );
 };
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default GeradorCPF;

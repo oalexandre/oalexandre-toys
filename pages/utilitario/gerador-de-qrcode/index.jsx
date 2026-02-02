@@ -404,4 +404,8 @@ const GeradorQRCode = () => {
   );
 };
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default GeradorQRCode;

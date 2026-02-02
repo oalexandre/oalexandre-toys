@@ -469,4 +469,8 @@ const SorteadorAutomatico = () => {
   );
 };
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default SorteadorAutomatico;
