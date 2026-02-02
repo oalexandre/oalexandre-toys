@@ -2,7 +2,7 @@
   "name": "oalexandre-toys",
   "version": "0.1.0",
   "private": true,
-    "scripts": {
+  "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
     "postbuild": "next-sitemap",
@@ -41,7 +41,7 @@
     "framer-motion": "^9.1.2",
     "json-server": "^0.17.2",
     "materialize-css": "^1.0.0-rc.2",
-    "next": "12.2.2",
+    "next": "15.3.9",
     "next-pwa": "^5.5.4",
     "next-sitemap": "^3.1.10",
     "nodemailer": "^6.9.1",
