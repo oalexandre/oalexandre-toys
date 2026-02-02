@@ -2,11 +2,7 @@
   "name": "oalexandre-toys",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": ">=18.0.0",
-    "yarn": ">=1.22.0"
-  },
-  "scripts": {
+    "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
     "postbuild": "next-sitemap",
