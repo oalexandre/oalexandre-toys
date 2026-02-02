@@ -51,6 +51,14 @@ export const allRoutes = [
     icon: <KeyIcon />,
     description: "Gere senhas seguras e criptograficamente fortes",
   },
+  {
+    path: "/seguranca/gerador-de-django-secret-key",
+    name: "Gerador de Django Secret",
+    homeName: "Django SECRET_KEY",
+    key: "django-secret-key",
+    icon: <Security />,
+    description: "Gere SECRET_KEYs seguras para projetos Django",
+  },
 
   {
     path: "/documentos/gerador-de-cpf",
@@ -202,6 +210,14 @@ export const securityRoutes = [
     key: "gerador-senha-segura",
     icon: <KeyIcon />,
     description: "Gere senhas seguras e criptograficamente fortes",
+  },
+  {
+    path: "/seguranca/gerador-de-django-secret-key",
+    name: "Gerador de Django Secret",
+    homeName: "Django SECRET_KEY",
+    key: "django-secret-key",
+    icon: <Security />,
+    description: "Gere SECRET_KEYs seguras para projetos Django",
   },
 ];
 
