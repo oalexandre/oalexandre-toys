@@ -26,6 +26,7 @@ const Document = () => {
         <link rel="apple-touch-icon" sizes="512x512" href="/logos/oalexandre-logo.png" />
 
         <link rel="manifest" href="/manifest.json" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
