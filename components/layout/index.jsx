@@ -6,7 +6,7 @@ import Header from "./Header";
 const Layout = ({ children }) => (
   <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
     <Header />
-    <Container component="main" id="conteudo" maxWidth="lg" sx={{ py: { xs: 3, md: 5 }, flex: 1 }}>
+    <Container component="main" id="conteudo" maxWidth="lg" sx={{ py: { xs: 3, md: 6 }, flex: 1 }}>
       {children}
     </Container>
     <Footer />

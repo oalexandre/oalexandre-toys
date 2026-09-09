@@ -1,5 +1,5 @@
-import DownloadIcon from "@mui/icons-material/Download";
-import UploadIcon from "@mui/icons-material/UploadFile";
+import DownloadIcon from "@mui/icons-material/DownloadRounded";
+import UploadIcon from "@mui/icons-material/UploadFileRounded";
 import {
   Box,
   Button,
@@ -14,6 +14,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 
 import ToolPanel from "../../components/tool/ToolPanel";
+import { colors } from "../../theme";
 
 import ColorField from "./ColorField";
 
@@ -194,7 +195,7 @@ const QrCodeGenerator = () => {
                 placeItems: "center",
                 aspectRatio: "1 / 1",
                 p: 2,
-                bgcolor: "#f7f8fa",
+                bgcolor: colors.surfaceSunken,
                 border: 1,
                 borderColor: "divider",
                 borderRadius: 2,

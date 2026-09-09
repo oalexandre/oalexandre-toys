@@ -1,13 +1,13 @@
-import DownloadIcon from "@mui/icons-material/Download";
+import DownloadIcon from "@mui/icons-material/DownloadRounded";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { QRCodeCanvas } from "qrcode.react";
 import { useRef, useState } from "react";
 
 import CopyButton from "../../components/common/CopyButton";
+import ResultBox from "../../components/tool/ResultBox";
 import ToolPanel from "../../components/tool/ToolPanel";
 import { formatPhone } from "../../lib/ddd";
-import { monoFontFamily } from "../../theme";
 
 /** Monta o link wa.me a partir do país, telefone e mensagem. */
 export const buildWhatsappLink = ({ country, phone, message }) => {
@@ -22,6 +22,7 @@ const WhatsappLinkGenerator = () => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const qrRef = useRef(null);
+  const [copies, setCopies] = useState(0);
 
   const link = buildWhatsappLink({ country, phone, message });
 
@@ -77,49 +78,37 @@ const WhatsappLinkGenerator = () => {
         </Grid>
       </Grid>
 
-      <Box
-        sx={{
-          mt: 3,
-          p: 2,
-          bgcolor: "#f7f8fa",
-          border: 1,
-          borderColor: "divider",
-          borderRadius: 2,
-        }}
-      >
-        <Typography variant="body2" sx={{ fontWeight: 600, mb: 0.5 }}>
-          Seu link
-        </Typography>
-        <Typography
-          component="output"
-          aria-live="polite"
-          sx={{
-            display: "block",
-            fontFamily: monoFontFamily,
-            fontSize: "0.95rem",
-            wordBreak: "break-all",
-            color: link ? "text.primary" : "text.secondary",
-          }}
-        >
-          {link || "Preencha o número para gerar o link."}
-        </Typography>
-      </Box>
-
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ mt: 2 }}>
-        <CopyButton value={link} label="Copiar link" variant="contained" size="large" />
-        <Button
-          variant="outlined"
-          size="large"
-          color="success"
-          startIcon={<WhatsAppIcon />}
-          href={link || undefined}
-          target="_blank"
-          rel="noopener noreferrer"
-          disabled={!link}
-        >
-          Abrir no WhatsApp
-        </Button>
-      </Stack>
+      <ResultBox
+        label="Seu link"
+        value={link}
+        size="md"
+        placeholder="Preencha o número para gerar o link."
+        ariaLabel="Link do WhatsApp"
+        flashKey={copies}
+        sx={{ mt: 3 }}
+        actions={
+          <>
+            <CopyButton
+              value={link}
+              label="Copiar link"
+              size="large"
+              onCopied={() => setCopies(c => c + 1)}
+            />
+            <Button
+              variant="outlined"
+              size="large"
+              color="success"
+              startIcon={<WhatsAppIcon />}
+              href={link || undefined}
+              target="_blank"
+              rel="noopener noreferrer"
+              disabled={!link}
+            >
+              Abrir
+            </Button>
+          </>
+        }
+      />
 
       {link && (
         <Box sx={{ mt: 3, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 3 }}>

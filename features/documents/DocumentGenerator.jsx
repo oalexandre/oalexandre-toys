@@ -1,6 +1,8 @@
-import DownloadIcon from "@mui/icons-material/Download";
-import RefreshIcon from "@mui/icons-material/Refresh";
+import DownloadIcon from "@mui/icons-material/DownloadRounded";
+import RefreshIcon from "@mui/icons-material/RefreshRounded";
+import WarningIcon from "@mui/icons-material/WarningAmberRounded";
 import {
+  Alert,
   Box,
   Button,
   FormControlLabel,
@@ -9,11 +11,11 @@ import {
   Stack,
   Switch,
   TextField,
-  Typography,
 } from "@mui/material";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import CopyButton from "../../components/common/CopyButton";
+import ResultBox from "../../components/tool/ResultBox";
 import ToolPanel from "../../components/tool/ToolPanel";
 import { states } from "../../lib/ddd";
 import {
@@ -43,6 +45,7 @@ const DocumentGenerator = ({ type }) => {
   const [branch, setBranch] = useState("1");
   const [masked, setMasked] = useState(true);
   const [docs, setDocs] = useState([]);
+  const [copies, setCopies] = useState(0);
 
   const generateOne = useCallback(
     () =>
@@ -72,34 +75,38 @@ const DocumentGenerator = ({ type }) => {
   return (
     <ToolPanel>
       {single ? (
-        <Box
-          sx={{
-            p: 2,
-            mb: 2,
-            bgcolor: "#f7f8fa",
-            border: 1,
-            borderColor: "divider",
-            borderRadius: 2,
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-          }}
-        >
-          <Typography
-            component="output"
-            aria-live="polite"
-            aria-label={`${label} gerado`}
-            sx={{
-              flex: 1,
-              fontFamily: monoFontFamily,
-              fontSize: { xs: "1.4rem", sm: "1.9rem" },
-              letterSpacing: "0.04em",
-            }}
-          >
-            {formatted[0]}
-          </Typography>
-          <CopyButton value={formatted[0]} iconOnly />
-        </Box>
+        <ResultBox
+          label={`${label} gerado`}
+          value={formatted[0]}
+          ariaLabel={`${label} gerado`}
+          flashKey={copies}
+          actions={
+            <>
+              <CopyButton
+                value={formatted[0]}
+                label="Copiar"
+                size="large"
+                onCopied={() => setCopies(c => c + 1)}
+              />
+              <Button
+                variant="outlined"
+                size="large"
+                aria-label={`Gerar novo ${label}`}
+                onClick={regenerate}
+                startIcon={<RefreshIcon />}
+                sx={{
+                  "& .MuiButton-startIcon": { mr: { xs: 0, sm: 1 } },
+                  px: { xs: 1.5, sm: 2.5 },
+                }}
+              >
+                <Box component="span" sx={{ display: { xs: "none", sm: "inline" } }}>
+                  Gerar outro
+                </Box>
+              </Button>
+            </>
+          }
+          sx={{ mb: 1.5 }}
+        />
       ) : (
         <TextField
           fullWidth
@@ -112,6 +119,11 @@ const DocumentGenerator = ({ type }) => {
           sx={{ mb: 2 }}
         />
       )}
+
+      <Alert severity="warning" icon={<WarningIcon fontSize="small" />} sx={{ mb: 2.5 }}>
+        Números válidos apenas para testes de software. Não são documentos reais e não devem ser
+        usados em cadastros.
+      </Alert>
 
       <Grid container spacing={1.5} sx={{ mb: 2 }}>
         <Grid item xs={6} sm={3}>
@@ -169,12 +181,12 @@ const DocumentGenerator = ({ type }) => {
         </Grid>
       </Grid>
 
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
-        <Button variant="contained" size="large" startIcon={<RefreshIcon />} onClick={regenerate}>
-          {single ? `Gerar novo ${label}` : `Gerar ${count} novos`}
-        </Button>
-        <CopyButton value={text} label={single ? `Copiar ${label}` : "Copiar todos"} size="large" />
-        {!single && (
+      {!single && (
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5}>
+          <Button variant="contained" size="large" startIcon={<RefreshIcon />} onClick={regenerate}>
+            Gerar {count} novos
+          </Button>
+          <CopyButton value={text} label="Copiar todos" variant="outlined" size="large" />
           <Button
             variant="outlined"
             size="large"
@@ -184,8 +196,8 @@ const DocumentGenerator = ({ type }) => {
           >
             Baixar CSV
           </Button>
-        )}
-      </Stack>
+        </Stack>
+      )}
     </ToolPanel>
   );
 };

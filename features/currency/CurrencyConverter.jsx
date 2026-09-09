@@ -1,4 +1,4 @@
-import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
+import SwapHorizIcon from "@mui/icons-material/SwapHorizRounded";
 import {
   Alert,
   Autocomplete,
@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 
+import CopyButton from "../../components/common/CopyButton";
+import ResultBox from "../../components/tool/ResultBox";
 import ToolPanel from "../../components/tool/ToolPanel";
 import { getCurrencyName } from "../../lib/currencyNames";
 
@@ -42,6 +44,7 @@ const CurrencyConverter = ({ initialRates = null }) => {
   const [from, setFrom] = useState("BRL");
   const [to, setTo] = useState("USD");
   const [amount, setAmount] = useState("100");
+  const [copies, setCopies] = useState(0);
 
   // Uma única requisição com base USD; as demais conversões são derivadas.
   // As cotações do build servem de ponto de partida e são atualizadas no cliente.
@@ -123,42 +126,50 @@ const CurrencyConverter = ({ initialRates = null }) => {
         </Grid>
       </Grid>
 
-      <Box
-        sx={{
-          mt: 3,
-          p: 2.5,
-          bgcolor: "#f7f8fa",
-          border: 1,
-          borderColor: "divider",
-          borderRadius: 2,
-        }}
-        aria-live="polite"
+      <ResultBox
+        label="Resultado"
+        sx={{ mt: 3 }}
+        flashKey={copies}
+        actions={
+          converted !== null ? (
+            <CopyButton
+              value={format(converted, to)}
+              label="Copiar"
+              size="large"
+              onCopied={() => setCopies(c => c + 1)}
+            />
+          ) : null
+        }
       >
-        {converted === null && !error ? (
-          <Skeleton variant="text" width={260} height={48} />
-        ) : (
-          <>
-            <Typography variant="body2" color="text.secondary">
-              {format(value, from)} equivalem a
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: { xs: "1.6rem", sm: "2rem" },
-                fontWeight: 700,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              {converted !== null ? format(converted, to) : "—"}
-            </Typography>
-            {rate !== null && (
-              <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-                1 {from} = {rate.toLocaleString("pt-BR", { maximumFractionDigits: 6 })} {to}
-                {updatedAt ? ` · cotação de referência de ${formatDate(updatedAt)}` : ""}
+        <Box aria-live="polite">
+          {converted === null && !error ? (
+            <Skeleton variant="text" width={260} height={48} />
+          ) : (
+            <>
+              <Typography variant="body2" color="text.secondary">
+                {format(value, from)} equivalem a
               </Typography>
-            )}
-          </>
-        )}
-      </Box>
+              <Typography
+                sx={{
+                  fontSize: { xs: "1.75rem", sm: "2.125rem" },
+                  fontWeight: 700,
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1.2,
+                  fontVariantNumeric: "tabular-nums",
+                }}
+              >
+                {converted !== null ? format(converted, to) : "—"}
+              </Typography>
+              {rate !== null && (
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+                  1 {from} = {rate.toLocaleString("pt-BR", { maximumFractionDigits: 6 })} {to}
+                  {updatedAt ? ` · cotação de referência de ${formatDate(updatedAt)}` : ""}
+                </Typography>
+              )}
+            </>
+          )}
+        </Box>
+      </ResultBox>
 
       <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
         Cotação média de mercado, atualizada uma vez por dia. Bancos e casas de câmbio aplicam

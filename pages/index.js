@@ -21,11 +21,7 @@ const Home = () => (
           url: SITE_URL,
           inLanguage: "pt-BR",
           description: DESCRIPTION,
-          author: {
-            "@type": "Person",
-            name: "Alexandre Klostermann",
-            url: `${SITE_URL}/sobre`,
-          },
+          author: { "@type": "Person", name: "Alexandre Klostermann", url: `${SITE_URL}/sobre` },
         },
         {
           "@context": "https://schema.org",
@@ -41,17 +37,21 @@ const Home = () => (
       ]}
     />
 
-    <Box component="section" sx={{ maxWidth: 720, mb: { xs: 5, md: 7 } }}>
+    <Box component="section" sx={{ maxWidth: 680, mb: { xs: 4, md: 6 } }}>
       <Typography
         component="h1"
         variant="h1"
-        sx={{ fontSize: { xs: "2rem", md: "2.6rem" }, mb: 1.5 }}
+        sx={{ fontSize: { xs: "2rem", md: "2.5rem" }, mb: 1.5, textWrap: "balance" }}
       >
-        Ferramentas online gratuitas, sem cadastro
+        Ferramentas gratuitas, direto no navegador
       </Typography>
-      <Typography variant="subtitle1" color="text.secondary" sx={{ fontSize: { md: "1.15rem" } }}>
-        {tools.length} utilitários para o dia a dia de quem trabalha com internet no Brasil. Tudo
-        roda no seu navegador: senhas, documentos e mensagens nunca saem do seu computador.
+      <Typography
+        variant="subtitle1"
+        color="text.secondary"
+        sx={{ fontSize: { md: "1.125rem" }, textWrap: "pretty" }}
+      >
+        {tools.length} utilitários para o dia a dia de quem trabalha com internet no Brasil. Sem
+        cadastro e sem anúncio: senhas, documentos e mensagens nunca saem do seu computador.
       </Typography>
     </Box>
 
@@ -61,9 +61,9 @@ const Home = () => (
         key={category.slug}
         id={category.slug}
         aria-labelledby={`${category.slug}-titulo`}
-        sx={{ mb: { xs: 5, md: 6 }, scrollMarginTop: 80 }}
+        sx={{ mb: { xs: 4, md: 5 }, scrollMarginTop: 88 }}
       >
-        <Box sx={{ mb: 2 }}>
+        <Box sx={{ display: "flex", alignItems: "baseline", gap: 1.5, mb: 1.5, flexWrap: "wrap" }}>
           <Typography id={`${category.slug}-titulo`} component="h2" variant="h2">
             {category.name}
           </Typography>
@@ -71,9 +71,9 @@ const Home = () => (
             {category.description}
           </Typography>
         </Box>
-        <Grid container spacing={2}>
+        <Grid container spacing={1.5}>
           {getToolsByCategory(category.slug).map(tool => (
-            <Grid item xs={12} sm={6} md={4} key={tool.slug}>
+            <Grid item xs={12} md={6} key={tool.slug}>
               <ToolCard tool={tool} />
             </Grid>
           ))}
@@ -81,7 +81,17 @@ const Home = () => (
       </Box>
     ))}
 
-    <Box component="section" aria-labelledby="sobre-titulo" sx={{ maxWidth: 720, pt: 2 }}>
+    <Box
+      component="section"
+      aria-labelledby="sobre-titulo"
+      sx={{
+        maxWidth: 680,
+        mt: { xs: 5, md: 7 },
+        pt: { xs: 4, md: 5 },
+        borderTop: 1,
+        borderColor: "divider",
+      }}
+    >
       <Typography id="sobre-titulo" component="h2" variant="h2" sx={{ mb: 1.5 }}>
         Sobre o projeto
       </Typography>
@@ -91,7 +101,11 @@ const Home = () => (
         ferramenta foi feita para resolver uma dessas tarefas em segundos, sem anúncios, cadastro ou
         limite de uso.
       </Typography>
-      <Typography color="text.secondary" paragraph>
+      <Typography
+        color="text.secondary"
+        paragraph
+        sx={{ "& a": { color: "primary.main", fontWeight: 600 } }}
+      >
         O código é aberto e está no{" "}
         <a
           href="https://github.com/oalexandre/oalexandre-toys"

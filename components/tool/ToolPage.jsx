@@ -1,8 +1,9 @@
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import NavigateNextIcon from "@mui/icons-material/NavigateNextRounded";
 import { Box, Breadcrumbs, Grid, Typography } from "@mui/material";
 import Link from "next/link";
 
 import { formatDate, getCategory, getRelatedTools, getTool, SITE_URL } from "../../constants/tools";
+import { colors, monoFontFamily } from "../../theme";
 import JsonLd from "../common/JsonLd";
 import SEO from "../common/SEO";
 
@@ -111,16 +112,33 @@ const ToolPage = ({ path, title, description, lead, tool, children, faq, feature
             {lead}
           </Typography>
           {entry.updated && (
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-              Atualizado em <time dateTime={entry.updated}>{formatDate(entry.updated)}</time> ·{" "}
-              <Link href="/sobre" style={{ color: "inherit" }}>
+            <Typography
+              variant="caption"
+              component="p"
+              sx={{ mt: 1.5, display: "flex", flexWrap: "wrap", gap: 0.75, alignItems: "center" }}
+            >
+              <span>
+                Atualizado em <time dateTime={entry.updated}>{formatDate(entry.updated)}</time>
+              </span>
+              <Box component="span" aria-hidden="true" sx={{ color: "text.disabled" }}>
+                ·
+              </Box>
+              <Box
+                component={Link}
+                href="/sobre"
+                sx={{
+                  color: "inherit",
+                  textDecoration: "none",
+                  "&:hover": { color: "primary.main" },
+                }}
+              >
                 por Alexandre Klostermann
-              </Link>
+              </Box>
             </Typography>
           )}
         </Box>
 
-        <Box component="section" aria-label="Ferramenta" sx={{ mb: 6 }}>
+        <Box component="section" aria-label="Ferramenta" sx={{ mb: { xs: 5, md: 7 } }}>
           {tool}
         </Box>
 
@@ -141,28 +159,29 @@ const ToolPage = ({ path, title, description, lead, tool, children, faq, feature
                 color: "text.secondary",
               },
               "& li": { mb: 0.75 },
-              "& a": { color: "primary.main" },
+              "& a": { color: "primary.main", fontWeight: 600 },
               "& strong": { color: "text.primary", fontWeight: 600 },
               "& code": {
-                fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+                fontFamily: monoFontFamily,
                 fontSize: "0.875em",
-                bgcolor: "#eef2ff",
+                bgcolor: colors.surfaceSunken,
+                border: `1px solid ${colors.line}`,
                 px: 0.6,
-                py: 0.2,
+                py: 0.1,
                 borderRadius: 1,
               },
               "& pre": {
-                fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
-                fontSize: "0.85rem",
-                lineHeight: 1.6,
-                bgcolor: "#16181d",
-                color: "#f3f4f6",
-                p: 2,
-                borderRadius: 2,
+                fontFamily: monoFontFamily,
+                fontSize: "0.875rem",
+                lineHeight: 1.65,
+                bgcolor: colors.ink,
+                color: "#eef0f4",
+                p: 2.5,
+                borderRadius: 3,
                 overflowX: "auto",
                 mb: 2,
               },
-              "& pre code": { bgcolor: "transparent", p: 0, fontSize: "inherit" },
+              "& pre code": { bgcolor: "transparent", border: 0, p: 0, fontSize: "inherit" },
             })}
           >
             {children}

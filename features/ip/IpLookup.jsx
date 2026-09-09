@@ -1,10 +1,10 @@
-import RefreshIcon from "@mui/icons-material/Refresh";
+import RefreshIcon from "@mui/icons-material/RefreshRounded";
 import { Alert, Box, Button, Grid, Skeleton, Typography } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 
 import CopyButton from "../../components/common/CopyButton";
+import ResultBox from "../../components/tool/ResultBox";
 import ToolPanel from "../../components/tool/ToolPanel";
-import { monoFontFamily } from "../../theme";
 
 const fetchJson = async url => {
   const response = await fetch(url);
@@ -14,6 +14,7 @@ const fetchJson = async url => {
 
 const IpLookup = () => {
   const [state, setState] = useState({ status: "loading", ip: "", details: null });
+  const [copies, setCopies] = useState(0);
 
   const load = useCallback(async () => {
     setState({ status: "loading", ip: "", details: null });
@@ -47,10 +48,6 @@ const IpLookup = () => {
 
   return (
     <ToolPanel>
-      <Typography variant="body2" sx={{ fontWeight: 600, mb: 0.5 }}>
-        Seu endereço IP público
-      </Typography>
-
       {state.status === "error" ? (
         <Alert
           severity="error"
@@ -64,34 +61,39 @@ const IpLookup = () => {
           barrando a consulta.
         </Alert>
       ) : (
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-            p: 2,
-            bgcolor: "#f7f8fa",
-            border: 1,
-            borderColor: "divider",
-            borderRadius: 2,
-          }}
+        <ResultBox
+          label="Seu IP público"
+          value={state.status === "loading" ? "" : state.ip}
+          ariaLabel="Endereço IP"
+          flashKey={copies}
+          actions={
+            <>
+              <CopyButton
+                value={state.ip}
+                label="Copiar"
+                size="large"
+                onCopied={() => setCopies(c => c + 1)}
+              />
+              <Button
+                variant="outlined"
+                size="large"
+                aria-label={"Consultar novamente"}
+                onClick={load}
+                startIcon={<RefreshIcon />}
+                sx={{
+                  "& .MuiButton-startIcon": { mr: { xs: 0, sm: 1 } },
+                  px: { xs: 1.5, sm: 2.5 },
+                }}
+              >
+                <Box component="span" sx={{ display: { xs: "none", sm: "inline" } }}>
+                  Consultar de novo
+                </Box>
+              </Button>
+            </>
+          }
         >
-          {state.status === "loading" ? (
-            <Skeleton variant="text" width={220} height={40} />
-          ) : (
-            <Typography
-              component="output"
-              aria-live="polite"
-              sx={{ flex: 1, fontFamily: monoFontFamily, fontSize: { xs: "1.4rem", sm: "1.9rem" } }}
-            >
-              {state.ip}
-            </Typography>
-          )}
-          <CopyButton value={state.ip} iconOnly />
-          <Button aria-label="Consultar novamente" onClick={load} sx={{ minWidth: 0, px: 1 }}>
-            <RefreshIcon />
-          </Button>
-        </Box>
+          {state.status === "loading" ? <Skeleton variant="text" width={220} height={44} /> : null}
+        </ResultBox>
       )}
 
       {state.status === "ready" && (

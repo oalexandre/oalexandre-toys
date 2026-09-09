@@ -1,8 +1,8 @@
 import { Paper } from "@mui/material";
 
-/** Caixa branca que envolve a parte interativa de cada ferramenta. */
-const ToolPanel = ({ children, ...props }) => (
-  <Paper sx={{ p: { xs: 2, sm: 3 }, borderRadius: 3 }} {...props}>
+/** Painel branco que envolve a parte interativa de cada ferramenta. */
+const ToolPanel = ({ children, sx, ...props }) => (
+  <Paper sx={{ p: { xs: 2, sm: 3 }, ...sx }} {...props}>
     {children}
   </Paper>
 );

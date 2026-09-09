@@ -1,6 +1,6 @@
 import { CssBaseline, GlobalStyles } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import { Inter } from "next/font/google";
+import { JetBrains_Mono, Onest } from "next/font/google";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
@@ -12,7 +12,8 @@ import { pageview } from "../utils/gtag";
 
 import "../styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+const sans = Onest({ subsets: ["latin"], display: "swap" });
+const mono = JetBrains_Mono({ subsets: ["latin"], display: "swap", weight: ["400", "500"] });
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -58,8 +59,9 @@ const App = ({ Component, pageProps }) => {
         <GlobalStyles
           styles={{
             html: {
-              "--font-inter": inter.style.fontFamily,
-              fontFamily: `${inter.style.fontFamily}, sans-serif`,
+              "--font-sans": sans.style.fontFamily,
+              "--font-mono": mono.style.fontFamily,
+              fontFamily: `${sans.style.fontFamily}, sans-serif`,
             },
           }}
         />

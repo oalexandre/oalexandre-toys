@@ -1,6 +1,6 @@
-import CloseIcon from "@mui/icons-material/Close";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/CloseRounded";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMoreRounded";
+import MenuIcon from "@mui/icons-material/MenuRounded";
 import {
   AppBar,
   Box,
@@ -20,18 +20,23 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import { categories, getToolsByCategory } from "../../constants/tools";
+import { colors } from "../../theme";
 
 import Logo from "./Logo";
 
 const navLinkSx = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 0.25,
   px: 1.5,
-  py: 0.75,
+  py: 1,
   borderRadius: 2,
-  fontSize: "0.925rem",
-  fontWeight: 500,
+  fontSize: "0.9375rem",
+  fontWeight: 600,
   color: "text.secondary",
   textDecoration: "none",
-  "&:hover": { color: "text.primary", bgcolor: "action.hover" },
+  transition: "background-color 150ms, color 150ms",
+  "&:hover, &[aria-expanded='true']": { color: "text.primary", bgcolor: "action.hover" },
 };
 
 const Header = () => {
@@ -65,12 +70,7 @@ const Header = () => {
       position="sticky"
       color="inherit"
       elevation={0}
-      sx={{
-        bgcolor: "rgba(255,255,255,0.92)",
-        backdropFilter: "blur(8px)",
-        borderBottom: 1,
-        borderColor: "divider",
-      }}
+      sx={{ bgcolor: "background.paper", borderBottom: 1, borderColor: "divider" }}
     >
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ minHeight: { xs: 60, md: 64 }, gap: 2 }}>
@@ -98,7 +98,7 @@ const Header = () => {
                   aria-expanded={submenu === category.slug}
                   onFocus={() => setSubmenu(category.slug)}
                   onClick={() => setSubmenu(null)}
-                  sx={{ ...navLinkSx, display: "inline-flex", alignItems: "center", gap: 0.25 }}
+                  sx={navLinkSx}
                 >
                   {category.name}
                   <ExpandMoreIcon sx={{ fontSize: 18, opacity: 0.6 }} />
@@ -106,13 +106,7 @@ const Header = () => {
 
                 <Box
                   hidden={submenu !== category.slug}
-                  sx={{
-                    position: "absolute",
-                    top: "100%",
-                    left: 0,
-                    pt: 1,
-                    zIndex: 10,
-                  }}
+                  sx={{ position: "absolute", top: "100%", left: 0, pt: 0.5, zIndex: 10 }}
                 >
                   <Box
                     component="ul"
@@ -120,16 +114,18 @@ const Header = () => {
                       listStyle: "none",
                       m: 0,
                       p: 0.75,
-                      minWidth: 260,
+                      minWidth: 272,
                       bgcolor: "background.paper",
                       border: 1,
                       borderColor: "divider",
-                      borderRadius: 2,
-                      boxShadow: "0 10px 30px rgba(22,24,29,0.10)",
+                      borderRadius: 3,
+                      boxShadow:
+                        "0 12px 32px -8px rgba(21,23,29,0.18), 0 2px 6px rgba(21,23,29,0.06)",
                     }}
                   >
                     {getToolsByCategory(category.slug).map(tool => {
                       const Icon = tool.icon;
+                      const active = router.pathname === tool.path;
                       return (
                         <Box component="li" key={tool.slug}>
                           <Box
@@ -141,15 +137,19 @@ const Header = () => {
                               alignItems: "center",
                               gap: 1.25,
                               px: 1.25,
-                              py: 1,
-                              borderRadius: 1.5,
-                              fontSize: "0.9rem",
+                              py: 1.1,
+                              borderRadius: 2,
+                              fontSize: "0.9375rem",
                               fontWeight: 500,
-                              color:
-                                router.pathname === tool.path ? "primary.main" : "text.primary",
+                              color: active ? "primary.main" : "text.primary",
+                              bgcolor: active ? colors.accentTint : "transparent",
                               textDecoration: "none",
                               whiteSpace: "nowrap",
-                              "&:hover": { bgcolor: "action.hover", color: "primary.main" },
+                              transition: "background-color 150ms, color 150ms",
+                              "&:hover": {
+                                bgcolor: active ? colors.accentTint : "action.hover",
+                                color: "primary.main",
+                              },
                             }}
                           >
                             <Icon fontSize="small" sx={{ color: "primary.main" }} />
@@ -162,15 +162,6 @@ const Header = () => {
                 </Box>
               </Box>
             ))}
-            <Box
-              component="a"
-              href="https://oalexandre.com.br"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{ ...navLinkSx, color: "primary.main", "&:hover": { bgcolor: "action.hover" } }}
-            >
-              oalexandre.com.br
-            </Box>
           </Box>
 
           <IconButton
@@ -188,7 +179,7 @@ const Header = () => {
         anchor="right"
         open={open}
         onClose={() => setOpen(false)}
-        PaperProps={{ sx: { width: 300, maxWidth: "88vw" } }}
+        PaperProps={{ sx: { width: 320, maxWidth: "90vw" } }}
       >
         <Box
           sx={{
@@ -199,13 +190,13 @@ const Header = () => {
             py: 1.5,
           }}
         >
-          <Logo size={28} />
+          <Logo size={26} />
           <IconButton aria-label="Fechar menu" onClick={() => setOpen(false)}>
             <CloseIcon />
           </IconButton>
         </Box>
         <Divider />
-        <Box component="nav" aria-label="Ferramentas" sx={{ overflowY: "auto" }}>
+        <Box component="nav" aria-label="Ferramentas" sx={{ overflowY: "auto", pb: 2 }}>
           {categories.map(category => (
             <List
               key={category.slug}
@@ -213,7 +204,12 @@ const Header = () => {
               subheader={
                 <ListSubheader
                   disableSticky
-                  sx={{ fontWeight: 700, color: "text.primary", lineHeight: "36px" }}
+                  sx={{
+                    fontWeight: 700,
+                    color: "text.primary",
+                    fontSize: "0.9375rem",
+                    lineHeight: "40px",
+                  }}
                 >
                   {category.name}
                 </ListSubheader>
@@ -227,12 +223,20 @@ const Header = () => {
                     component={Link}
                     href={tool.path}
                     selected={router.pathname === tool.path}
-                    sx={{ borderRadius: 2, mx: 1 }}
+                    sx={{
+                      borderRadius: 2,
+                      mx: 1,
+                      minHeight: 48,
+                      "&.Mui-selected": { color: "primary.main" },
+                    }}
                   >
-                    <ListItemIcon sx={{ minWidth: 36 }}>
+                    <ListItemIcon sx={{ minWidth: 36, color: "primary.main" }}>
                       <Icon fontSize="small" />
                     </ListItemIcon>
-                    <ListItemText primary={tool.name} />
+                    <ListItemText
+                      primary={tool.name}
+                      primaryTypographyProps={{ fontSize: "0.9375rem", fontWeight: 500 }}
+                    />
                   </ListItemButton>
                 );
               })}

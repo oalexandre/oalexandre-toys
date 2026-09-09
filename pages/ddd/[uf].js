@@ -1,4 +1,4 @@
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import NavigateNextIcon from "@mui/icons-material/NavigateNextRounded";
 import { Box, Breadcrumbs, Chip, Grid, Stack, Typography } from "@mui/material";
 import Link from "next/link";
 

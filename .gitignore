@@ -111,3 +111,10 @@ temp/
 # Claude AI files (optional - keep or remove)
 .claude/
 CLAUDE.md
+
+# impeccable: artefatos de sessão (capturas, decisões, perguntas)
+/.impeccable/review/
+/.impeccable/questions/
+/.impeccable/decision/
+/.impeccable/mocks/
+/.impeccable/build/

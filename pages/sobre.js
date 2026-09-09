@@ -1,9 +1,11 @@
 import { Box, Typography } from "@mui/material";
+import Image from "next/image";
 import Link from "next/link";
 
 import JsonLd from "../components/common/JsonLd";
 import SEO from "../components/common/SEO";
 import { formatDate, getUpdatedDate, SITE_URL, tools } from "../constants/tools";
+import avatar from "../public/logos/oalexandre-logo.png";
 
 export const AUTHOR = {
   "@context": "https://schema.org",
@@ -12,6 +14,7 @@ export const AUTHOR = {
   name: "Alexandre Klostermann",
   url: "https://oalexandre.com.br",
   jobTitle: "Desenvolvedor e empreendedor",
+  image: `${SITE_URL}/logos/oalexandre-logo.png`,
   sameAs: [
     "https://oalexandre.com.br",
     "https://github.com/oalexandre",
@@ -46,9 +49,36 @@ const Sobre = () => (
       component="article"
       sx={{ maxWidth: 720, mx: "auto", "& p": { color: "text.secondary", mb: 2 } }}
     >
-      <Typography component="h1" variant="h1" sx={{ mb: 2 }}>
-        Sobre
-      </Typography>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 2.5, mb: 3 }}>
+        <Box
+          sx={{
+            width: 88,
+            height: 88,
+            flexShrink: 0,
+            borderRadius: "14px",
+            overflow: "hidden",
+            bgcolor: "#eef0f4",
+            display: "grid",
+            placeItems: "center",
+          }}
+        >
+          <Image
+            src={avatar}
+            alt="Avatar em pixel art de Alexandre Klostermann"
+            width={80}
+            height={80}
+            style={{ objectFit: "contain" }}
+          />
+        </Box>
+        <Box>
+          <Typography component="h1" variant="h1" sx={{ mb: 0.5 }}>
+            Sobre
+          </Typography>
+          <Typography color="text.secondary">
+            Alexandre Klostermann, quem faz o oAlexandre Toys.
+          </Typography>
+        </Box>
+      </Box>
 
       <Typography>
         O oAlexandre Toys é um conjunto de {tools.length} ferramentas gratuitas feito por{" "}

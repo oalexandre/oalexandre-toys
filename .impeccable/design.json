@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-09T12:53:49Z",
+  "title": "Design System: oAlexandre Toys",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Violeta profundo",
+        "canonical": "oklch(47.2% 0.228 286)",
+        "tonalRamp": ["oklch(15% 0.228 286)", "oklch(25% 0.228 286)", "oklch(35% 0.228 286)", "oklch(45% 0.228 286)", "oklch(55% 0.228 286)", "oklch(70% 0.228 286)", "oklch(85% 0.159 286)", "oklch(95% 0.080 286)"]
+      },
+      "accent-hover": { "role": "primary", "displayName": "Violeta hover", "canonical": "#4a25ad" },
+      "accent-active": { "role": "primary", "displayName": "Violeta pressionado", "canonical": "#3c1d8f" },
+      "accent-tint": { "role": "primary", "displayName": "Violeta tinta", "canonical": "#efeafc" },
+      "accent-tint-strong": { "role": "primary", "displayName": "Violeta tinta forte", "canonical": "#e2d9fa" },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Cinza-neve frio",
+        "canonical": "oklch(97.6% 0.003 265)",
+        "tonalRamp": ["oklch(15% 0.003 265)", "oklch(25% 0.003 265)", "oklch(35% 0.003 265)", "oklch(45% 0.003 265)", "oklch(55% 0.003 265)", "oklch(70% 0.003 265)", "oklch(85% 0.002 265)", "oklch(95% 0.001 265)"]
+      },
+      "surface": { "role": "neutral", "displayName": "Branco", "canonical": "#ffffff" },
+      "surface-sunken": { "role": "neutral", "displayName": "Cinza afundado", "canonical": "#f1f2f6" },
+      "line": {
+        "role": "neutral",
+        "displayName": "Filete",
+        "canonical": "oklch(92.7% 0.007 261)",
+        "tonalRamp": ["oklch(15% 0.007 261)", "oklch(25% 0.007 261)", "oklch(35% 0.007 261)", "oklch(45% 0.007 261)", "oklch(55% 0.007 261)", "oklch(70% 0.007 261)", "oklch(85% 0.005 261)", "oklch(95% 0.003 261)"]
+      },
+      "line-strong": { "role": "neutral", "displayName": "Filete forte", "canonical": "#d3d7df" },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Grafite",
+        "canonical": "oklch(20.5% 0.012 271)",
+        "tonalRamp": ["oklch(15% 0.012 271)", "oklch(25% 0.012 271)", "oklch(35% 0.012 271)", "oklch(45% 0.012 271)", "oklch(55% 0.012 271)", "oklch(70% 0.012 271)", "oklch(85% 0.009 271)", "oklch(95% 0.004 271)"]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Grafite secundário",
+        "canonical": "oklch(51.0% 0.025 266)",
+        "tonalRamp": ["oklch(15% 0.025 266)", "oklch(25% 0.025 266)", "oklch(35% 0.025 266)", "oklch(45% 0.025 266)", "oklch(55% 0.025 266)", "oklch(70% 0.025 266)", "oklch(85% 0.018 266)", "oklch(95% 0.009 266)"]
+      },
+      "ink-muted": { "role": "neutral", "displayName": "Grafite apagado", "canonical": "#8a90a0" },
+      "ink-on-dark": { "role": "neutral", "displayName": "Tinta sobre escuro", "canonical": "#eef0f4" },
+      "success": {
+        "role": "semantic",
+        "displayName": "Verde",
+        "canonical": "oklch(52.8% 0.121 155)",
+        "tonalRamp": ["oklch(15% 0.121 155)", "oklch(25% 0.121 155)", "oklch(35% 0.121 155)", "oklch(45% 0.121 155)", "oklch(55% 0.121 155)", "oklch(70% 0.121 155)", "oklch(85% 0.085 155)", "oklch(95% 0.042 155)"]
+      },
+      "success-tint": { "role": "semantic", "displayName": "Verde tinta", "canonical": "#e6f4ec" },
+      "error": {
+        "role": "semantic",
+        "displayName": "Vermelho",
+        "canonical": "oklch(55.1% 0.188 28)",
+        "tonalRamp": ["oklch(15% 0.188 28)", "oklch(25% 0.188 28)", "oklch(35% 0.188 28)", "oklch(45% 0.188 28)", "oklch(55% 0.188 28)", "oklch(70% 0.188 28)", "oklch(85% 0.132 28)", "oklch(95% 0.066 28)"]
+      },
+      "error-tint": { "role": "semantic", "displayName": "Vermelho tinta", "canonical": "#fbeaea" },
+      "warning": {
+        "role": "semantic",
+        "displayName": "Âmbar",
+        "canonical": "oklch(55.5% 0.146 49)",
+        "tonalRamp": ["oklch(15% 0.146 49)", "oklch(25% 0.146 49)", "oklch(35% 0.146 49)", "oklch(45% 0.146 49)", "oklch(55% 0.146 49)", "oklch(70% 0.146 49)", "oklch(85% 0.102 49)", "oklch(95% 0.051 49)"]
+      },
+      "warning-tint": { "role": "semantic", "displayName": "Âmbar tinta", "canonical": "#fdf1e3" },
+      "info": {
+        "role": "semantic",
+        "displayName": "Azul",
+        "canonical": "oklch(47.0% 0.141 260)",
+        "tonalRamp": ["oklch(15% 0.141 260)", "oklch(25% 0.141 260)", "oklch(35% 0.141 260)", "oklch(45% 0.141 260)", "oklch(55% 0.141 260)", "oklch(70% 0.141 260)", "oklch(85% 0.098 260)", "oklch(95% 0.049 260)"]
+      },
+      "info-tint": { "role": "semantic", "displayName": "Azul tinta", "canonical": "#e8effa" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Só o H1 da home (40px; 32px no celular), com text-wrap: balance." },
+      "headline": { "displayName": "Headline", "purpose": "H1 de toda página de ferramenta, DDD e apoio." },
+      "title": { "displayName": "Title", "purpose": "H2 de seções e nomes de categoria na home." },
+      "title-sm": { "displayName": "Title-sm", "purpose": "H3 dentro do conteúdo explicativo." },
+      "title-xs": { "displayName": "Title-xs", "purpose": "Nome da ferramenta nas linhas de diretório, pergunta do FAQ, wordmark." },
+      "body": { "displayName": "Body", "purpose": "Frase de apoio sob o H1 e parágrafos do conteúdo explicativo, em ink-secondary." },
+      "body-sm": { "displayName": "Body-sm", "purpose": "Descrições, links de rodapé e menu, células de tabela, alertas; fontSize base do tema (15px)." },
+      "label": { "displayName": "Label", "purpose": "Botões, navegação, rótulo do ResultBox, subtítulos de controle, segmentos e chips. Sentence case, sem tracking." },
+      "caption": { "displayName": "Caption", "purpose": "Linha de meta, texto de ajuda, marcas de slider, tooltip." },
+      "table-head": { "displayName": "Table-head", "purpose": "Cabeçalho de tabela em maiúsculas; a única caixa alta do sistema (convenção tabular)." },
+      "result": { "displayName": "Result", "purpose": "Valor copiável dentro do ResultBox: mono 500, 28px (21,6px no celular), tabular-nums." },
+      "result-sm": { "displayName": "Result-sm", "purpose": "Valores longos (chaves, links) no ResultBox size=md: 18px (16px no celular)." },
+      "code": { "displayName": "Code", "purpose": "Blocos pre sobre grafite e code inline sobre surface-sunken." }
+    },
+    "shadows": [
+      { "name": "menu-floating", "value": "0 12px 32px -8px rgba(21,23,29,0.18), 0 2px 6px rgba(21,23,29,0.06)", "purpose": "Submenu do cabeçalho, Menu, Popover, Select aberto. A única sombra estrutural do sistema." },
+      { "name": "thumb-switch", "value": "0 1px 2px rgba(21,23,29,0.2)", "purpose": "Thumb do switch; textura de controle, não elevação." },
+      { "name": "thumb-slider", "value": "0 1px 3px rgba(21,23,29,0.15)", "purpose": "Thumb do slider." },
+      { "name": "focus-ring", "value": "0 0 0 5px #e2d9fa", "purpose": "Halo de foco por teclado em botões e links, com outline: 2px solid #5b2fd1; outline-offset: 2px." },
+      { "name": "focus-ring-input", "value": "0 0 0 3px #e2d9fa", "purpose": "Halo de foco de campos, com borda 1.5px em #5b2fd1. Com erro: 0 0 0 3px #fbeaea." },
+      { "name": "slider-halo", "value": "0 0 0 6px #efeafc", "purpose": "Hover e foco do thumb do slider." },
+      { "name": "segment-selected-inset", "value": "inset 0 0 0 1px #e4e7ec", "purpose": "Contorno interno do segmento selecionado no controle segmentado." },
+      { "name": "tonal-on-result-inset", "value": "inset 0 0 0 1.5px #e2d9fa", "purpose": "Botão tonal sobre o ResultBox, que vira branco com contorno interno." }
+    ],
+    "motion": [
+      { "name": "state-150", "value": "150ms", "purpose": "Transição padrão de estado (background-color, color, box-shadow, transform, border-color) em botões, links, campos, linhas." },
+      { "name": "ease-out-spring", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Mola do Copiado (transform 220ms, scale 1.04) e retorno do ResultBox (background-color 400ms)." },
+      { "name": "flash-in", "value": "60ms", "purpose": "O ResultBox pisca do violeta claro ao branco em 60ms ao copiar; volta em 400ms com ease-out-spring." },
+      { "name": "copied-hold", "value": "1800ms", "purpose": "Tempo que o botão fica em Copiado (verde) antes de voltar." },
+      { "name": "reduced-motion", "value": "0.01ms", "purpose": "prefers-reduced-motion: reduce zera toda animação e transição e desliga scroll-behavior: smooth." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "600px" },
+      { "name": "md", "value": "900px" },
+      { "name": "lg", "value": "1200px" }
+    ],
+    "layout": {
+      "container": "1200px",
+      "articleColumn": "820px",
+      "proseColumn": "680px",
+      "headerHeight": "64px (60px < md)",
+      "scrollMarginTop": "88px",
+      "borderWidths": { "hairline": "1px #e4e7ec", "field": "1.5px #d3d7df" }
+    }
+  },
+  "components": [
+    {
+      "name": "Botão primário",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ação principal da vista: um só por tela. Violeta sólido, 48px, raio 10px, sem borda, sem elevação.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M15 1H4c-1.1 0-2 .9-2 2v13c0 .55.45 1 1 1s1-.45 1-1V4c0-.55.45-1 1-1h10c.55 0 1-.45 1-1s-.45-1-1-1zm4 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-1 16H9c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1z\"/></svg>Copiar</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; min-width: 132px; padding: 0 22px; background: #5b2fd1; color: #fff; font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0; border: 0; border-radius: 10px; cursor: pointer; transition: background-color 150ms, color 150ms, box-shadow 150ms, transform 150ms; } .ds-btn-primary:hover { background: #4a25ad; } .ds-btn-primary:active { background: #3c1d8f; transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid #5b2fd1; outline-offset: 2px; box-shadow: 0 0 0 5px #e2d9fa; }"
+    },
+    {
+      "name": "Botão Copiado",
+      "kind": "button",
+      "refersTo": "button-primary-copied",
+      "description": "Estado do botão Copiar por 1,8s após copiar: verde sólido, ícone Check, scale(1.04) com mola ease-out de 220ms. A única animação autoral do site, junto com o piscar do ResultBox.",
+      "html": "<button class=\"ds-btn-copied\" aria-live=\"polite\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M9 16.17 5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41L9 16.17z\"/></svg>Copiado</button>",
+      "css": ".ds-btn-copied { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; min-width: 132px; padding: 0 22px; background: #1a7f4b; color: #fff; font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: 1rem; font-weight: 600; border: 0; border-radius: 10px; cursor: pointer; transform: scale(1.04); transition: background-color 150ms, color 150ms, transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-copied:focus-visible { outline: 2px solid #5b2fd1; outline-offset: 2px; box-shadow: 0 0 0 5px #e2d9fa; }"
+    },
+    {
+      "name": "Botão tonal",
+      "kind": "button",
+      "refersTo": "button-tonal",
+      "description": "Ação secundária: fundo violeta claro, texto violeta, sem borda. Sobre o ResultBox vira branco com contorno interno de 1,5px.",
+      "html": "<button class=\"ds-btn-tonal\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M17.65 6.35a7.95 7.95 0 0 0-6.48-2.31c-3.67.37-6.69 3.35-7.1 7.02C3.52 15.91 7.27 20 12 20a7.98 7.98 0 0 0 7.21-4.56c.32-.67-.16-1.44-.9-1.44-.37 0-.72.2-.88.53a5.994 5.994 0 0 1-6.8 3.31c-2.22-.49-4.01-2.3-4.48-4.52A6.002 6.002 0 0 1 12 6c1.66 0 3.14.69 4.22 1.78l-1.51 1.51c-.63.63-.19 1.71.7 1.71H19c.55 0 1-.45 1-1V6.41c0-.89-1.08-1.34-1.71-.71l-.64.65z\"/></svg>Gerar outra</button>",
+      "css": ".ds-btn-tonal { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px; background: #efeafc; color: #5b2fd1; font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: 1rem; font-weight: 600; border: 0; border-radius: 10px; cursor: pointer; transition: background-color 150ms, color 150ms, box-shadow 150ms, transform 150ms; } .ds-btn-tonal:hover { background: #e2d9fa; } .ds-btn-tonal:active { transform: translateY(1px); } .ds-btn-tonal:disabled { background: #f1f2f6; color: #8a90a0; cursor: default; } .ds-btn-tonal:focus-visible { outline: 2px solid #5b2fd1; outline-offset: 2px; box-shadow: 0 0 0 5px #e2d9fa; }"
+    },
+    {
+      "name": "Campo de texto",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "OutlinedInput de 48px com borda de 1,5px em filete forte, raio 10px; foco com borda violeta e halo de 3px.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Número do WhatsApp</span><input class=\"ds-input\" type=\"text\" placeholder=\"(11) 91234-5678\" /><span class=\"ds-field-help\">Com DDD, sem o +55.</span></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif; max-width: 360px; } .ds-field-label { font-size: 0.8125rem; font-weight: 500; color: #5f6675; } .ds-input { min-height: 48px; padding: 12.5px 14px; background: #fff; color: #15171d; font: inherit; font-size: 0.9375rem; border: 1.5px solid #d3d7df; border-radius: 10px; caret-color: #5b2fd1; transition: box-shadow 150ms, border-color 150ms; } .ds-input::placeholder { color: #8a90a0; } .ds-input:hover { border-color: #8a90a0; } .ds-input:focus { outline: none; border-color: #5b2fd1; box-shadow: 0 0 0 3px #e2d9fa; } .ds-field:focus-within .ds-field-label { color: #5b2fd1; } .ds-field-help { font-size: 0.8125rem; color: #5f6675; margin-left: 2px; }"
+    },
+    {
+      "name": "ResultBox",
+      "kind": "custom",
+      "refersTo": "result-box",
+      "description": "Área de resultado padrão: superfície violeta clara com borda tinta forte, rótulo em sentence case, valor em JetBrains Mono 28px com tabular-nums, ações à direita (abaixo no celular). Pisca para branco em 60ms ao copiar e volta em 400ms.",
+      "html": "<div class=\"ds-result\"><div class=\"ds-result-label\">CPF gerado</div><div class=\"ds-result-row\"><output class=\"ds-result-value\" aria-live=\"polite\">842.662.756-09</output><div class=\"ds-result-actions\"><button class=\"ds-result-primary\">Copiar</button><button class=\"ds-result-secondary\">Gerar outro</button></div></div></div>",
+      "css": ".ds-result { position: relative; padding: 20px; background: #efeafc; border: 1px solid #e2d9fa; border-radius: 14px; font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif; transition: background-color 400ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-result.is-flash { background: #fff; transition: background-color 60ms; } .ds-result-label { font-size: 0.9375rem; font-weight: 600; color: #5b2fd1; margin-bottom: 8px; } .ds-result-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; } .ds-result-value { flex: 1; min-width: 0; display: block; font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 1.75rem; font-weight: 500; line-height: 1.35; letter-spacing: 0.01em; font-variant-numeric: tabular-nums; word-break: break-all; color: #15171d; } .ds-result-actions { display: flex; gap: 8px; flex-shrink: 0; flex-wrap: wrap; } .ds-result-primary, .ds-result-secondary { min-height: 48px; padding: 0 22px; font: inherit; font-size: 1rem; font-weight: 600; border: 0; border-radius: 10px; cursor: pointer; transition: background-color 150ms, color 150ms, box-shadow 150ms, transform 150ms; } .ds-result-primary { min-width: 132px; background: #5b2fd1; color: #fff; } .ds-result-primary:hover { background: #4a25ad; } .ds-result-secondary { background: #fff; color: #5b2fd1; box-shadow: inset 0 0 0 1.5px #e2d9fa; } .ds-result-secondary:hover { background: #f1f2f6; } .ds-result-primary:focus-visible, .ds-result-secondary:focus-visible { outline: 2px solid #5b2fd1; outline-offset: 2px; box-shadow: 0 0 0 5px #e2d9fa; }"
+    },
+    {
+      "name": "Painel da ferramenta",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Paper branco com filete de 1px e raio 14px, padding 24px, sem sombra. Envolve toda a parte interativa de cada ferramenta.",
+      "html": "<section class=\"ds-panel\"><p class=\"ds-panel-text\">Campos e opções da ferramenta ficam aqui, acima do conteúdo explicativo.</p></section>",
+      "css": ".ds-panel { padding: 24px; background: #fff; border: 1px solid #e4e7ec; border-radius: 14px; font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-panel-text { margin: 0; font-size: 0.9375rem; line-height: 1.6; color: #5f6675; }"
+    },
+    {
+      "name": "Linha de diretório",
+      "kind": "card",
+      "refersTo": "tool-row",
+      "description": "Item da lista de ferramentas na home e em Outras ferramentas: ícone em quadrado tingido, nome 17/600, descrição 15 e seta. Hover troca filete e fundo, sem sombra.",
+      "html": "<a class=\"ds-tool-row\" href=\"#\"><span class=\"ds-tool-icon\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12.65 10A5.99 5.99 0 0 0 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6a5.99 5.99 0 0 0 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z\"/></svg></span><span class=\"ds-tool-body\"><span class=\"ds-tool-name\">Gerador de senha</span><span class=\"ds-tool-desc\">Senhas fortes e frases-senha em português, sem sair do navegador.</span></span><svg class=\"ds-tool-arrow\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7c-.38-.38-1.02-.38-1.41.01z\"/></svg></a>",
+      "css": ".ds-tool-row { display: flex; align-items: center; gap: 14px; min-height: 76px; padding: 12px 16px; background: #fff; border: 1px solid #e4e7ec; border-radius: 14px; color: #15171d; text-decoration: none; font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif; transition: border-color 150ms, box-shadow 150ms, background-color 150ms; } .ds-tool-row:hover { border-color: #e2d9fa; background: #fbfaff; } .ds-tool-icon { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; border-radius: 10px; background: #efeafc; color: #5b2fd1; transition: background-color 150ms; } .ds-tool-row:hover .ds-tool-icon { background: #e2d9fa; } .ds-tool-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; } .ds-tool-name { font-size: 1.0625rem; font-weight: 600; line-height: 1.3; } .ds-tool-desc { font-size: 0.9375rem; line-height: 1.6; color: #5f6675; } .ds-tool-arrow { flex-shrink: 0; color: #8a90a0; transition: color 150ms, transform 150ms; } .ds-tool-row:hover .ds-tool-arrow { color: #5b2fd1; transform: translateX(2px); } .ds-tool-row:focus-visible { outline: 2px solid #5b2fd1; outline-offset: 2px; box-shadow: 0 0 0 5px #e2d9fa; }"
+    },
+    {
+      "name": "Navegação do cabeçalho",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Cabeçalho branco de 64px com filete inferior: símbolo e wordmark à esquerda, quatro categorias com seta à direita. Link em 15/600 grafite secundário; hover grafite sobre cinza 4%.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-logo\" href=\"#\"><svg width=\"28\" height=\"28\" viewBox=\"0 0 32 32\" aria-hidden=\"true\"><rect width=\"32\" height=\"32\" rx=\"9\" fill=\"#5b2fd1\"/><path d=\"M16 6c.9 5.2 4.8 9.1 10 10-5.2.9-9.1 4.8-10 10-.9-5.2-4.8-9.1-10-10 5.2-.9 9.1-4.8 10-10z\" fill=\"#fff\"/></svg><span class=\"ds-wordmark\">oAlexandre <em>Toys</em></span></a><nav class=\"ds-nav\" aria-label=\"Categorias\"><a class=\"ds-nav-link\" href=\"#\">Segurança<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M15.88 9.29 12 13.17 8.12 9.29a.996.996 0 1 0-1.41 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41c-.39-.38-1.03-.39-1.42 0z\"/></svg></a><a class=\"ds-nav-link\" href=\"#\">Documentos<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M15.88 9.29 12 13.17 8.12 9.29a.996.996 0 1 0-1.41 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41c-.39-.38-1.03-.39-1.42 0z\"/></svg></a><a class=\"ds-nav-link is-open\" href=\"#\">Comunicação<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M15.88 9.29 12 13.17 8.12 9.29a.996.996 0 1 0-1.41 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41c-.39-.38-1.03-.39-1.42 0z\"/></svg></a><a class=\"ds-nav-link\" href=\"#\">Utilitários<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M15.88 9.29 12 13.17 8.12 9.29a.996.996 0 1 0-1.41 1.41l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41c-.39-.38-1.03-.39-1.42 0z\"/></svg></a></nav></header>",
+      "css": ".ds-header { display: flex; align-items: center; gap: 16px; min-height: 64px; padding: 0 24px; background: #fff; border-bottom: 1px solid #e4e7ec; font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-logo { display: inline-flex; align-items: center; gap: 10px; color: #15171d; text-decoration: none; border-radius: 8px; } .ds-wordmark { font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1; } .ds-wordmark em { font-style: normal; color: #5b2fd1; } .ds-nav { display: flex; gap: 4px; margin-left: auto; } .ds-nav-link { display: inline-flex; align-items: center; gap: 2px; padding: 8px 12px; border-radius: 8px; font-size: 0.9375rem; font-weight: 600; color: #5f6675; text-decoration: none; transition: background-color 150ms, color 150ms; } .ds-nav-link svg { opacity: 0.6; } .ds-nav-link:hover, .ds-nav-link.is-open { color: #15171d; background: rgba(21, 23, 29, 0.04); } .ds-nav-link:focus-visible, .ds-logo:focus-visible { outline: 2px solid #5b2fd1; outline-offset: 2px; box-shadow: 0 0 0 5px #e2d9fa; }"
+    },
+    {
+      "name": "Submenu flutuante",
+      "kind": "nav",
+      "refersTo": "menu-item",
+      "description": "Lista de ferramentas de uma categoria: papel branco de 272px com filete, raio 12px e a única sombra do sistema; itens 15/500 com ícone violeta, o ativo em violeta tinta.",
+      "html": "<ul class=\"ds-menu\"><li><a class=\"ds-menu-item\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-6 12H6v-2h8v2zm0-4H6v-2h8v2zm4 4h-2v-6h2v6z\"/></svg>Link de WhatsApp</a></li><li><a class=\"ds-menu-item is-active\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M19.23 15.26l-2.54-.29a1.99 1.99 0 0 0-1.64.57l-1.84 1.84a15.045 15.045 0 0 1-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52a2.001 2.001 0 0 0-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z\"/></svg>Consulta de DDD</a></li></ul>",
+      "css": ".ds-menu { list-style: none; margin: 0; padding: 6px; min-width: 272px; background: #fff; border: 1px solid #e4e7ec; border-radius: 12px; box-shadow: 0 12px 32px -8px rgba(21,23,29,0.18), 0 2px 6px rgba(21,23,29,0.06); font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-menu-item { display: flex; align-items: center; gap: 10px; padding: 8.8px 10px; border-radius: 8px; font-size: 0.9375rem; font-weight: 500; color: #15171d; text-decoration: none; white-space: nowrap; transition: background-color 150ms, color 150ms; } .ds-menu-item svg { color: #5b2fd1; } .ds-menu-item:hover { background: rgba(21, 23, 29, 0.04); color: #5b2fd1; } .ds-menu-item.is-active { background: #efeafc; color: #5b2fd1; } .ds-menu-item:focus-visible { outline: 2px solid #5b2fd1; outline-offset: 2px; box-shadow: 0 0 0 5px #e2d9fa; }"
+    },
+    {
+      "name": "Controle segmentado",
+      "kind": "chip",
+      "refersTo": "segmented-control",
+      "description": "ToggleButtonGroup: calha cinza afundada com padding 4px e raio 10px; o segmento selecionado é branco com contorno interno de 1px e raio 6px.",
+      "html": "<div class=\"ds-segmented\" role=\"group\" aria-label=\"Tipo de senha\"><button class=\"ds-segment is-selected\" aria-pressed=\"true\">Senha aleatória</button><button class=\"ds-segment\" aria-pressed=\"false\">Frase-senha</button></div>",
+      "css": ".ds-segmented { display: inline-flex; gap: 4px; padding: 4px; background: #f1f2f6; border-radius: 10px; font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif; } .ds-segment { min-height: 40px; padding: 0 16px; background: transparent; color: #5f6675; font: inherit; font-size: 0.9375rem; font-weight: 600; border: 0; border-radius: 6px; cursor: pointer; transition: background-color 150ms, color 150ms, box-shadow 150ms; } .ds-segment:hover { color: #15171d; } .ds-segment.is-selected { background: #fff; color: #15171d; box-shadow: inset 0 0 0 1px #e4e7ec; } .ds-segment:focus-visible { outline: 2px solid #5b2fd1; outline-offset: 2px; box-shadow: 0 0 0 5px #e2d9fa; }"
+    },
+    {
+      "name": "Alerta de aviso",
+      "kind": "custom",
+      "refersTo": "alert-warning",
+      "description": "Fundo âmbar tinta com texto âmbar escuro e ícone alinhado ao topo; raio 10px. Carrega o aviso obrigatório dos geradores de CPF e CNPJ.",
+      "html": "<div class=\"ds-alert-warning\" role=\"alert\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M4.47 21h15.06c1.54 0 2.5-1.67 1.73-3L13.73 4.99c-.77-1.33-2.69-1.33-3.46 0L2.74 18c-.77 1.33.19 3 1.73 3zM12 14c-.55 0-1-.45-1-1v-2c0-.55.45-1 1-1s1 .45 1 1v2c0 .55-.45 1-1 1zm1 4h-2v-2h2v2z\"/></svg><span>Números válidos apenas para testes de software. Não são documentos reais e não devem ser usados em cadastros.</span></div>",
+      "css": ".ds-alert-warning { display: flex; align-items: flex-start; gap: 12px; padding: 8px 16px; background: #fdf1e3; color: #7c3a06; border-radius: 10px; font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: 0.9375rem; line-height: 1.6; } .ds-alert-warning svg { flex-shrink: 0; margin-top: 4px; color: #b45309; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A ferramenta na frente",
+    "overview": "A página é a ferramenta; tudo o mais recua. Quem chega pelo Google vê o campo, o resultado e o botão Copiar antes de qualquer explicação, e quem volta todo dia encontra o mesmo lugar, o mesmo botão, a mesma resposta. O sistema é o padrão da categoria de sites de utilitários levado ao acabamento de Stripe Docs e 1Password (confiança, controles precisos, leitura confortável) e de Nubank e Pix (amigável, mobile-first, botões grandes, linguagem simples). Não há hero de marketing, não há grade de cards iguais, não há cromo que não sirva à tarefa.\n\nA voz visual é confiável, amigável e calma. Uma família tipográfica (Onest) para tudo, uma mono (JetBrains Mono) só para o que se copia, um acento violeta profundo que aparece onde há ação e em mais lugar nenhum. As superfícies são planas: branco sobre cinza-neve, separadas por filetes de 1px, sem sombra em repouso. A densidade é confortável, não compacta: controles de 48px, corpo de 17px, coluna de leitura de 820px.\n\nAnti-referências confirmadas pelo autor: nenhum \"visual de IA\" (fundo creme com serifa e terracota; quase-preto com neon; editorial de filetes finos com rótulos em mono), nenhum emoji em título, nenhum texto inflado com palavras-chave. Direções temáticas (talão de recibo, calculadora, sinalização) foram apresentadas e recusadas.",
+    "keyCharacteristics": [
+      "A ferramenta ocupa a primeira dobra em toda página de ferramenta; o texto explicativo começa abaixo dela.",
+      "Um acento (violeta) para ação, seleção e foco; nunca decoração.",
+      "Uma família sans para toda a interface; mono só em resultados, dados e código.",
+      "Plano por padrão: filetes de 1px, sombra apenas em menus flutuantes.",
+      "Controles de 48px, raio de 10px em controles e 14px em painéis, sem exceção.",
+      "Uma única animação autoral: Copiar vira Copiado em verde e o resultado pisca do violeta claro ao branco."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "O violeta aparece só onde há ação, seleção ou foco. Nenhum fundo de seção, nenhuma ilustração, nenhum título recebe o acento; o único violeta \"de marca\" é a palavra \"Toys\" e o símbolo de 32px.", "section": "colors" },
+      { "name": "The Tinted Ground Rule", "body": "Estado semântico é sempre fundo tingido mais texto escuro da mesma família, nunca cor sólida com texto branco. As únicas superfícies sólidas coloridas são o botão primário (violeta), o botão Copiado (verde) e o tooltip (grafite).", "section": "colors" },
+      { "name": "The Hairline Rule", "body": "Toda separação entre superfícies é um filete de 1px em `line`; campos usam 1,5px em `line-strong`. Não existe divisória mais grossa nem cor de borda fora desses dois tokens.", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Toda a interface usa Onest. Não existe fonte de display, nem serifa, nem segunda sans. A única outra família é a mono, e ela só aparece em valores copiáveis e código.", "section": "typography" },
+      { "name": "The Sentence Case Rule", "body": "Botões, rótulos, navegação e títulos ficam em sentence case sem tracking. A única caixa alta é o cabeçalho de tabela (13px, 0.02em). Não há kickers, eyebrows nem rótulos espaçados.", "section": "typography" },
+      { "name": "The Floating-Only Shadow Rule", "body": "Sombra com deslocamento e desfoque só em superfícies que flutuam sobre outras (menus, popovers). Painéis, cards, linhas de diretório e o ResultBox nunca recebem sombra, nem em hover; o hover é filete e fundo.", "section": "elevation" },
+      { "name": "The Halo Focus Rule", "body": "Foco é sempre um anel violeta claro (`accent-tint-strong`) ao redor do elemento, nunca uma mudança de cor de fundo sozinha. Botões e links: contorno de 2px mais halo de 5px; campos: halo de 3px mais borda violeta.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do colocar a ferramenta (painel branco com ResultBox) logo abaixo do H1, da frase de apoio e da linha de meta; o conteúdo explicativo começa depois do painel.",
+      "Do usar um único botão primário sólido por vista; toda outra ação é tonal (`accent-tint` + violeta) ou só texto.",
+      "Do manter controles de 48px (`size=\"large\"` em botões, `OutlinedInput` padrão) para a ação principal e 40px (`small`) para opções secundárias.",
+      "Do usar raio 10px em controles e 14px em painéis e linhas; 8px em chips, tooltips e itens de menu; 12px em menus flutuantes e blocos de código.",
+      "Do separar superfícies com filete de 1px em `line`; campos com 1,5px em `line-strong`.",
+      "Do mostrar valores copiáveis em JetBrains Mono 500 com `tabular-nums` dentro de um ResultBox, com o botão Copiar ao lado (abaixo no celular).",
+      "Do usar fundo tingido mais texto escuro para estados semânticos e alertas (`*-tint` + tom escuro).",
+      "Do manter o anel de foco: contorno de 2px violeta mais halo de 5px em `accent-tint-strong` (3px em campos).",
+      "Do usar ícones Material Rounded em ações e cromo, um só peso, geralmente `fontSize=\"small\"`.",
+      "Do escrever títulos, rótulos e botões em sentence case, sem tracking e sem emoji."
+    ],
+    "donts": [
+      "Don't adicionar sombra a painéis, cards, linhas de diretório ou ResultBox, nem em hover; sombra é só de menu flutuante.",
+      "Don't usar o violeta como decoração (fundo de seção, título, ilustração, gradiente); ele marca ação, seleção e foco.",
+      "Don't introduzir outra família tipográfica, serifa ou face de display; nem usar a mono fora de resultados, dados e código.",
+      "Don't usar caixa alta, kickers, eyebrows ou rótulos espaçados; a única maiúscula é o cabeçalho de tabela.",
+      "Don't criar hero de marketing, grade de cards iguais com ilustração, ou qualquer bloco que empurre a ferramenta para baixo da dobra.",
+      "Don't usar cor sólida com texto branco para estados semânticos; só o botão primário, o Copiado e o tooltip são sólidos.",
+      "Don't adicionar animação além da mola do Copiado e do piscar do ResultBox; transições de estado ficam em 150ms.",
+      "Don't usar fundo creme, terracota, quase-preto com neon ou filetes editoriais com rótulos em mono (o \"visual de IA\" recusado pelo autor).",
+      "Don't usar o avatar pixel art como logo; ele pertence só à página Sobre."
+    ]
+  }
+}

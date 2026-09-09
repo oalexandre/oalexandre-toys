@@ -1,16 +1,14 @@
-import {
-  AttachMoney,
-  Badge,
-  Casino,
-  FactCheck,
-  Key,
-  Phone,
-  Public,
-  QrCode2,
-  Shield,
-  Store,
-  WhatsApp,
-} from "@mui/icons-material";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoneyRounded";
+import BadgeIcon from "@mui/icons-material/BadgeRounded";
+import CasinoIcon from "@mui/icons-material/CasinoRounded";
+import FactCheckIcon from "@mui/icons-material/FactCheckRounded";
+import KeyIcon from "@mui/icons-material/KeyRounded";
+import PhoneIcon from "@mui/icons-material/PhoneRounded";
+import PublicIcon from "@mui/icons-material/PublicRounded";
+import QrCode2Icon from "@mui/icons-material/QrCode2Rounded";
+import ShieldIcon from "@mui/icons-material/ShieldRounded";
+import StoreIcon from "@mui/icons-material/StoreRounded";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 import updatedDates from "./updated.json";
 
@@ -54,7 +52,7 @@ export const tools = [
     shortName: "Senha segura",
     description:
       "Crie senhas fortes e aleatórias direto no navegador, sem enviar nada para servidor.",
-    icon: Key,
+    icon: KeyIcon,
   },
   {
     slug: "gerador-de-django-secret-key",
@@ -62,7 +60,7 @@ export const tools = [
     name: "Gerador de Django SECRET_KEY",
     shortName: "Django SECRET_KEY",
     description: "Gere uma SECRET_KEY de 50 caracteres no formato que o Django espera.",
-    icon: Shield,
+    icon: ShieldIcon,
   },
   {
     slug: "qual-o-meu-ip",
@@ -70,7 +68,7 @@ export const tools = [
     name: "Qual é o meu IP",
     shortName: "Meu IP",
     description: "Veja seu IP público, provedor e localização aproximada.",
-    icon: Public,
+    icon: PublicIcon,
   },
   {
     slug: "gerador-de-cpf",
@@ -78,7 +76,7 @@ export const tools = [
     name: "Gerador de CPF",
     shortName: "Gerar CPF",
     description: "CPFs com dígitos verificadores válidos para testes de software.",
-    icon: Badge,
+    icon: BadgeIcon,
   },
   {
     slug: "gerador-de-cnpj",
@@ -86,7 +84,7 @@ export const tools = [
     name: "Gerador de CNPJ",
     shortName: "Gerar CNPJ",
     description: "CNPJs com dígitos verificadores válidos para testes de software.",
-    icon: Store,
+    icon: StoreIcon,
   },
   {
     slug: "validador-de-cpf-e-cnpj",
@@ -94,7 +92,7 @@ export const tools = [
     name: "Validador de CPF e CNPJ",
     shortName: "Validar CPF/CNPJ",
     description: "Confira se um CPF ou CNPJ tem dígitos verificadores corretos.",
-    icon: FactCheck,
+    icon: FactCheckIcon,
   },
   {
     slug: "gerador-de-link-de-whatsapp",
@@ -102,7 +100,7 @@ export const tools = [
     name: "Gerador de Link de WhatsApp",
     shortName: "Link de WhatsApp",
     description: "Monte um link wa.me com mensagem pronta e baixe o QR code.",
-    icon: WhatsApp,
+    icon: WhatsAppIcon,
   },
   {
     slug: "encontrar-ddd-do-celular",
@@ -110,7 +108,7 @@ export const tools = [
     name: "Encontrar DDD do Celular",
     shortName: "DDD do celular",
     description: "Descubra de qual estado é um número pelo DDD.",
-    icon: Phone,
+    icon: PhoneIcon,
   },
   {
     slug: "gerador-de-qrcode",
@@ -118,7 +116,7 @@ export const tools = [
     name: "Gerador de QR Code",
     shortName: "QR Code",
     description: "QR code em PNG com cores e logo personalizados, sem expiração.",
-    icon: QrCode2,
+    icon: QrCode2Icon,
   },
   {
     slug: "sorteador-automatico",
@@ -126,7 +124,7 @@ export const tools = [
     name: "Sorteador Automático",
     shortName: "Sorteador",
     description: "Sorteie números em um intervalo, com ou sem repetição.",
-    icon: Casino,
+    icon: CasinoIcon,
   },
   {
     slug: "cotacao-moeda",
@@ -134,7 +132,7 @@ export const tools = [
     name: "Conversor de Moedas",
     shortName: "Conversor de moedas",
     description: "Converta valores entre moedas com cotação de referência do dia.",
-    icon: AttachMoney,
+    icon: AttachMoneyIcon,
   },
 ].map(tool => {
   const path = `/${tool.category}/${tool.slug}`;

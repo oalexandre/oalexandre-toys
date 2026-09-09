@@ -1,0 +1,6 @@
+{
+  "files": ["pages/_document.js"],
+  "insertBefore": "</body>",
+  "commentSyntax": "jsx",
+  "cspChecked": true
+}

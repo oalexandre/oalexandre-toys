@@ -4,7 +4,7 @@ const Document = () => (
   <Html lang="pt-BR">
     <Head>
       <meta charSet="utf-8" />
-      <meta name="theme-color" content="#2f5bea" />
+      <meta name="theme-color" content="#5b2fd1" />
       <meta name="application-name" content="oAlexandre Toys" />
       <meta name="apple-mobile-web-app-title" content="oAlexandre Toys" />
       <meta name="author" content="Alexandre Klostermann" />
