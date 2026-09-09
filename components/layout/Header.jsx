@@ -37,12 +37,28 @@ const navLinkSx = {
 const Header = () => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  // Categoria com submenu aberto no desktop (só uma por vez).
+  const [submenu, setSubmenu] = useState(null);
 
   useEffect(() => {
-    const close = () => setOpen(false);
+    const close = () => {
+      setOpen(false);
+      setSubmenu(null);
+    };
     router.events.on("routeChangeStart", close);
-    return () => router.events.off("routeChangeStart", close);
+    router.events.on("hashChangeStart", close);
+    return () => {
+      router.events.off("routeChangeStart", close);
+      router.events.off("hashChangeStart", close);
+    };
   }, [router.events]);
+
+  useEffect(() => {
+    if (!submenu) return undefined;
+    const onKey = event => event.key === "Escape" && setSubmenu(null);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [submenu]);
 
   return (
     <AppBar
@@ -68,15 +84,20 @@ const Header = () => {
             {categories.map(category => (
               <Box
                 key={category.slug}
-                sx={{
-                  position: "relative",
-                  "&:hover > .submenu, &:focus-within > .submenu": { display: "block" },
+                sx={{ position: "relative" }}
+                onMouseEnter={() => setSubmenu(category.slug)}
+                onMouseLeave={() => setSubmenu(null)}
+                onBlur={event => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) setSubmenu(null);
                 }}
               >
                 <Box
                   component={Link}
                   href={`/#${category.slug}`}
                   aria-haspopup="true"
+                  aria-expanded={submenu === category.slug}
+                  onFocus={() => setSubmenu(category.slug)}
+                  onClick={() => setSubmenu(null)}
                   sx={{ ...navLinkSx, display: "inline-flex", alignItems: "center", gap: 0.25 }}
                 >
                   {category.name}
@@ -84,9 +105,8 @@ const Header = () => {
                 </Box>
 
                 <Box
-                  className="submenu"
+                  hidden={submenu !== category.slug}
                   sx={{
-                    display: "none",
                     position: "absolute",
                     top: "100%",
                     left: 0,
@@ -115,6 +135,7 @@ const Header = () => {
                           <Box
                             component={Link}
                             href={tool.path}
+                            onClick={() => setSubmenu(null)}
                             sx={{
                               display: "flex",
                               alignItems: "center",
