@@ -38,7 +38,7 @@ Por consequência, as ferramentas acabaram sendo realmente úteis e funcionais, 
 
 - **Framework**: Next.js 15 (Pages Router, SSG)
 - **UI Library**: React 18.2.0
-- **Design System**: Material-UI (MUI)
+- **Design System**: Material-UI (MUI) com tokens próprios; sistema documentado em `DESIGN.md`, produto em `PRODUCT.md`, convenções em `CLAUDE.md`
 - **Styling**: Emotion/CSS-in-JS
 - **PWA**: next-pwa com Service Workers
 - **Analytics**: Google Analytics 4
