@@ -1,83 +1,88 @@
-import { Info } from "@mui/icons-material";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import { styled } from "@mui/material";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import { useState } from "react";
+import { Box, Container, Divider, Grid, Typography } from "@mui/material";
+import Link from "next/link";
 
-const StyledDrawer = styled(Drawer)(({ theme }) => ({
-  "& .MuiDrawer-paper": {
-    boxSizing: "border-box",
-    width: "100%",
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-  },
-}));
+import { categories, getToolsByCategory } from "../../constants/tools";
 
-const StyledListItem = styled(ListItem)(({ theme }) => ({
-  color: theme.palette.primary.contrastText,
-}));
-
-const Footer = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleDrawer = open => event => {
-    if (event && event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
-      return;
-    }
-
-    setIsOpen(open);
-  };
-
-  const list = () => (
-    <Box
-      sx={{ width: 250 }}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
-    >
-      <List>
-        <StyledListItem>
-          <ListItemIcon>
-            <FacebookIcon />
-          </ListItemIcon>
-          <ListItemText primary="Facebook" />
-        </StyledListItem>
-        <StyledListItem>
-          <ListItemIcon>
-            <TwitterIcon />
-          </ListItemIcon>
-          <ListItemText primary="Twitter" />
-        </StyledListItem>
-        <StyledListItem>
-          <ListItemIcon>
-            <InstagramIcon />
-          </ListItemIcon>
-          <ListItemText primary="Instagram" />
-        </StyledListItem>
-      </List>
-      <Divider />
-    </Box>
-  );
-
-  return (
-    <>
-      <Button startIcon={<Info />} onClick={toggleDrawer(true)}>
-        Saiba mais
-      </Button>
-      <StyledDrawer anchor="bottom" open={isOpen} onClose={toggleDrawer(false)}>
-        {list()}
-      </StyledDrawer>
-    </>
-  );
+const footerLinkSx = {
+  display: "block",
+  fontSize: "0.9rem",
+  color: "text.secondary",
+  textDecoration: "none",
+  py: 0.5,
+  "&:hover": { color: "primary.main" },
 };
+
+const Footer = () => (
+  <Box
+    component="footer"
+    sx={{ mt: "auto", borderTop: 1, borderColor: "divider", bgcolor: "background.paper" }}
+  >
+    <Container maxWidth="lg" sx={{ py: { xs: 5, md: 7 } }}>
+      <Grid container spacing={4}>
+        {categories.map(category => (
+          <Grid item xs={6} md={3} key={category.slug}>
+            <Typography component="h2" variant="h4" sx={{ mb: 1.5 }}>
+              {category.name}
+            </Typography>
+            {getToolsByCategory(category.slug).map(tool => (
+              <Box key={tool.slug} component={Link} href={tool.path} sx={footerLinkSx}>
+                {tool.name}
+              </Box>
+            ))}
+          </Grid>
+        ))}
+      </Grid>
+
+      <Divider sx={{ my: 4 }} />
+
+      <Grid container spacing={3} alignItems="flex-start">
+        <Grid item xs={12} md={7}>
+          <Typography variant="body2" color="text.secondary">
+            Ferramentas gratuitas feitas por{" "}
+            <Box
+              component="a"
+              href="https://oalexandre.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ color: "primary.main" }}
+            >
+              Alexandre Klostermann
+            </Box>
+            . Tudo roda no seu navegador: nenhum dado digitado é enviado ou armazenado. Os geradores
+            de CPF e CNPJ produzem números matematicamente válidos apenas para testes de software.
+            As cotações de moeda são apenas referência.
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={5}>
+          <Box
+            sx={{ display: "flex", flexWrap: "wrap", gap: 2, justifyContent: { md: "flex-end" } }}
+          >
+            <Box component="a" href="mailto:eusou@oalexandre.com.br" sx={footerLinkSx}>
+              eusou@oalexandre.com.br
+            </Box>
+            <Box
+              component="a"
+              href="https://github.com/oalexandre/oalexandre-toys"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={footerLinkSx}
+            >
+              Código no GitHub
+            </Box>
+            <Box
+              component="a"
+              href="https://github.com/oalexandre/oalexandre-toys/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={footerLinkSx}
+            >
+              Sugerir ferramenta
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+    </Container>
+  </Box>
+);
 
 export default Footer;

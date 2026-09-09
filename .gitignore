@@ -16,6 +16,12 @@
 /.next/
 /out/
 
+# gerados pelo next-pwa no build
+/public/sw.js
+/public/workbox-*.js
+/public/sitemap*.xml
+/public/robots.txt
+
 # production
 /build
 /dist/

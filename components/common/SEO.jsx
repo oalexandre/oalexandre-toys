@@ -1,38 +1,42 @@
 import Head from "next/head";
 
-const SEO = ({ description, title, url, imageUrl, keywords }) => {
-  const baseUrl = "https://toys.oalexandre.com.br";
-  const fullUrl = `${baseUrl}${url}`;
-  const imageFullUrl = imageUrl
-    ? `${baseUrl}/previews${imageUrl}`
-    : `${baseUrl}/logos/oalexandre-logo.png`;
+import { SITE_NAME, SITE_URL } from "../../constants/tools";
+
+const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
+
+/**
+ * Meta tags de uma página. `title` deve ter até ~60 caracteres e
+ * `description` entre 120 e 160. `noindex` marca páginas utilitárias
+ * (404, offline) para não entrarem no índice.
+ */
+const SEO = ({ title, description, path = "/", image = DEFAULT_IMAGE, noindex = false }) => {
+  const url = `${SITE_URL}${path}`;
+  const fullTitle = path === "/" ? title : `${title} | ${SITE_NAME}`;
 
   return (
     <Head>
-      <title>{`${title} | oAlexandre Toys`}</title>
-      <meta name="title" content={title} />
+      <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={fullUrl} />
-      <meta name="robots" content="index, follow" />
-      <meta name="language" content="Portuguese" />
-      <meta name="author" content="Alexandre - oAlexandre.com.br" />
+      <link rel="canonical" href={url} />
+      <meta
+        name="robots"
+        content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"}
+      />
 
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={title} />
-      <meta property="og:url" content={fullUrl} />
-      <meta property="og:description" content={description} />
-      <meta property="og:site_name" content="oAlexandre Toys" />
-      <meta property="og:image" content={imageFullUrl} />
+      <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content="pt_BR" />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
 
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:url" content={fullUrl} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={imageFullUrl} />
-      <meta property="twitter:site" content="@oalexandre" />
-      <meta property="twitter:creator" content="@oalexandre" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
     </Head>
   );
 };

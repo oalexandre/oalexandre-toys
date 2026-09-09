@@ -36,7 +36,7 @@ Por consequência, as ferramentas acabaram sendo realmente úteis e funcionais, 
 
 ## 💻 Stack Tecnológica
 
-- **Framework**: Next.js 12.2.2
+- **Framework**: Next.js 15 (Pages Router, SSG)
 - **UI Library**: React 18.2.0
 - **Design System**: Material-UI (MUI)
 - **Styling**: Emotion/CSS-in-JS
@@ -44,20 +44,20 @@ Por consequência, as ferramentas acabaram sendo realmente úteis e funcionais, 
 - **Analytics**: Google Analytics 4
 - **Code Quality**: ESLint + Prettier
 - **SEO**: Schema.org structured data
-- **Runtime**: Node.js >= 22.20.0
+- **Runtime**: Node.js 20 ou superior
 
 ## 📦 Como Executar
 
 ### Pré-requisitos
-- Node.js 22.20.0 ou superior
+- Node.js 20 ou superior
 - npm
 
 ### Instalação
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/oalexandre/whatsapp-link-genne.git
-   cd whatsapp-link-genne
+   git clone https://github.com/oalexandre/oalexandre-toys.git
+   cd oalexandre-toys
    ```
 
 2. Instale as dependências:
@@ -104,8 +104,8 @@ npm run fix-all      # Corrige lint + formatação de uma vez
 
 ### 🚀 **Deploy**
 ```bash
-npm run deploy      # Deploy para Vercel
-npm run staging     # Build para ambiente de staging
+npm run deploy      # Deploy de preview na Vercel (usa npx vercel)
+npm run prod        # Deploy de produção na Vercel
 ```
 
 ## 🌐 Produção
@@ -122,6 +122,21 @@ Para deploy na Vercel ou outro serviço, configure as seguintes variáveis:
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX  # ID do Google Analytics
 ```
 
+## 🗂️ Estrutura do Código
+
+```
+constants/tools.js   # Catálogo único das ferramentas (nome, rota, categoria, ícone)
+lib/                 # Lógica pura, sem React (senha, CPF/CNPJ, DDD, sorteio)
+features/<tool>/     # Componente interativo de cada ferramenta
+components/tool/     # ToolPage (template com breadcrumb, FAQ, schema e relacionadas)
+components/layout/   # Header, Footer e Layout
+pages/               # Uma pasta por rota; cada página só escreve texto e FAQ
+```
+
+Para adicionar uma ferramenta: registre em `constants/tools.js`, crie o componente em
+`features/`, e a página em `pages/<categoria>/<slug>/index.jsx` usando `ToolPage`.
+Menu, rodapé, home, sitemap e ferramentas relacionadas passam a incluí-la sozinhos.
+
 ## 🎯 **Características Técnicas**
 
 ### 🔒 **Privacidade & Segurança**
@@ -132,7 +147,7 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX  # ID do Google Analytics
 
 ### ⚡ **Performance & UX**
 - **PWA Completo**: Instalável e funciona offline
-- **SEO Otimizado**: Schema.org structured data em todas as páginas
+- **SEO**: title e description por página, canonical, Open Graph, sitemap e schema.org (SoftwareApplication, BreadcrumbList, FAQPage)
 - **Responsivo**: Design adaptativo para todos os dispositivos
 - **Acessibilidade**: ARIA labels e navegação semântica
 - **Analytics**: Rastreamento de uso com Google Analytics 4

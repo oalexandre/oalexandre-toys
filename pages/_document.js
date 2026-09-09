@@ -1,46 +1,25 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { Head, Html, Main, NextScript } from "next/document";
 
-const Document = () => {
-  return (
-    <Html lang="pt-BR">
-      <Head>
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+const Document = () => (
+  <Html lang="pt-BR">
+    <Head>
+      <meta charSet="utf-8" />
+      <meta name="theme-color" content="#2f5bea" />
+      <meta name="application-name" content="oAlexandre Toys" />
+      <meta name="apple-mobile-web-app-title" content="oAlexandre Toys" />
+      <meta name="author" content="Alexandre Klostermann" />
 
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="PWA App" />
-
-        <meta name="theme-color" content="#527dc6" />
-        <meta name="apple-mobile-web-app-status-bar" content="#527dc6" />
-
-        <link rel="shortcut icon" href="/logos/oalexandre-logo.png" />
-        <link rel="icon" href="/logos/oalexandre-logo.png" />
-
-        <link rel="icon" type="image/png" sizes="1200x630" href="/logos/oalexandre-logo.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/logos/oalexandre-logo.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/logos/oalexandre-logo.png" />
-        <link rel="apple-touch-icon" sizes="1200x630" href="/logos/oalexandre-logo.png" />
-        <link rel="apple-touch-icon" sizes="192x192" href="/logos/oalexandre-logo.png" />
-        <link rel="apple-touch-icon" sizes="512x512" href="/logos/oalexandre-logo.png" />
-
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Montserrat:wght@100;300;400;500;700&family=Roboto+Mono&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  );
-};
+      <link rel="icon" href="/favicon.ico" sizes="48x48" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+      <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+      <link rel="manifest" href="/manifest.json" />
+    </Head>
+    <body>
+      <Main />
+      <NextScript />
+    </body>
+  </Html>
+);
 
 export default Document;

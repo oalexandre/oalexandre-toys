@@ -1,181 +1,109 @@
-import { Code, CloudOff, Speed, Build, WebAsset } from "@mui/icons-material";
-import { Typography, Box, Chip, Divider, Alert } from "@mui/material";
-import { useState } from "react";
+import { Box, Grid, Typography } from "@mui/material";
 
-import PageTitle from "../components/common/PageTitle";
+import JsonLd from "../components/common/JsonLd";
 import SEO from "../components/common/SEO";
-import BottomMenu from "../components/layout/BottomMenu";
-import {
-  utilsRoutes,
-  comunicacaoRoutes,
-  documentosRoutes,
-  navItems,
-  securityRoutes,
-  allRoutes,
-} from "../constants/routes";
-import CardLinks from "../features/Home/CardLinks";
+import ToolCard from "../components/tool/ToolCard";
+import { categories, getToolsByCategory, SITE_NAME, SITE_URL, tools } from "../constants/tools";
 
-const Home = () => {
-  const [screen, setScreen] = useState("allRoutes");
+const DESCRIPTION =
+  "Ferramentas online gratuitas que rodam no seu navegador: gerador de senha, QR code, link de WhatsApp, gerador e validador de CPF e CNPJ, sorteador e conversor de moedas.";
 
-  const handleScreen = (_, newScreen) => {
-    setScreen(newScreen);
-  };
-  return (
-    <>
-      <SEO
-        description="Coleção de ferramentas práticas online gratuitas: gerador de senhas, QR codes, links WhatsApp, validador CPF/CNPJ, sorteador automático e conversor de moedas. Feito com Next.js para uso diário."
-        title="oAlexandre Toys - Ferramentas Online Gratuitas para o Dia a Dia"
-        url="/"
-        imageUrl="/oalexandre-toys-home.png"
-        keywords="ferramentas online, gerador senha, QR code, WhatsApp, CPF CNPJ, sorteador, conversor moeda, ferramentas gratuitas, utilitários web, Next.js, React"
-      />
+const Home = () => (
+  <>
+    <SEO title={`${SITE_NAME} · Ferramentas online gratuitas`} description={DESCRIPTION} path="/" />
+    <JsonLd
+      data={[
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: SITE_NAME,
+          url: SITE_URL,
+          inLanguage: "pt-BR",
+          description: DESCRIPTION,
+          author: {
+            "@type": "Person",
+            name: "Alexandre Klostermann",
+            url: "https://oalexandre.com.br",
+          },
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Ferramentas",
+          itemListElement: tools.map((tool, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: tool.name,
+            url: `${SITE_URL}${tool.path}`,
+          })),
+        },
+      ]}
+    />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            name: "oAlexandre Toys",
-            description:
-              "Coleção de ferramentas práticas online gratuitas: gerador de senhas, QR codes, links WhatsApp, validador CPF/CNPJ, sorteador automático e conversor de moedas.",
-            url: "https://toys.oalexandre.com.br",
-            applicationCategory: "WebApplication",
-            operatingSystem: "Any",
-            offers: {
-              "@type": "Offer",
-              price: "0",
-              priceCurrency: "BRL",
-            },
-            author: {
-              "@type": "Person",
-              name: "Alexandre",
-              url: "https://oalexandre.com.br",
-            },
-            inLanguage: "pt-BR",
-            isAccessibleForFree: true,
-            applicationSubCategory: "Productivity",
-            featureList: [
-              "Gerador de senhas seguras",
-              "Gerador de QR codes",
-              "Gerador de links WhatsApp",
-              "Validador de CPF e CNPJ",
-              "Gerador de CPF e CNPJ",
-              "Sorteador automático",
-              "Conversor de moedas",
-              "Descobrir DDD por região",
-              "Verificar IP público",
-            ],
-          }),
-        }}
-      />
+    <Box component="section" sx={{ maxWidth: 720, mb: { xs: 5, md: 7 } }}>
+      <Typography
+        component="h1"
+        variant="h1"
+        sx={{ fontSize: { xs: "2rem", md: "2.6rem" }, mb: 1.5 }}
+      >
+        Ferramentas online gratuitas, sem cadastro
+      </Typography>
+      <Typography variant="subtitle1" color="text.secondary" sx={{ fontSize: { md: "1.15rem" } }}>
+        {tools.length} utilitários para o dia a dia de quem trabalha com internet no Brasil. Tudo
+        roda no seu navegador: senhas, documentos e mensagens nunca saem do seu computador.
+      </Typography>
+    </Box>
 
-      <Box sx={{ maxWidth: 900, mx: "auto", mb: 4 }}>
-        <PageTitle sx={{ mb: 3 }}>oAlexandre Toys</PageTitle>
-
-        <Typography variant="h6" component="h2" sx={{ mb: 2, color: "primary.main" }}>
-          🧸 Ferramentas Práticas que Você Realmente Precisa
-        </Typography>
-
-        <Typography paragraph>
-          Bem-vindo ao <strong>oAlexandre Toys</strong>! Uma coleção de ferramentas online gratuitas
-          criadas para resolver problemas do dia a dia que eu mesmo enfrentava durante a semana.
-        </Typography>
-
-        <Alert severity="info" sx={{ mb: 3 }}>
-          <Typography variant="body2">
-            <strong>🎯 A Motivação:</strong> Criei estas ferramentas para treinar Next.js/React, mas
-            ao mesmo tempo resolver necessidades reais que apareciam no meu trabalho - como gerar
-            senhas seguras, criar QR codes permanentes, fazer sorteios transparentes ou validar
-            documentos brasileiros.
+    {categories.map(category => (
+      <Box
+        component="section"
+        key={category.slug}
+        id={category.slug}
+        aria-labelledby={`${category.slug}-titulo`}
+        sx={{ mb: { xs: 5, md: 6 }, scrollMarginTop: 80 }}
+      >
+        <Box sx={{ mb: 2 }}>
+          <Typography id={`${category.slug}-titulo`} component="h2" variant="h2">
+            {category.name}
           </Typography>
-        </Alert>
-
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, justifyContent: "center", mb: 3 }}>
-          <Chip icon={<Code />} label="100% Frontend" color="primary" variant="outlined" />
-          <Chip icon={<CloudOff />} label="Sem Backend" color="secondary" variant="outlined" />
-          <Chip icon={<Speed />} label="Processamento Local" color="success" variant="outlined" />
-          <Chip icon={<Build />} label="Ferramentas Práticas" color="warning" variant="outlined" />
-          <Chip icon={<WebAsset />} label="Next.js/React" color="info" variant="outlined" />
-        </Box>
-
-        <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 4 }}>
-          🔧 Por que estas ferramentas são diferentes?
-        </Typography>
-
-        <Typography component="ul" sx={{ pl: 3, mb: 3 }}>
-          <Typography component="li" variant="body1" paragraph>
-            <strong>Sem persistência de dados:</strong> Tudo roda no seu navegador, nada é salvo ou
-            enviado para servidores
-          </Typography>
-          <Typography component="li" variant="body1" paragraph>
-            <strong>APIs externas mínimas:</strong> Usamos apenas APIs públicas quando necessário
-            (como cotação de moedas)
-          </Typography>
-          <Typography component="li" variant="body1" paragraph>
-            <strong>Foco na privacidade:</strong> Suas senhas, textos e dados nunca saem do seu
-            dispositivo
-          </Typography>
-          <Typography component="li" variant="body1" paragraph>
-            <strong>Funciona offline:</strong> Após carregar, muitas ferramentas funcionam sem
-            internet
-          </Typography>
-          <Typography component="li" variant="body1" paragraph>
-            <strong>Gratuito para sempre:</strong> Sem cadastro, sem limites, sem pegadinhas
-          </Typography>
-        </Typography>
-
-        <Divider sx={{ my: 3 }} />
-
-        <Typography variant="h6" component="h3" gutterBottom>
-          🚀 Ferramentas Disponíveis
-        </Typography>
-
-        <Box sx={{ mb: 3 }}>
-          <Typography variant="body1" paragraph>
-            <strong>🔐 Segurança:</strong> Gerador de senhas criptograficamente seguras e descoberta
-            de IP público
-          </Typography>
-          <Typography variant="body1" paragraph>
-            <strong>📱 Comunicação:</strong> Gerador de links WhatsApp com mensagens e descoberta de
-            DDD por região
-          </Typography>
-          <Typography variant="body1" paragraph>
-            <strong>📄 Documentos:</strong> Gerador e validador de CPF/CNPJ com algoritmos oficiais
-            da Receita Federal
-          </Typography>
-          <Typography variant="body1" paragraph>
-            <strong>🛠️ Utilitários:</strong> QR codes que nunca expiram, sorteador para rifas e
-            conversor de moedas
+          <Typography variant="body2" color="text.secondary">
+            {category.description}
           </Typography>
         </Box>
-
-        <br />
-        <BottomMenu
-          sx={{ pl: 3, mb: 3 }}
-          screen={screen}
-          handleScreen={handleScreen}
-          navItems={navItems}
-        >
-          {screen === "allRoutes" && <CardLinks routes={allRoutes} />}
-          {screen === "comunicacao" && <CardLinks routes={comunicacaoRoutes} />}
-          {screen === "documentos" && <CardLinks routes={documentosRoutes} />}
-          {screen === "security" && <CardLinks routes={securityRoutes} />}
-          {screen === "utils" && <CardLinks routes={utilsRoutes} />}
-        </BottomMenu>
-
-        <Typography
-          variant="body2"
-          sx={{ fontStyle: "italic", color: "text.secondary", textAlign: "center" }}
-        >
-          "Cada ferramenta foi criada porque eu precisava dela na vida real. Se você também precisa,
-          é só usar - sem cadastro, sem custo, sem complicação." - Alexandre
-        </Typography>
+        <Grid container spacing={2}>
+          {getToolsByCategory(category.slug).map(tool => (
+            <Grid item xs={12} sm={6} md={4} key={tool.slug}>
+              <ToolCard tool={tool} />
+            </Grid>
+          ))}
+        </Grid>
       </Box>
-    </>
-  );
-};
+    ))}
+
+    <Box component="section" aria-labelledby="sobre-titulo" sx={{ maxWidth: 720, pt: 2 }}>
+      <Typography id="sobre-titulo" component="h2" variant="h2" sx={{ mb: 1.5 }}>
+        Sobre o projeto
+      </Typography>
+      <Typography color="text.secondary" paragraph>
+        O oAlexandre Toys nasceu de necessidades reais do dia a dia: gerar uma senha forte, montar
+        um link de WhatsApp para um cliente, validar um CPF em um formulário de teste. Cada
+        ferramenta foi feita para resolver uma dessas tarefas em segundos, sem anúncios, cadastro ou
+        limite de uso.
+      </Typography>
+      <Typography color="text.secondary" paragraph>
+        O código é aberto e está no{" "}
+        <a
+          href="https://github.com/oalexandre/oalexandre-toys"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+        . Sentiu falta de alguma ferramenta? Abra uma issue ou escreva para eusou@oalexandre.com.br.
+      </Typography>
+    </Box>
+  </>
+);
 
 export async function getStaticProps() {
   return { props: {} };
