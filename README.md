@@ -1,222 +1,98 @@
-# oAlexandre Toys (Antigo Aupi Tools)
+# oAlexandre Toys
 
-🧸 **Ferramentas Práticas que Você Realmente Precisa**
+Ferramentas online gratuitas, em português do Brasil, que rodam inteiramente no navegador.
+Nada do que o usuário digita é enviado ou armazenado.
 
-Coleção de ferramentas online gratuitas criadas para resolver problemas do dia a dia - de geração de senhas seguras até validação de documentos brasileiros.
+Site: https://toys.oalexandre.com.br
 
-## 🎯 Sobre o Projeto
+## Ferramentas
 
-**oAlexandre Toys** nasceu como um projeto de treino em Next.js na minha antiga empresa e com contribuição de outras pessoas, sem pretensão além de praticar e aprender. A ideia era treinar o framework enquanto construía ferramentas que precisávamos no dia a dia - como gerar senhas seguras, validar CPF/CNPJ ou criar links do WhatsApp.
+| Categoria   | Ferramenta                       | Rota                                       |
+| ----------- | -------------------------------- | ------------------------------------------ |
+| Segurança   | Gerador de senha e frase-senha   | `/seguranca/gerador-de-senha-segura`       |
+| Segurança   | Gerador de Django SECRET_KEY     | `/seguranca/gerador-de-django-secret-key`  |
+| Segurança   | Qual é o meu IP                  | `/seguranca/qual-o-meu-ip`                 |
+| Documentos  | Gerador de CPF (estado, lote)    | `/documentos/gerador-de-cpf`               |
+| Documentos  | Gerador de CNPJ (filial, lote)   | `/documentos/gerador-de-cnpj`              |
+| Documentos  | Validador de CPF e CNPJ (lista)  | `/documentos/validador-de-cpf-e-cnpj`      |
+| Comunicação | Gerador de link de WhatsApp      | `/comunicacao/gerador-de-link-de-whatsapp` |
+| Comunicação | Consulta de DDD e páginas por UF | `/comunicacao/encontrar-ddd-do-celular`    |
+| Utilitários | Gerador de QR code               | `/utilitario/gerador-de-qrcode`            |
+| Utilitários | Sorteador de números             | `/utilitario/sorteador-automatico`         |
+| Utilitários | Conversor de moedas              | `/utilitario/cotacao-moeda`                |
 
-Por consequência, as ferramentas acabaram sendo realmente úteis e funcionais, então decidi colocar no ar para que outras pessoas pudessem se beneficiar também. É um projeto simples, feito com carinho e foco total na privacidade - tudo funciona localmente no navegador.
+Os geradores de CPF e CNPJ produzem números com dígitos verificadores válidos apenas para testes de
+software. Não são documentos reais.
 
-🌐 **Acesse em**: [toys.oalexandre.com.br](https://toys.oalexandre.com.br)
+## Stack
 
-> 💭 *"Não tem a pretensão de ser nada além de um treino de Next.js, mas acabou sendo útil e por isso foi ao ar."*
+- Next.js 15 (Pages Router, geração estática; a página de câmbio usa ISR de 12 horas)
+- React 18 e MUI 5 com tokens próprios
+- next-pwa e next-sitemap
+- Google Analytics 4 (opcional, via variável de ambiente)
+- Hospedagem na Vercel, deploy automático a cada push na `main`
 
-## 🚀 Ferramentas Disponíveis
+Consultas externas: ipify e ipapi (IP) e exchangerate-api (câmbio). Todo o resto é local.
 
-### 🔐 **Segurança**
-- **Gerador de Senhas Seguras**: Criação criptograficamente segura usando `crypto.getRandomValues()`
-- **Consulta de IP Público**: Descubra seu IP externo instantaneamente
+## Rodando localmente
 
-### 📱 **Comunicação**
-- **Gerador de Links WhatsApp**: Links permanentes com mensagens predefinidas e QR codes
-- **Consulta DDD**: Identifique estados brasileiros por código DDD
+Requisitos: Node.js 20 ou superior.
 
-### 📄 **Documentos**
-- **Gerador de CPF**: Números válidos para testes e desenvolvimento
-- **Gerador de CNPJ**: Documentos corporativos para sistemas B2B
-- **Validador CPF/CNPJ**: Verificação oficial com algoritmos da Receita Federal
-
-### 🛠️ **Utilitários**
-- **Gerador de QR Code**: Códigos que nunca expiram, suporte a múltiplos formatos
-- **Sorteador Automático**: Números aleatórios criptograficamente seguros
-- **Conversor de Moedas**: 160+ moedas mundiais com dados em tempo real
-
-## 💻 Stack Tecnológica
-
-- **Framework**: Next.js 15 (Pages Router, SSG)
-- **UI Library**: React 18.2.0
-- **Design System**: Material-UI (MUI) com tokens próprios; sistema documentado em `DESIGN.md`, produto em `PRODUCT.md`, convenções em `CLAUDE.md`
-- **Styling**: Emotion/CSS-in-JS
-- **PWA**: next-pwa com Service Workers
-- **Analytics**: Google Analytics 4
-- **Code Quality**: ESLint + Prettier
-- **SEO**: Schema.org structured data
-- **Runtime**: Node.js 20 ou superior
-
-## 📦 Como Executar
-
-### Pré-requisitos
-- Node.js 20 ou superior
-- npm
-
-### Instalação
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/oalexandre/oalexandre-toys.git
-   cd oalexandre-toys
-   ```
-
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
-
-3. Configure as variáveis de ambiente:
-   ```bash
-   # Copie o arquivo de exemplo
-   cp .env.example .env.local
-
-   # Edite .env.local e adicione suas chaves
-   # NEXT_PUBLIC_GA_ID=seu-google-analytics-id
-   ```
-
-4. Execute o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
-
-5. Acesse o projeto em [http://localhost:3000](http://localhost:3000)
-
-## 📜 Scripts Disponíveis
-
-### 🔧 **Desenvolvimento**
-```bash
-npm run dev          # Servidor de desenvolvimento na porta 3000
-npm run build        # Build de produção otimizado
-npm run start        # Inicia servidor de produção
-```
-
-### 🎨 **Qualidade de Código**
-```bash
-npm run lint         # Verifica problemas no código
-npm run lint:fix     # Corrige problemas automaticamente
-npm run lint:strict  # Análise rigorosa (zero warnings)
-npm run format       # Formata código com Prettier
-npm run format:check # Verifica formatação sem alterar
-npm run type-check   # Verifica tipos TypeScript
-npm run code-quality # Executa todos os checks de qualidade
-npm run fix-all      # Corrige lint + formatação de uma vez
-```
-
-### 🚀 **Deploy**
-```bash
-npm run deploy      # Deploy de preview na Vercel (usa npx vercel)
-npm run prod        # Deploy de produção na Vercel
-```
-
-## 🌐 Produção
-
-O projeto está hospedado e disponível em:
-- **URL Principal**: [toys.oalexandre.com.br](https://toys.oalexandre.com.br)
-- **URL Vercel**: [oalexandre-toys.vercel.app](https://oalexandre-toys.vercel.app)
-
-### Variáveis de Ambiente para Deploy
-
-Para deploy na Vercel ou outro serviço, configure as seguintes variáveis:
-
-```env
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX  # ID do Google Analytics
-```
-
-## 🗂️ Estrutura do Código
-
-```
-constants/tools.js   # Catálogo único das ferramentas (nome, rota, categoria, ícone)
-lib/                 # Lógica pura, sem React (senha, CPF/CNPJ, DDD, sorteio)
-features/<tool>/     # Componente interativo de cada ferramenta
-components/tool/     # ToolPage (template com breadcrumb, FAQ, schema e relacionadas)
-components/layout/   # Header, Footer e Layout
-pages/               # Uma pasta por rota; cada página só escreve texto e FAQ
-```
-
-Para adicionar uma ferramenta: registre em `constants/tools.js`, crie o componente em
-`features/`, e a página em `pages/<categoria>/<slug>/index.jsx` usando `ToolPage`.
-Menu, rodapé, home, sitemap e ferramentas relacionadas passam a incluí-la sozinhos.
-
-## 🎯 **Características Técnicas**
-
-### 🔒 **Privacidade & Segurança**
-- **Processamento 100% Local**: Todas as operações executam no navegador
-- **Zero Armazenamento**: Nenhum dado pessoal é salvo ou transmitido
-- **LGPD Compliant**: Totalmente conforme com lei de proteção de dados
-- **Criptografia Segura**: Uso de `crypto.getRandomValues()` para aleatoriedade
-
-### ⚡ **Performance & UX**
-- **PWA Completo**: Instalável e funciona offline
-- **SEO**: title e description por página, canonical, Open Graph, sitemap e schema.org (SoftwareApplication, BreadcrumbList, FAQPage)
-- **Responsivo**: Design adaptativo para todos os dispositivos
-- **Acessibilidade**: ARIA labels e navegação semântica
-- **Analytics**: Rastreamento de uso com Google Analytics 4
-
-### 🛠️ **Qualidade de Código**
-- **ESLint**: Configuração profissional com regras customizadas
-- **Prettier**: Formatação automática e consistente
-- **TypeScript**: Tipagem opcional para melhor manutenibilidade
-- **Import Organization**: Imports organizados automaticamente
-
-## 🤝 Como Contribuir
-
-### 1. **Setup do Ambiente**
 ```bash
 git clone https://github.com/oalexandre/oalexandre-toys.git
 cd oalexandre-toys
 npm install
+cp .env.example .env.local   # opcional: NEXT_PUBLIC_GA_ID
 npm run dev
 ```
 
-### 2. **Padrões de Código**
-```bash
-# Antes de commitar, sempre execute:
-npm run fix-all        # Corrige formatação e lint
-npm run code-quality   # Verifica qualidade geral
+Acesse http://localhost:3000.
+
+## Scripts
+
+| Comando              | O que faz                                  |
+| -------------------- | ------------------------------------------ |
+| `npm run dev`        | Servidor de desenvolvimento                |
+| `npm run build`      | Build de produção e geração do sitemap     |
+| `npm run start`      | Serve o build de produção                  |
+| `npm run lint`       | ESLint com Prettier integrado              |
+| `npm run lint:fix`   | Corrige lint e formatação                  |
+| `npm run type-check` | Verificação de tipos                       |
+| `npm run deploy`     | Deploy de preview na Vercel (`npx vercel`) |
+| `npm run prod`       | Deploy de produção na Vercel               |
+
+## Estrutura
+
+```
+constants/tools.js     Catálogo único das ferramentas (nome, rota, categoria, ícone)
+constants/updated.json Data de atualização por rota (página, schema e sitemap)
+lib/                   Lógica pura, sem React (senha, CPF/CNPJ, DDD, sorteio)
+features/<tool>/       Componente interativo de cada ferramenta
+components/tool/       ToolPage (template), ResultBox, ToolCard, Faq
+components/layout/     Header, Footer, Logo, Layout
+pages/                 Uma pasta por rota; pages/ddd/[uf].js gera as 27 páginas de DDD
 ```
 
-### 3. **Fluxo de Contribuição**
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Execute `npm run fix-all` antes de commitar
-4. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-5. Push para a branch (`git push origin feature/AmazingFeature`)
-6. Abra um Pull Request
+Para adicionar uma ferramenta: registre em `constants/tools.js`, adicione a data em
+`constants/updated.json`, crie o componente em `features/` e a página em
+`pages/<categoria>/<slug>/index.jsx` usando `ToolPage`. Menu, home, rodapé, sitemap e
+ferramentas relacionadas passam a incluí-la automaticamente.
 
-### 4. **Diretrizes**
-- **Commits**: Use mensagens descritivas em português ou inglês
-- **Código**: Mantenha a filosofia de privacidade e processamento local
-- **Testes**: Teste todas as funcionalidades antes do PR
-- **Documentação**: Atualize README se necessário
+## Documentação de produto e design
 
-## 📄 Licença
+- `PRODUCT.md`: público, propósito, restrições e compromissos de marca.
+- `DESIGN.md` e `.impeccable/design.json`: tokens, tipografia, componentes e regras do sistema
+  visual. Toda interface nova deve seguir esses tokens; `theme.js` é a implementação.
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE.txt](LICENSE.txt) para mais detalhes.
+## Contribuindo
 
-## 🐛 **Reportar Problemas**
+1. Abra uma issue descrevendo o problema ou a ferramenta proposta.
+2. Crie uma branch a partir da `main`.
+3. Rode `npm run lint:fix` e `npm run build` antes de abrir o pull request.
+4. Mantenha o princípio do projeto: processamento local, sem cadastro, sem anúncio.
 
-Encontrou um bug ou tem uma sugestão?
+## Licença
 
-🔗 **[Abra uma issue no GitHub](https://github.com/oalexandre/oalexandre-toys/issues)**
+MIT. Veja `LICENSE.txt`.
 
-## 📊 **Estatísticas do Projeto**
-
-- **🛠️ Ferramentas**: 11 utilitários funcionais
-- **📱 Páginas**: 100% responsivas
-- **🔒 Privacidade**: Zero dados armazenados
-- **⚡ Performance**: PWA completo
-- **🎯 SEO**: Schema.org em todas as páginas
-- **📦 Bundle**: Otimizado com Next.js
-- **🧪 Qualidade**: ESLint + Prettier
-
----
-
-<div align="center">
-
-**Mantido com ❤️ por [oAlexandre](https://oalexandre.com.br)**
-
-*"Começou como treino de Next.js, virou ferramenta útil. Cada funcionalidade foi criada porque alguém precisava dela na vida real. Se você também precisa, é só usar - sem cadastro, sem custo, sem complicação."*
-
-⭐ **Se este projeto te ajudou, deixe uma estrela no GitHub!**
-
-</div>
+Feito por [Alexandre Klostermann](https://oalexandre.com.br). Contato: eusou@oalexandre.com.br.

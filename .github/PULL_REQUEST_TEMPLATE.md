@@ -1,23 +1,19 @@
+## O que muda
 
-## O que esse PR faz?
+Descreva em uma ou duas frases o que este PR faz e por quê.
 
-Adicionar recurso(s) | Remover recurso(s) | Adicionar informações | Melhorar repositório
+## Tipo
 
-## Para recursos
+- [ ] Nova ferramenta
+- [ ] Melhoria em ferramenta existente
+- [ ] Conteúdo ou SEO
+- [ ] Correção de bug
+- [ ] Infraestrutura ou dependências
 
-### Descrição
+## Checklist
 
-### Por que isso é valioso (ou não)?
-
-### Como sabemos que é realmente gratuito?
-
-### Para listas de livros, é um livro? Para listas de cursos, é um curso? etc
-
-## Lista de controle
-
-- [] Leia nossa [diretriz de contribuição no Readme principal](https://github.com/CoffeD-v/JsLesson/blob/main/README.md)
-- [ ] Incluir autor(es) e plataforma onde apropriado.
-- [ ] Coloque as listas em ordem alfabética, espaçamento correto.
-- [ ] O conteúdo é claro e de fácil compreensão.
-- [ ] Adicionar indicações necessárias (PDF, notas de acesso, em construção).
-- [ ] Usou um nome informativo para esta solicitação pull.
+- [ ] `npm run lint:fix` e `npm run build` passam
+- [ ] Nova ferramenta registrada em `constants/tools.js` e `constants/updated.json`
+- [ ] Interface segue os tokens de `DESIGN.md`
+- [ ] Nenhum dado do usuário é enviado ou armazenado
+- [ ] Testado no celular (390px) e no desktop
