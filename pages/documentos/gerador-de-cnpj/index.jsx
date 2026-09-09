@@ -8,9 +8,14 @@ const faq = [
       "Não intencionalmente. Os oito primeiros dígitos são sorteados e os verificadores calculados. O número passa na validação de formato, mas não é consultado na Receita Federal e não está ligado a nenhuma empresa de propósito.",
   },
   {
-    question: "Por que o CNPJ gerado termina em 0001?",
+    question: "Como gerar o CNPJ de uma filial?",
     answer:
-      "Os dígitos 9 a 12 identificam a filial. 0001 é a matriz, que é o caso mais comum em cadastros. O gerador segue esse padrão para os números parecerem realistas em testes.",
+      "Os dígitos 9 a 12 identificam o estabelecimento: 0001 é a matriz e 0002 em diante são filiais. Informe o número do estabelecimento no campo correspondente e o gerador monta o CNPJ com esse sufixo e os verificadores corretos.",
+  },
+  {
+    question: "Como gerar vários CNPJs de uma vez?",
+    answer:
+      "Escolha a quantidade (10, 50, 100 ou 500). Os números aparecem um por linha, sem repetição, e podem ser copiados ou baixados em CSV.",
   },
   {
     question: "Posso usar o CNPJ gerado em um cadastro real?",
@@ -28,8 +33,8 @@ const Page = () => (
   <ToolPage
     path="/documentos/gerador-de-cnpj"
     title="Gerador de CNPJ Válido para Testes"
-    description="Gere CNPJs com dígitos verificadores corretos para testar formulários e sistemas. Formato de matriz 0001, com ou sem pontuação. Apenas para desenvolvimento."
-    lead="Números de CNPJ com dígitos verificadores corretos para usar em testes de software. Não são empresas reais."
+    description="Gere CNPJs válidos para testes, um ou em lote de até 500 com download em CSV. Matriz 0001 ou filiais. Gerado no navegador, apenas para desenvolvimento."
+    lead="Números de CNPJ com dígitos verificadores corretos, de matriz ou filial, um por vez ou em lote. Não são empresas reais."
     tool={<DocumentGenerator type="cnpj" />}
     faq={faq}
     features={[
@@ -41,9 +46,10 @@ const Page = () => (
   >
     <h2>Como funciona</h2>
     <p>
-      O CNPJ tem catorze dígitos: oito de base, quatro que identificam a filial e dois
-      verificadores. O gerador sorteia a base, usa 0001 como filial e calcula os verificadores pelo
-      algoritmo módulo 11 com os pesos oficiais.
+      O CNPJ tem catorze dígitos: oito de base, quatro que identificam o estabelecimento e dois
+      verificadores. O gerador sorteia a base, usa o estabelecimento informado (0001 para matriz) e
+      calcula os verificadores pelo algoritmo módulo 11 com os pesos oficiais. Em lote, os números
+      saem sem repetição e podem ser baixados em CSV.
     </p>
 
     <h2>Uso responsável</h2>

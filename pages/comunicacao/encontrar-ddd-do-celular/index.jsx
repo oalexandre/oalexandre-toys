@@ -36,6 +36,7 @@ const Page = () => (
     features={["Consulta instantânea", "67 DDDs de todos os estados", "Tabela completa por estado"]}
   >
     <h2>Tabela de DDDs por estado</h2>
+    <p>Clique no estado para ver as principais cidades de cada código de área.</p>
     <DddTable />
 
     <h2>Como o DDD é organizado</h2>

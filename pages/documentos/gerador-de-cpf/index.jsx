@@ -1,4 +1,5 @@
 import ToolPage from "../../../components/tool/ToolPage";
+import CpfRegionTable from "../../../features/documents/CpfRegionTable";
 import DocumentGenerator from "../../../features/documents/DocumentGenerator";
 
 const faq = [
@@ -18,6 +19,16 @@ const faq = [
       "Não. Usar um CPF que não é seu em um cadastro real é fraude e pode configurar crime de falsidade ideológica. A ferramenta existe apenas para ambientes de desenvolvimento e teste.",
   },
   {
+    question: "O que significa o nono dígito do CPF?",
+    answer:
+      "Ele indica a região fiscal onde o CPF foi emitido. O 8 é São Paulo, o 1 é Distrito Federal, Goiás, Mato Grosso, Mato Grosso do Sul e Tocantins, e assim por diante. Ao escolher um estado no gerador, o nono dígito é fixado conforme essa tabela.",
+  },
+  {
+    question: "Como gerar vários CPFs de uma vez?",
+    answer:
+      "Escolha a quantidade (10, 50, 100 ou 500). Os números aparecem um por linha, sem repetição, e podem ser copiados ou baixados em CSV para importar em planilhas e bancos de teste.",
+  },
+  {
     question: "Como o dígito verificador do CPF é calculado?",
     answer:
       "Os nove primeiros dígitos são multiplicados por pesos de 10 a 2 e somados. O resto da divisão por 11 define o primeiro dígito verificador. O segundo repete o cálculo incluindo o primeiro, com pesos de 11 a 2.",
@@ -28,8 +39,8 @@ const Page = () => (
   <ToolPage
     path="/documentos/gerador-de-cpf"
     title="Gerador de CPF Válido para Testes"
-    description="Gere CPFs com dígitos verificadores corretos para testar formulários e sistemas. Com ou sem pontuação, gerado no navegador. Apenas para desenvolvimento."
-    lead="Números de CPF com dígitos verificadores corretos para usar em testes de software. Não são documentos reais."
+    description="Gere CPFs válidos para testes, um ou em lote de até 500 com download em CSV. Escolha o estado de emissão pelo nono dígito. Gerado no navegador, apenas para desenvolvimento."
+    lead="Números de CPF com dígitos verificadores corretos, um por vez ou em lote, com opção de estado de emissão. Não são documentos reais."
     tool={<DocumentGenerator type="cpf" />}
     faq={faq}
     features={[
@@ -44,6 +55,20 @@ const Page = () => (
       partir da base pelo algoritmo módulo 11. O gerador sorteia a base, calcula os verificadores e
       descarta sequências repetidas como 111.111.111-11, que a Receita rejeita mesmo passando no
       cálculo.
+    </p>
+
+    <h2>Nono dígito: a região fiscal</h2>
+    <p>
+      O nono dígito do CPF não é aleatório: ele identifica a região fiscal da Receita Federal onde o
+      documento foi emitido. Por isso o gerador permite escolher o estado, útil quando o sistema em
+      teste valida a coerência entre CPF e endereço.
+    </p>
+    <CpfRegionTable />
+
+    <h2>Geração em lote</h2>
+    <p>
+      Para popular um banco de testes, escolha a quantidade e baixe o CSV. Os números vêm sem
+      repetição e, se você escolher um estado, todos terão o mesmo nono dígito.
     </p>
 
     <h2>Uso responsável</h2>

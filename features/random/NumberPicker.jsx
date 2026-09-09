@@ -60,7 +60,7 @@ const NumberPicker = () => {
             fullWidth
             label="Quantos números"
             value={form.count}
-            inputMode="numeric"
+            inputProps={{ inputMode: "numeric" }}
             onChange={setField("count")}
             error={invalid}
             helperText={
@@ -77,7 +77,7 @@ const NumberPicker = () => {
             fullWidth
             label="De"
             value={form.min}
-            inputMode="numeric"
+            inputProps={{ inputMode: "numeric" }}
             onChange={setField("min")}
             helperText=" "
           />
@@ -87,7 +87,7 @@ const NumberPicker = () => {
             fullWidth
             label="Até"
             value={form.max}
-            inputMode="numeric"
+            inputProps={{ inputMode: "numeric" }}
             onChange={setField("max")}
             helperText=" "
           />

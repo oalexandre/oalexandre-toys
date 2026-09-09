@@ -1,4 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
+import Link from "next/link";
 
 import JsonLd from "../components/common/JsonLd";
 import SEO from "../components/common/SEO";
@@ -23,7 +24,7 @@ const Home = () => (
           author: {
             "@type": "Person",
             name: "Alexandre Klostermann",
-            url: "https://oalexandre.com.br",
+            url: `${SITE_URL}/sobre`,
           },
         },
         {
@@ -100,6 +101,7 @@ const Home = () => (
           GitHub
         </a>
         . Sentiu falta de alguma ferramenta? Abra uma issue ou escreva para eusou@oalexandre.com.br.
+        Mais sobre o autor em <Link href="/sobre">Sobre</Link>.
       </Typography>
     </Box>
   </>

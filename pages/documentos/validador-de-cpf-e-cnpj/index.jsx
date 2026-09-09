@@ -13,6 +13,11 @@ const faq = [
       "Sequências como 111.111.111-11 passam no cálculo matemático, mas a Receita nunca as emite e a maioria dos sistemas as rejeita. O validador segue essa regra.",
   },
   {
+    question: "Dá para validar uma lista inteira?",
+    answer:
+      "Sim. Escolha 'Vários de uma vez', cole um documento por linha (ou separados por vírgula) e clique em Validar lista. O resultado mostra o tipo e a situação de cada um, com resumo de quantos são válidos, e pode ser copiado como relatório.",
+  },
+  {
     question: "Preciso digitar os pontos e traços?",
     answer:
       "Não. Você pode colar o número com ou sem pontuação. A ferramenta aplica a máscara automaticamente conforme a quantidade de dígitos: 11 para CPF, 14 para CNPJ.",
@@ -28,8 +33,8 @@ const Page = () => (
   <ToolPage
     path="/documentos/validador-de-cpf-e-cnpj"
     title="Validador de CPF e CNPJ Online"
-    description="Confira se um CPF ou CNPJ tem dígitos verificadores corretos. Detecta o tipo automaticamente, aceita com ou sem pontuação e roda no navegador."
-    lead="Cole um CPF ou CNPJ e veja na hora se os dígitos verificadores estão corretos."
+    description="Confira se um CPF ou CNPJ tem dígitos verificadores corretos, um por vez ou uma lista inteira. Detecta o tipo, aceita com ou sem pontuação e roda no navegador."
+    lead="Cole um CPF ou CNPJ, ou uma lista inteira, e veja na hora quais têm dígitos verificadores corretos."
     tool={<DocumentValidator />}
     faq={faq}
     features={[
@@ -43,6 +48,13 @@ const Page = () => (
       CPF e CNPJ terminam em dois dígitos verificadores calculados a partir dos anteriores. Um erro
       de digitação em qualquer posição quase sempre quebra esse cálculo, por isso a verificação é
       eficaz para pegar números digitados errado. Ela não consulta bases governamentais.
+    </p>
+
+    <h2>Validar uma lista</h2>
+    <p>
+      No modo de lista, cole documentos de uma planilha ou de um arquivo, um por linha. A ferramenta
+      identifica cada um como CPF ou CNPJ, valida e mostra o resumo. O relatório copiado sai em
+      formato separado por ponto e vírgula, pronto para colar de volta na planilha.
     </p>
 
     <h2>Quando usar</h2>

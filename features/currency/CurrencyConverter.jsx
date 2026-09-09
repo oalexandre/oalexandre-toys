@@ -22,6 +22,11 @@ const parseAmount = value => {
   return Number.isFinite(parsed) ? parsed : 0;
 };
 
+const formatDate = iso =>
+  iso
+    ? new Date(`${iso}T12:00:00`).toLocaleDateString("pt-BR", { day: "numeric", month: "long" })
+    : "";
+
 const format = (value, currency) => {
   try {
     return value.toLocaleString("pt-BR", { style: "currency", currency, maximumFractionDigits: 2 });
@@ -30,15 +35,16 @@ const format = (value, currency) => {
   }
 };
 
-const CurrencyConverter = () => {
-  const [rates, setRates] = useState(null);
-  const [updatedAt, setUpdatedAt] = useState("");
+const CurrencyConverter = ({ initialRates = null }) => {
+  const [rates, setRates] = useState(initialRates?.rates ?? null);
+  const [updatedAt, setUpdatedAt] = useState(initialRates?.date ?? "");
   const [error, setError] = useState(false);
   const [from, setFrom] = useState("BRL");
   const [to, setTo] = useState("USD");
   const [amount, setAmount] = useState("100");
 
   // Uma única requisição com base USD; as demais conversões são derivadas.
+  // As cotações do build servem de ponto de partida e são atualizadas no cliente.
   useEffect(() => {
     fetch("https://api.exchangerate-api.com/v4/latest/USD")
       .then(response =>
@@ -48,8 +54,10 @@ const CurrencyConverter = () => {
         setRates(data.rates);
         setUpdatedAt(data.date || "");
       })
-      .catch(() => setError(true));
-  }, []);
+      .catch(() => {
+        if (!initialRates) setError(true);
+      });
+  }, [initialRates]);
 
   const options = useMemo(() => {
     if (!rates) return POPULAR;
@@ -84,7 +92,7 @@ const CurrencyConverter = () => {
             fullWidth
             label="Valor"
             value={amount}
-            inputMode="decimal"
+            inputProps={{ inputMode: "decimal" }}
             onChange={event => setAmount(event.target.value.replace(/[^\d.,]/g, ""))}
           />
         </Grid>
@@ -145,7 +153,7 @@ const CurrencyConverter = () => {
             {rate !== null && (
               <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
                 1 {from} = {rate.toLocaleString("pt-BR", { maximumFractionDigits: 6 })} {to}
-                {updatedAt ? ` · cotação de referência de ${updatedAt}` : ""}
+                {updatedAt ? ` · cotação de referência de ${formatDate(updatedAt)}` : ""}
               </Typography>
             )}
           </>

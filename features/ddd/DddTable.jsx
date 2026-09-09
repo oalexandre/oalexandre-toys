@@ -7,6 +7,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import Link from "next/link";
 
 import { states } from "../../lib/ddd";
 
@@ -30,7 +31,17 @@ const DddTable = () => (
           .map(state => (
             <TableRow key={state.uf}>
               <TableCell>
-                {state.name} ({state.uf})
+                <Box
+                  component={Link}
+                  href={`/ddd/${state.uf.toLowerCase()}`}
+                  sx={{
+                    color: "primary.main",
+                    textDecoration: "none",
+                    "&:hover": { textDecoration: "underline" },
+                  }}
+                >
+                  {state.name} ({state.uf})
+                </Box>
               </TableCell>
               <TableCell>{state.region}</TableCell>
               <TableCell>{state.ddds.join(", ")}</TableCell>

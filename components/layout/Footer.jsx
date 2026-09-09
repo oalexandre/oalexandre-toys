@@ -57,6 +57,12 @@ const Footer = () => (
           <Box
             sx={{ display: "flex", flexWrap: "wrap", gap: 2, justifyContent: { md: "flex-end" } }}
           >
+            <Box component={Link} href="/sobre" sx={footerLinkSx}>
+              Sobre
+            </Box>
+            <Box component={Link} href="/privacidade" sx={footerLinkSx}>
+              Privacidade
+            </Box>
             <Box component="a" href="mailto:eusou@oalexandre.com.br" sx={footerLinkSx}>
               eusou@oalexandre.com.br
             </Box>

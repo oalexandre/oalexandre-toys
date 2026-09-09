@@ -2,7 +2,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Box, Breadcrumbs, Grid, Typography } from "@mui/material";
 import Link from "next/link";
 
-import { getCategory, getRelatedTools, getTool, SITE_URL } from "../../constants/tools";
+import { formatDate, getCategory, getRelatedTools, getTool, SITE_URL } from "../../constants/tools";
 import JsonLd from "../common/JsonLd";
 import SEO from "../common/SEO";
 
@@ -46,10 +46,11 @@ const ToolPage = ({ path, title, description, lead, tool, children, faq, feature
       isAccessibleForFree: true,
       offers: { "@type": "Offer", price: "0", priceCurrency: "BRL" },
       featureList: features,
+      dateModified: entry.updated,
       author: {
         "@type": "Person",
         name: "Alexandre Klostermann",
-        url: "https://oalexandre.com.br",
+        url: `${SITE_URL}/sobre`,
       },
     },
     {
@@ -109,6 +110,14 @@ const ToolPage = ({ path, title, description, lead, tool, children, faq, feature
           <Typography variant="subtitle1" color="text.secondary">
             {lead}
           </Typography>
+          {entry.updated && (
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+              Atualizado em <time dateTime={entry.updated}>{formatDate(entry.updated)}</time> ·{" "}
+              <Link href="/sobre" style={{ color: "inherit" }}>
+                por Alexandre Klostermann
+              </Link>
+            </Typography>
+          )}
         </Box>
 
         <Box component="section" aria-label="Ferramenta" sx={{ mb: 6 }}>

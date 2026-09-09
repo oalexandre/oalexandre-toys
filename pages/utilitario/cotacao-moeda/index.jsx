@@ -1,5 +1,6 @@
 import ToolPage from "../../../components/tool/ToolPage";
 import CurrencyConverter from "../../../features/currency/CurrencyConverter";
+import RatesTable from "../../../features/currency/RatesTable";
 
 const faq = [
   {
@@ -24,13 +25,13 @@ const faq = [
   },
 ];
 
-const Page = () => (
+const Page = ({ rates }) => (
   <ToolPage
     path="/utilitario/cotacao-moeda"
     title="Conversor de Moedas: Real, Dólar, Euro e mais"
     description="Converta valores entre real, dólar, euro e mais de 150 moedas com cotação de referência do dia. Rápido, sem cadastro. Ideal para estimar compras e viagens."
     lead="Converta valores entre real, dólar, euro e mais de 150 moedas com a cotação de referência do dia."
-    tool={<CurrencyConverter />}
+    tool={<CurrencyConverter initialRates={rates} />}
     faq={faq}
     features={[
       "Mais de 150 moedas",
@@ -44,6 +45,9 @@ const Page = () => (
       <li>Escolha a moeda de origem e a de destino. As mais usadas aparecem primeiro na lista.</li>
       <li>O resultado atualiza na hora. Use a seta para inverter a conversão.</li>
     </ol>
+
+    <h2>Cotações de hoje em reais</h2>
+    <RatesTable rates={rates} />
 
     <h2>Para que serve</h2>
     <ul>
@@ -62,8 +66,22 @@ const Page = () => (
   </ToolPage>
 );
 
+/**
+ * Busca as cotações no build e revalida a cada 12 horas (ISR na Vercel),
+ * para a tabela da página ficar atual sem novo deploy.
+ */
 export async function getStaticProps() {
-  return { props: {} };
+  let rates = null;
+  try {
+    const response = await fetch("https://api.exchangerate-api.com/v4/latest/USD");
+    if (response.ok) {
+      const data = await response.json();
+      rates = { base: "USD", date: data.date ?? null, rates: data.rates };
+    }
+  } catch {
+    rates = null;
+  }
+  return { props: { rates }, revalidate: 60 * 60 * 12 };
 }
 
 export default Page;

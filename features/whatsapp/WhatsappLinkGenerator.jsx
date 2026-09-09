@@ -42,7 +42,7 @@ const WhatsappLinkGenerator = () => {
             fullWidth
             label="País"
             value={country}
-            inputMode="numeric"
+            inputProps={{ inputMode: "numeric" }}
             onChange={event => setCountry(event.target.value.replace(/\D/g, "").slice(0, 3))}
             InputProps={{
               startAdornment: (
@@ -59,7 +59,7 @@ const WhatsappLinkGenerator = () => {
             label="Número com DDD"
             placeholder="(11) 99999-9999"
             value={phone}
-            inputMode="tel"
+            inputProps={{ inputMode: "tel" }}
             autoComplete="tel-national"
             onChange={event => setPhone(formatPhone(event.target.value))}
           />

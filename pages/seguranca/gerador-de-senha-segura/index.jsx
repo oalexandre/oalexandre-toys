@@ -13,6 +13,16 @@ const faq = [
       "Para contas comuns, 16 caracteres com letras, números e símbolos já são mais que suficientes. Para e-mail principal, banco e gerenciador de senhas, use 20 ou mais. Comprimento pesa mais do que variedade de símbolos.",
   },
   {
+    question: "O que é uma frase-senha e quando usar?",
+    answer:
+      "É uma senha feita de várias palavras aleatórias, como 'tigre-janela-cebola-remo-nuvem'. É muito mais fácil de lembrar e digitar que uma sequência de símbolos, e com 5 ou 6 palavras já fica mais forte que a maioria das senhas curtas. Ideal para a senha mestra do gerenciador, do e-mail e do computador.",
+  },
+  {
+    question: "As palavras da frase-senha são secretas?",
+    answer:
+      "Não, e não precisam ser. A lista é pública. A força vem do sorteio: com 750 palavras, cada uma acrescenta cerca de 9,5 bits, e a chance de adivinhar 6 palavras na ordem certa é de uma em 178 quatrilhões.",
+  },
+  {
     question: "O que significa a entropia em bits?",
     answer:
       "É uma medida de quantas combinações um atacante precisaria testar. Cada bit dobra o número de tentativas. Acima de 60 bits a senha resiste a ataques de força bruta com o hardware atual; acima de 80 bits é considerada muito forte.",
@@ -32,13 +42,14 @@ const faq = [
 const Page = () => (
   <ToolPage
     path="/seguranca/gerador-de-senha-segura"
-    title="Gerador de Senha Segura e Aleatória"
-    description="Gere senhas fortes e aleatórias de 8 a 64 caracteres direto no navegador. Sem cadastro, sem envio para servidor. Veja a força da senha em bits de entropia."
-    lead="Crie senhas fortes com letras, números e símbolos. A senha é gerada no seu navegador e nunca é enviada para lugar nenhum."
+    title="Gerador de Senha Segura e Frase-senha"
+    description="Gere senhas fortes de 8 a 64 caracteres ou frases-senha com palavras em português, direto no navegador. Veja a força em bits. Sem cadastro, sem envio para servidor."
+    lead="Crie senhas aleatórias ou frases-senha com palavras em português. Tudo é gerado no seu navegador e nunca enviado para lugar nenhum."
     tool={<PasswordGenerator />}
     faq={faq}
     features={[
       "Comprimento de 8 a 64 caracteres",
+      "Frase-senha com palavras em português",
       "Letras, números e símbolos",
       "Indicador de força em bits",
       "Geração local com crypto.getRandomValues",
@@ -53,6 +64,15 @@ const Page = () => (
       <li>Marque os tipos de caractere que o site aceita. Alguns bancos não permitem símbolos.</li>
       <li>Clique em copiar e cole no cadastro. Guarde a senha em um gerenciador.</li>
     </ol>
+
+    <h2>Senha aleatória ou frase-senha?</h2>
+    <p>
+      A senha aleatória é a melhor escolha para tudo que fica guardado em um gerenciador: você nunca
+      vai digitar, então pode ser longa e cheia de símbolos. A frase-senha é para o que você precisa
+      lembrar: a senha do próprio gerenciador, do e-mail principal, do login do computador. Seis
+      palavras em português dão cerca de 57 bits, o mesmo que uma senha aleatória de 9 ou 10
+      caracteres, e são incomparavelmente mais fáceis de memorizar.
+    </p>
 
     <h2>Por que usar uma senha aleatória</h2>
     <p>

@@ -1,4 +1,5 @@
 import { Alert, Box, Chip, Stack, TextField, Typography } from "@mui/material";
+import Link from "next/link";
 import { useState } from "react";
 
 import ToolPanel from "../../components/tool/ToolPanel";
@@ -16,7 +17,7 @@ const DddLookup = () => {
         label="DDD ou telefone com DDD"
         placeholder="(11) 99999-9999"
         value={value}
-        inputMode="tel"
+        inputProps={{ inputMode: "tel" }}
         autoComplete="off"
         onChange={event => setValue(formatPhone(event.target.value))}
         helperText="Basta digitar os dois primeiros dígitos."
@@ -29,7 +30,10 @@ const DddLookup = () => {
               DDD {digits.slice(0, 2)}: {state.name} ({state.uf})
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>
-              Região {state.region}
+              Região {state.region} ·{" "}
+              <Link href={`/ddd/${state.uf.toLowerCase()}`} style={{ color: "inherit" }}>
+                ver cidades de cada DDD de {state.name}
+              </Link>
             </Typography>
             <Stack direction="row" spacing={0.75} flexWrap="wrap" useFlexGap>
               {state.ddds.map(ddd => (

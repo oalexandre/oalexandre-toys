@@ -12,6 +12,8 @@ import {
   WhatsApp,
 } from "@mui/icons-material";
 
+import updatedDates from "./updated.json";
+
 /**
  * Catálogo único de ferramentas. Tudo que precisa listar, linkar ou
  * descrever uma ferramenta (menu, home, rodapé, breadcrumbs, sitemap,
@@ -134,7 +136,20 @@ export const tools = [
     description: "Converta valores entre moedas com cotação de referência do dia.",
     icon: AttachMoney,
   },
-].map(tool => ({ ...tool, path: `/${tool.category}/${tool.slug}` }));
+].map(tool => {
+  const path = `/${tool.category}/${tool.slug}`;
+  return { ...tool, path, updated: updatedDates[path] };
+});
+
+/** Data (AAAA-MM-DD) da última alteração relevante de uma rota. */
+export const getUpdatedDate = path => updatedDates[path];
+
+export const formatDate = iso =>
+  new Date(`${iso}T12:00:00`).toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 
 export const getCategory = slug => categories.find(c => c.slug === slug);
 
