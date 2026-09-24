@@ -1,25 +1,33 @@
 # oAlexandre Toys
 
-Ferramentas online gratuitas, em português do Brasil, que rodam inteiramente no navegador.
-Nada do que o usuário digita é enviado ou armazenado.
+Ferramentas online gratuitas, em português do Brasil, que rodam no navegador. Nada do que o
+usuário digita é armazenado, e só as consultas listadas abaixo saem do aparelho.
 
 Site: https://toys.oalexandre.com.br
 
 ## Ferramentas
 
-| Categoria   | Ferramenta                       | Rota                                       |
-| ----------- | -------------------------------- | ------------------------------------------ |
-| Segurança   | Gerador de senha e frase-senha   | `/seguranca/gerador-de-senha-segura`       |
-| Segurança   | Gerador de Django SECRET_KEY     | `/seguranca/gerador-de-django-secret-key`  |
-| Segurança   | Qual é o meu IP                  | `/seguranca/qual-o-meu-ip`                 |
-| Documentos  | Gerador de CPF (estado, lote)    | `/documentos/gerador-de-cpf`               |
-| Documentos  | Gerador de CNPJ (filial, lote)   | `/documentos/gerador-de-cnpj`              |
-| Documentos  | Validador de CPF e CNPJ (lista)  | `/documentos/validador-de-cpf-e-cnpj`      |
-| Comunicação | Gerador de link de WhatsApp      | `/comunicacao/gerador-de-link-de-whatsapp` |
-| Comunicação | Consulta de DDD e páginas por UF | `/comunicacao/encontrar-ddd-do-celular`    |
-| Utilitários | Gerador de QR code               | `/utilitario/gerador-de-qrcode`            |
-| Utilitários | Sorteador de números             | `/utilitario/sorteador-automatico`         |
-| Utilitários | Conversor de moedas              | `/utilitario/cotacao-moeda`                |
+Grupos do menu e da home. O grupo não faz parte da rota: as URLs antigas foram mantidas.
+
+| Grupo           | Ferramenta                         | Rota                                       |
+| --------------- | ---------------------------------- | ------------------------------------------ |
+| Dinheiro        | Gerador de QR Code Pix             | `/dinheiro/gerador-de-qr-code-pix`         |
+| Dinheiro        | Rachar a conta                     | `/dinheiro/rachar-a-conta`                 |
+| Dinheiro        | À vista ou parcelado               | `/dinheiro/a-vista-ou-parcelado`           |
+| Dinheiro        | Álcool ou gasolina                 | `/dinheiro/alcool-ou-gasolina`             |
+| Dinheiro        | Conversor de moedas                | `/utilitario/cotacao-moeda`                |
+| Dia a dia       | Gerador de link de WhatsApp        | `/comunicacao/gerador-de-link-de-whatsapp` |
+| Dia a dia       | Gerador de QR code                 | `/utilitario/gerador-de-qrcode`            |
+| Dia a dia       | Consulta de CEP                    | `/utilitario/consulta-de-cep`              |
+| Dia a dia       | Consulta de DDD e páginas por UF   | `/comunicacao/encontrar-ddd-do-celular`    |
+| Dia a dia       | Sorteador de números e nomes       | `/utilitario/sorteador-automatico`         |
+| Dia a dia       | Contador de caracteres e palavras  | `/utilitario/contador-de-caracteres`       |
+| Dia a dia       | Gerador de senha e frase-senha     | `/seguranca/gerador-de-senha-segura`       |
+| Dia a dia       | Qual é o meu IP                    | `/seguranca/qual-o-meu-ip`                 |
+| Desenvolvedores | Gerador de CPF (estado, lote)      | `/documentos/gerador-de-cpf`               |
+| Desenvolvedores | Gerador de CNPJ (filial, lote)     | `/documentos/gerador-de-cnpj`              |
+| Desenvolvedores | Validador de CPF e CNPJ (lista)    | `/documentos/validador-de-cpf-e-cnpj`      |
+| Desenvolvedores | Gerador de Django SECRET_KEY       | `/seguranca/gerador-de-django-secret-key`  |
 
 Os geradores de CPF e CNPJ produzem números com dígitos verificadores válidos apenas para testes de
 software. Não são documentos reais.
@@ -32,7 +40,8 @@ software. Não são documentos reais.
 - Google Analytics 4 (opcional, via variável de ambiente)
 - Hospedagem na Vercel, deploy automático a cada push na `main`
 
-Consultas externas: ipify e ipapi (IP) e exchangerate-api (câmbio). Todo o resto é local.
+Consultas externas: ipify e ipapi (IP), exchangerate-api (câmbio) e ViaCEP (CEP). Todo o resto é
+local.
 
 ## Rodando localmente
 
@@ -64,18 +73,18 @@ Acesse http://localhost:3000.
 ## Estrutura
 
 ```
-constants/tools.js     Catálogo único das ferramentas (nome, rota, categoria, ícone)
+constants/tools.js     Catálogo único das ferramentas (nome, rota, grupo, ícone)
 constants/updated.json Data de atualização por rota (página, schema e sitemap)
-lib/                   Lógica pura, sem React (senha, CPF/CNPJ, DDD, sorteio)
+lib/                   Lógica pura, sem React (senha, CPF/CNPJ, DDD, Pix, dinheiro, texto)
 features/<tool>/       Componente interativo de cada ferramenta
 components/tool/       ToolPage (template), ResultBox, ToolCard, Faq
 components/layout/     Header, Footer, Logo, Layout
 pages/                 Uma pasta por rota; pages/ddd/[uf].js gera as 27 páginas de DDD
 ```
 
-Para adicionar uma ferramenta: registre em `constants/tools.js`, adicione a data em
-`constants/updated.json`, crie o componente em `features/` e a página em
-`pages/<categoria>/<slug>/index.jsx` usando `ToolPage`. Menu, home, rodapé, sitemap e
+Para adicionar uma ferramenta: registre em `constants/tools.js` com `section` (primeiro segmento
+da rota) e `category` (grupo do menu), adicione a data em `constants/updated.json`, crie o
+componente em `features/` e a página em `pages/<section>/<slug>/index.jsx` usando `ToolPage`. Menu, home, rodapé, sitemap e
 ferramentas relacionadas passam a incluí-la automaticamente.
 
 ## Documentação de produto e design

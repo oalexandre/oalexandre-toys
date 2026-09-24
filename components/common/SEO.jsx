@@ -17,7 +17,8 @@ const SEO = ({ title, description, path = "/", image = DEFAULT_IMAGE, noindex = 
     <Head>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={url} />
+      {/* Página fora do índice não declara canonical: a 404 apontaria para uma URL inexistente. */}
+      {!noindex && <link rel="canonical" href={url} />}
       <meta
         name="robots"
         content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"}

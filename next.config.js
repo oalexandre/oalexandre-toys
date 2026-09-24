@@ -27,7 +27,6 @@ const nextConfig = {
       { source: "/calculate/aspect-ratio", destination: "/", permanent: true },
       { source: "/fallback", destination: "/", permanent: true },
       { source: "/ddd", destination: "/comunicacao/encontrar-ddd-do-celular", permanent: true },
-      { source: "/ddd", destination: "/comunicacao/encontrar-ddd-do-celular", permanent: true },
     ];
   },
 };

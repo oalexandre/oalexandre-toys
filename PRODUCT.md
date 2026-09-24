@@ -17,7 +17,7 @@ Público secundário: quem chega pelo Google com uma pergunta pontual ("qual meu
 
 ## Product Purpose
 
-Conjunto de 11 ferramentas online gratuitas, em português do Brasil, que resolvem tarefas pequenas e frequentes do trabalho com internet no Brasil. Cada ferramenta nasceu de uma necessidade real do autor. Tudo roda no navegador; nada digitado é enviado ou guardado.
+Conjunto de 17 ferramentas online gratuitas, em português do Brasil, que resolvem tarefas pequenas e frequentes do dia a dia e do trabalho com internet no Brasil. Cada ferramenta nasceu de uma necessidade real do autor. Quase tudo roda no navegador; nada digitado é guardado, e só as consultas de IP, câmbio e CEP saem do aparelho.
 
 Sucesso nos próximos meses: tráfego orgânico recorrente. O site precisa indexar bem e virar referência em buscas de ferramentas em português. Hoje (setembro de 2026) o Google ainda não indexou nenhuma página.
 
@@ -37,16 +37,15 @@ Sucesso nos próximos meses: tráfego orgânico recorrente. O site precisa index
 
 ## Capabilities and Constraints
 
-Ferramentas (rotas fixas, já indexáveis):
+Ferramentas, em três grupos de menu (setembro de 2026). O grupo não faz parte da URL; as rotas antigas foram mantidas para não perder indexação.
 
-- Segurança: gerador de senha e frase-senha, gerador de Django SECRET_KEY, qual é o meu IP.
-- Documentos: gerador de CPF (estado, lote, CSV), gerador de CNPJ (filial, lote, CSV), validador de CPF e CNPJ (um ou lista).
-- Comunicação: gerador de link de WhatsApp com QR, consulta de DDD e 27 páginas por estado.
-- Utilitários: gerador de QR code (cores, logo, PNG), sorteador de números, conversor de moedas (cotação diária via ISR).
+- Dinheiro: gerador de QR code Pix (copia e cola), rachar a conta (10%, por consumo), à vista ou parcelado (juros embutidos), álcool ou gasolina, conversor de moedas (cotação diária via ISR).
+- Dia a dia: gerador de link de WhatsApp com QR, gerador de QR code (cores, logo, PNG), consulta de CEP (ViaCEP), consulta de DDD e 27 páginas por estado, sorteador de números e nomes com revelação animada, contador de caracteres e palavras, gerador de senha e frase-senha, qual é o meu IP.
+- Desenvolvedores: gerador de CPF (estado, lote, CSV), gerador de CNPJ (filial, lote, CSV), validador de CPF e CNPJ (um ou lista), gerador de Django SECRET_KEY.
 
 Páginas de apoio: Sobre, Privacidade, 404.
 
-Restrições técnicas: Next.js 15 (Pages Router, SSG), MUI 5, hospedado na Vercel. Duas consultas externas apenas (IP via ipify/ipapi; câmbio via exchangerate-api). Google Analytics 4. PWA via next-pwa.
+Restrições técnicas: Next.js 15 (Pages Router, SSG), MUI 5, hospedado na Vercel. Três consultas externas apenas (IP via ipify/ipapi; câmbio via exchangerate-api; CEP via ViaCEP, avisada na própria ferramenta). Google Analytics 4. PWA via next-pwa.
 
 Restrições de produto confirmadas:
 
@@ -54,7 +53,7 @@ Restrições de produto confirmadas:
 - Somente português do Brasil; não haverá outro idioma.
 - Conteúdo deve ser útil e honesto; nada de texto inflado, emoji em título ou listas de palavras-chave (a versão anterior fazia isso e não indexou).
 
-Terminologia: "ferramenta" para cada utilitário; categorias Segurança, Documentos, Comunicação, Utilitários.
+Terminologia: "ferramenta" para cada utilitário; grupos Dinheiro, Dia a dia e Desenvolvedores.
 
 Decisões em aberto: o nome "oAlexandre Toys" e o avatar pixel art como logo não foram marcados como fixos pelo autor; podem ser revistos no redesign mediante confirmação.
 

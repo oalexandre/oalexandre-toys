@@ -43,9 +43,10 @@ const Privacidade = () => (
         O que é processado no seu navegador
       </Typography>
       <Typography>
-        Senhas, chaves, CPFs, CNPJs, números de telefone, mensagens de WhatsApp, QR codes e sorteios
-        são gerados ou validados pelo próprio navegador. Esses dados não são enviados para este site
-        nem para terceiros e desaparecem quando você fecha a página.
+        Senhas, chaves, CPFs, CNPJs, chaves Pix, valores de contas e parcelas, preços de
+        combustível, textos, números de telefone, mensagens de WhatsApp, QR codes e sorteios são
+        gerados, calculados ou validados pelo próprio navegador. Esses dados não são enviados para
+        este site nem para terceiros e desaparecem quando você fecha a página.
       </Typography>
 
       <Typography component="h2" variant="h2">
@@ -60,6 +61,11 @@ const Privacidade = () => (
         <li>
           <strong>Conversor de moedas</strong> busca as cotações em exchangerate-api.com. O valor
           que você digita não é enviado; só a tabela de cotações é baixada.
+        </li>
+        <li>
+          <strong>Consulta de CEP</strong> envia o CEP ou o endereço digitado ao ViaCEP
+          (viacep.com.br), serviço público e gratuito, para fazer a busca. Nada fica guardado neste
+          site.
         </li>
       </ul>
 

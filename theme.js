@@ -95,6 +95,10 @@ const focusRing = {
 
 const theme = createTheme(base, {
   components: {
+    // subtitle1/2 viram <h6> por padrão no MUI, o que quebra a hierarquia de títulos.
+    MuiTypography: {
+      defaultProps: { variantMapping: { subtitle1: "p", subtitle2: "p" } },
+    },
     MuiCssBaseline: {
       styleOverrides: {
         html: { scrollBehavior: "smooth" },
@@ -257,6 +261,8 @@ const theme = createTheme(base, {
         track: { borderRadius: 11, backgroundColor: colors.lineStrong, opacity: 1 },
         thumb: { boxShadow: "0 1px 2px rgba(21,23,29,0.2)" },
         switchBase: {
+          // Bolinha branca quando ligado: roxa sobre o trilho roxo, ela sumia.
+          "&.Mui-checked": { color: colors.surface },
           "&.Mui-checked + .MuiSwitch-track": { backgroundColor: colors.accent, opacity: 1 },
         },
       },

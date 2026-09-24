@@ -7,7 +7,7 @@ import ToolCard from "../components/tool/ToolCard";
 import { categories, getToolsByCategory, SITE_NAME, SITE_URL, tools } from "../constants/tools";
 
 const DESCRIPTION =
-  "Ferramentas online gratuitas que rodam no seu navegador: gerador de senha, QR code, link de WhatsApp, gerador e validador de CPF e CNPJ, sorteador e conversor de moedas.";
+  "Ferramentas online grátis: QR code Pix, rachar a conta, álcool ou gasolina, consulta de CEP, link de WhatsApp, gerador de senha e de CPF e CNPJ.";
 
 const Home = () => (
   <>
@@ -50,8 +50,8 @@ const Home = () => (
         color="text.secondary"
         sx={{ fontSize: { md: "1.125rem" }, textWrap: "pretty" }}
       >
-        {tools.length} utilitários para o dia a dia de quem trabalha com internet no Brasil. Sem
-        cadastro e sem anúncio: senhas, documentos e mensagens nunca saem do seu computador.
+        {tools.length} ferramentas para o dia a dia no Brasil, do Pix à conta do restaurante, e para
+        quem testa sistemas. Sem cadastro e sem anúncio: o que você digita fica no seu aparelho.
       </Typography>
     </Box>
 
@@ -73,7 +73,7 @@ const Home = () => (
         </Box>
         <Grid container spacing={1.5}>
           {getToolsByCategory(category.slug).map(tool => (
-            <Grid item xs={12} md={6} key={tool.slug}>
+            <Grid item xs={12} sm={6} key={tool.slug}>
               <ToolCard tool={tool} />
             </Grid>
           ))}

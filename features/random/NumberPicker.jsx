@@ -2,7 +2,6 @@ import CasinoIcon from "@mui/icons-material/CasinoRounded";
 import {
   Box,
   Button,
-  Chip,
   FormControlLabel,
   Grid,
   Stack,
@@ -14,9 +13,12 @@ import { useState } from "react";
 
 import CopyButton from "../../components/common/CopyButton";
 import ResultBox from "../../components/tool/ResultBox";
-import ToolPanel from "../../components/tool/ToolPanel";
-import { drawNumbers } from "../../lib/random";
-import { colors } from "../../theme";
+import { drawNumbers, secureRandomBetween } from "../../lib/random";
+
+import DrawReveal from "./DrawReveal";
+
+// Acima disso a revelação número a número ficaria longa demais: mostra direto.
+const MAX_ANIMATED = 20;
 
 const toInt = (value, fallback) => {
   const parsed = parseInt(value, 10);
@@ -33,6 +35,8 @@ const NumberPicker = () => {
   });
   const [result, setResult] = useState([]);
   const [drawnAt, setDrawnAt] = useState(null);
+  const [runId, setRunId] = useState(0);
+  const [revealing, setRevealing] = useState(false);
   const [copies, setCopies] = useState(0);
 
   const count = toInt(form.count, 1);
@@ -50,13 +54,15 @@ const NumberPicker = () => {
 
   const draw = event => {
     event.preventDefault();
-    if (invalid) return;
+    if (invalid || revealing) return;
     setResult(drawNumbers({ count, min, max, unique: form.unique, sorted: form.sorted }));
     setDrawnAt(new Date());
+    setRevealing(true);
+    setRunId(id => id + 1);
   };
 
   return (
-    <ToolPanel component="form" onSubmit={draw} noValidate>
+    <Box component="form" onSubmit={draw} noValidate>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={4}>
           <TextField
@@ -113,17 +119,17 @@ const NumberPicker = () => {
         variant="contained"
         size="large"
         startIcon={<CasinoIcon />}
-        disabled={invalid}
+        disabled={invalid || revealing}
         sx={{ mb: 3 }}
       >
-        Sortear
+        {revealing ? "Sorteando..." : result.length ? "Sortear de novo" : "Sortear"}
       </Button>
 
       <ResultBox
         label="Resultado"
         flashKey={copies}
         actions={
-          result.length > 0 ? (
+          result.length > 0 && !revealing ? (
             <CopyButton
               value={result.join(", ")}
               label="Copiar"
@@ -133,41 +139,29 @@ const NumberPicker = () => {
           ) : null
         }
       >
-        <Box aria-live="polite">
-          {result.length > 0 ? (
-            <>
-              <Stack direction="row" flexWrap="wrap" useFlexGap spacing={1}>
-                {result.map((number, index) => (
-                  <Chip
-                    key={`${number}-${index}`}
-                    label={number}
-                    sx={{
-                      fontSize: "1.25rem",
-                      fontWeight: 700,
-                      height: 44,
-                      px: 0.75,
-                      borderRadius: 2,
-                      bgcolor: "background.paper",
-                      color: "primary.main",
-                      border: 1,
-                      borderColor: colors.accentTintStrong,
-                      fontVariantNumeric: "tabular-nums",
-                    }}
-                  />
-                ))}
-              </Stack>
+        {result.length > 0 ? (
+          <>
+            <DrawReveal
+              results={result.map(String)}
+              randomItem={() => String(secureRandomBetween(Math.min(min, max), Math.max(min, max)))}
+              runId={runId}
+              animate={result.length <= MAX_ANIMATED}
+              variant="chips"
+              onDone={() => setRevealing(false)}
+            />
+            {!revealing && (
               <Typography variant="body2" color="text.secondary" sx={{ mt: 1.5 }}>
                 Sorteado em {drawnAt.toLocaleString("pt-BR")} · {result.length} número
                 {result.length > 1 ? "s" : ""} entre {Math.min(min, max)} e {Math.max(min, max)}
                 {form.unique ? ", sem repetição" : ""}.
               </Typography>
-            </>
-          ) : (
-            <Typography color="text.secondary">Defina o intervalo e clique em Sortear.</Typography>
-          )}
-        </Box>
+            )}
+          </>
+        ) : (
+          <Typography color="text.secondary">Defina o intervalo e clique em Sortear.</Typography>
+        )}
       </ResultBox>
-    </ToolPanel>
+    </Box>
   );
 };
 

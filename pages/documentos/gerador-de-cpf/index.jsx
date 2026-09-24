@@ -39,7 +39,7 @@ const Page = () => (
   <ToolPage
     path="/documentos/gerador-de-cpf"
     title="Gerador de CPF Válido para Testes"
-    description="Gere CPFs válidos para testes, um ou em lote de até 500 com download em CSV. Escolha o estado de emissão pelo nono dígito. Gerado no navegador, apenas para desenvolvimento."
+    description="Gere CPFs válidos para testes, um ou em lote de até 500 com download em CSV. Escolha o estado de emissão pelo nono dígito. Tudo gerado no navegador."
     lead="Números de CPF com dígitos verificadores corretos, um por vez ou em lote, com opção de estado de emissão. Não são documentos reais."
     tool={<DocumentGenerator type="cpf" />}
     faq={faq}

@@ -1,11 +1,11 @@
 import ToolPage from "../../../components/tool/ToolPage";
-import NumberPicker from "../../../features/random/NumberPicker";
+import RandomPicker from "../../../features/random/RandomPicker";
 
 const faq = [
   {
     question: "O sorteio é realmente aleatório?",
     answer:
-      "Sim. Os números vêm de crypto.getRandomValues(), o gerador criptográfico do navegador, sem viés de arredondamento. Não há como o site ou qualquer pessoa influenciar o resultado.",
+      "Sim. Números e nomes são escolhidos com crypto.getRandomValues(), o gerador criptográfico do navegador, sem viés de arredondamento. A animação só revela um resultado que já foi sorteado; ela não muda as chances.",
   },
   {
     question: "Como faço um sorteio de rifa?",
@@ -13,9 +13,9 @@ const faq = [
       "Defina o intervalo de 1 até o número de bilhetes vendidos, escolha quantos prêmios há e marque sem repetição. Anote a data e hora exibidas junto com o resultado para dar transparência aos participantes.",
   },
   {
-    question: "Posso sortear nomes em vez de números?",
+    question: "Como sortear nomes?",
     answer:
-      "Numere a lista de participantes, em uma planilha por exemplo, e sorteie no intervalo de 1 até o total. O número sorteado corresponde à linha do participante.",
+      "Escolha o modo Nomes, cole a lista com um nome por linha e diga quantos quer sortear: 1, 2 ou 3. Numeração e marcadores no início das linhas são ignorados, e nomes repetidos são contados uma vez só, a menos que você desligue essa opção.",
   },
   {
     question: "O que muda com a opção sem repetição?",
@@ -32,12 +32,14 @@ const faq = [
 const Page = () => (
   <ToolPage
     path="/utilitario/sorteador-automatico"
-    title="Sorteador de Números Online Aleatório"
-    description="Sorteie um ou mais números em qualquer intervalo, com ou sem repetição. Resultado aleatório gerado no navegador, com data e hora. Para rifas, amigo secreto e promoções."
-    lead="Sorteie números em um intervalo, com ou sem repetição, usando o gerador aleatório do navegador."
-    tool={<NumberPicker />}
+    title="Sorteador de Números e Nomes Online"
+    description="Sorteie números em um intervalo ou nomes de uma lista, com revelação animada, data e hora. Para rifas, amigo secreto, promoções e sorteios em grupo."
+    lead="Sorteie números em um intervalo ou nomes de uma lista, com revelação animada do resultado."
+    tool={<RandomPicker />}
     faq={faq}
     features={[
+      "Sorteio de nomes de uma lista",
+      "Revelação animada do resultado",
       "Até 1000 números por sorteio",
       "Com ou sem repetição",
       "Ordenação opcional",
@@ -45,10 +47,20 @@ const Page = () => (
     ]}
   >
     <h2>Como usar</h2>
+    <h3>Sortear números</h3>
     <ol>
       <li>Informe quantos números quer sortear e o intervalo, por exemplo de 1 a 300.</li>
       <li>Escolha se pode repetir e se o resultado deve sair em ordem.</li>
       <li>Clique em Sortear. Copie o resultado com a data e hora para registro.</li>
+    </ol>
+    <h3>Sortear nomes</h3>
+    <ol>
+      <li>Troque para o modo Nomes e cole a lista, com um nome ou opção por linha.</li>
+      <li>Escolha quantos sortear: 1, 2 ou 3. Com mais de um, eles saem em ordem de sorteio.</li>
+      <li>
+        Clique em Sortear e acompanhe a revelação. Para abrir direto neste modo, use o endereço
+        terminado em <code>#nomes</code>.
+      </li>
     </ol>
 
     <h2>Usos comuns</h2>
@@ -57,10 +69,12 @@ const Page = () => (
         <strong>Rifas e bingos.</strong> Sorteio dos bilhetes ou pedras entre os vendidos.
       </li>
       <li>
-        <strong>Amigo secreto e ordem de apresentação.</strong> Numere as pessoas e sorteie.
+        <strong>Ordem de apresentação e tarefas.</strong> Cole os nomes da turma ou da equipe e
+        sorteie quem começa.
       </li>
       <li>
-        <strong>Sorteio em redes sociais.</strong> Numere os comentários e sorteie o vencedor.
+        <strong>Sorteio em redes sociais.</strong> Cole os nomes de quem comentou e sorteie o
+        vencedor, com a revelação na tela para gravar.
       </li>
       <li>
         <strong>Jogos e decisões.</strong> Dados, loterias de brincadeira e escolhas ao acaso.

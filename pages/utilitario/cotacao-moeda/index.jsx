@@ -28,7 +28,7 @@ const faq = [
 const Page = ({ rates }) => (
   <ToolPage
     path="/utilitario/cotacao-moeda"
-    title="Conversor de Moedas: Real, Dólar, Euro e mais"
+    title="Conversor de Moedas: Real, Dólar e Euro"
     description="Converta valores entre real, dólar, euro e mais de 150 moedas com cotação de referência do dia. Rápido, sem cadastro. Ideal para estimar compras e viagens."
     lead="Converta valores entre real, dólar, euro e mais de 150 moedas com a cotação de referência do dia."
     tool={<CurrencyConverter initialRates={rates} />}
