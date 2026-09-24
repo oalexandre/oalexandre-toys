@@ -1,7 +1,7 @@
 {
-  "/": "2026-09-09",
+  "/": "2026-09-24",
   "/sobre": "2026-09-09",
-  "/privacidade": "2026-09-09",
+  "/privacidade": "2026-09-24",
   "/seguranca/gerador-de-senha-segura": "2026-09-09",
   "/seguranca/gerador-de-django-secret-key": "2026-09-08",
   "/seguranca/qual-o-meu-ip": "2026-09-08",
@@ -11,7 +11,13 @@
   "/comunicacao/gerador-de-link-de-whatsapp": "2026-09-08",
   "/comunicacao/encontrar-ddd-do-celular": "2026-09-09",
   "/utilitario/gerador-de-qrcode": "2026-09-08",
-  "/utilitario/sorteador-automatico": "2026-09-08",
+  "/utilitario/sorteador-automatico": "2026-09-24",
   "/utilitario/cotacao-moeda": "2026-09-09",
-  "/ddd": "2026-09-09"
+  "/ddd": "2026-09-09",
+  "/dinheiro/gerador-de-qr-code-pix": "2026-09-24",
+  "/dinheiro/rachar-a-conta": "2026-09-24",
+  "/dinheiro/a-vista-ou-parcelado": "2026-09-24",
+  "/dinheiro/alcool-ou-gasolina": "2026-09-24",
+  "/utilitario/consulta-de-cep": "2026-09-24",
+  "/utilitario/contador-de-caracteres": "2026-09-24"
 }

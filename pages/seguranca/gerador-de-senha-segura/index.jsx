@@ -43,7 +43,7 @@ const Page = () => (
   <ToolPage
     path="/seguranca/gerador-de-senha-segura"
     title="Gerador de Senha Segura e Frase-senha"
-    description="Gere senhas fortes de 8 a 64 caracteres ou frases-senha com palavras em português, direto no navegador. Veja a força em bits. Sem cadastro, sem envio para servidor."
+    description="Gere senhas fortes de 8 a 64 caracteres ou frases-senha em português, direto no navegador. Veja a força em bits. Sem cadastro e sem envio para servidor."
     lead="Crie senhas aleatórias ou frases-senha com palavras em português. Tudo é gerado no seu navegador e nunca enviado para lugar nenhum."
     tool={<PasswordGenerator />}
     faq={faq}

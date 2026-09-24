@@ -23,7 +23,7 @@ const Footer = () => (
     <Container maxWidth="lg" sx={{ py: { xs: 5, md: 7 } }}>
       <Grid container spacing={{ xs: 3, md: 4 }}>
         {categories.map(category => (
-          <Grid item xs={6} md={3} key={category.slug}>
+          <Grid item xs={12} sm={4} key={category.slug}>
             <Typography component="h2" variant="subtitle2" sx={{ mb: 1, color: "text.primary" }}>
               {category.name}
             </Typography>
@@ -57,9 +57,11 @@ const Footer = () => (
               <a href="https://oalexandre.com.br" target="_blank" rel="noopener noreferrer">
                 Alexandre Klostermann
               </a>
-              . Tudo roda no seu navegador: nenhum dado digitado é enviado ou armazenado. Os
-              geradores de CPF e CNPJ produzem números matematicamente válidos apenas para testes de
-              software. As cotações de moeda são apenas referência.
+              . As ferramentas rodam no seu navegador e nada do que você digita fica guardado; só as
+              consultas de IP, câmbio e CEP usam serviços externos, como explica a{" "}
+              <Link href="/privacidade">página de privacidade</Link>. Os geradores de CPF e CNPJ
+              produzem números válidos apenas para testes de software. As cotações de moeda são
+              apenas referência.
             </Typography>
           </Box>
         </Grid>

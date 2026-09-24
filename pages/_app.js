@@ -13,7 +13,13 @@ import { pageview } from "../utils/gtag";
 import "../styles/globals.css";
 
 const sans = Onest({ subsets: ["latin"], display: "swap" });
-const mono = JetBrains_Mono({ subsets: ["latin"], display: "swap", weight: ["400", "500"] });
+// A mono só aparece em código e resultados: sem preload, não disputa banda com a fonte do texto.
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
+  preload: false,
+});
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 

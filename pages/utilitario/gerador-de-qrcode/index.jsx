@@ -33,7 +33,7 @@ const Page = () => (
   <ToolPage
     path="/utilitario/gerador-de-qrcode"
     title="Gerador de QR Code Grátis com Logo e Cores"
-    description="Crie QR codes personalizados com cores e logo, baixe em PNG de até 1024 px. Gerado no navegador, sem cadastro e sem expiração. Para links, Wi-Fi, texto e contatos."
+    description="Crie QR codes com cores e logo e baixe em PNG de até 1024 px. Sem cadastro e sem expiração. Para links, Wi-Fi, texto e contatos, gerado no navegador."
     lead="Crie um QR code com as suas cores e seu logo e baixe em PNG. O código é gerado no navegador e nunca expira."
     tool={<QrCodeGenerator />}
     faq={faq}

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import ToolPanel from "../../components/tool/ToolPanel";
-import { findStateByPhone, formatPhone, states } from "../../lib/ddd";
+import { findStateByPhone, formatPhone, stateName, states } from "../../lib/ddd";
 
 const DddLookup = () => {
   const [value, setValue] = useState("");
@@ -32,7 +32,7 @@ const DddLookup = () => {
             <Typography variant="body2" sx={{ mb: 1 }}>
               Região {state.region} ·{" "}
               <Link href={`/ddd/${state.uf.toLowerCase()}`} style={{ color: "inherit" }}>
-                ver cidades de cada DDD de {state.name}
+                ver cidades de cada DDD {stateName(state, "de")}
               </Link>
             </Typography>
             <Stack direction="row" spacing={0.75} flexWrap="wrap" useFlexGap>

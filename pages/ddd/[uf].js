@@ -8,7 +8,7 @@ import Faq from "../../components/tool/Faq";
 import ToolCard from "../../components/tool/ToolCard";
 import { formatDate, getTool, getUpdatedDate, SITE_URL } from "../../constants/tools";
 import DddLookup from "../../features/ddd/DddLookup";
-import { findStateByUf, states } from "../../lib/ddd";
+import { findStateByUf, stateName, stateSubject, states } from "../../lib/ddd";
 import { citiesForDdd } from "../../lib/dddCities";
 
 const TOOL_PATH = "/comunicacao/encontrar-ddd-do-celular";
@@ -19,6 +19,11 @@ const breadcrumbLinkSx = {
   textDecoration: "none",
   "&:hover": { color: "primary.main" },
 };
+
+const MAX_TITLE = 60 - " | oAlexandre Toys".length;
+
+/** Primeiro título que cabe no limite do Google (~60 caracteres com o nome do site). */
+const pickTitle = candidates => candidates.find(t => t.length <= MAX_TITLE) ?? candidates.at(-1);
 
 const listCities = list => {
   if (list.length <= 1) return list.join("");
@@ -34,31 +39,47 @@ const StatePage = ({ uf }) => {
   const capitalDdd =
     state.ddds.find(ddd => citiesForDdd(ddd).includes(state.capital)) ?? state.ddds[0];
   const neighbours = states.filter(s => s.region === state.region && s.uf !== state.uf);
+  const deState = stateName(state, "de");
+  const paraState = stateName(state, "para");
+  const subject = stateSubject(state);
+  const isDF = state.uf === "DF";
 
   const title = plural
-    ? `DDD ${state.name}: códigos ${state.ddds.join(", ")} e cidades`
+    ? pickTitle([
+        `DDD ${deState}: ${listCities(state.ddds)} e cidades`,
+        `DDD ${deState} (${state.uf}): ${listCities(state.ddds)}`,
+        `DDD ${deState} (${state.uf}): ${state.ddds.length} códigos e cidades`,
+        `DDD ${deState}: ${state.ddds.length} códigos e cidades`,
+        `DDD ${deState}: ${state.ddds.length} códigos`,
+      ])
     : `DDD ${state.ddds[0]} é de onde? ${state.name} (${state.uf})`;
   const description = plural
-    ? `${state.name} tem ${state.ddds.length} DDDs: ${state.ddds.join(
-        ", "
-      )}. Veja as principais cidades de cada código de área e como ligar para o estado.`
-    : `O DDD ${state.ddds[0]} pertence a ${state.name}, na região ${state.region}. Veja as principais cidades atendidas e como ligar para o estado.`;
+    ? `${subject} tem ${state.ddds.length} DDDs: ${listCities(
+        state.ddds
+      )}. Veja as principais cidades de cada código de área e como ligar ${paraState}.`
+    : `O DDD ${state.ddds[0]} é ${deState}, na região ${state.region}, e atende ${
+        isDF ? "todo o DF" : "todo o estado"
+      }, incluindo ${state.capital}. Veja as cidades e como ligar.`;
 
   const faq = [
     {
       question: `Qual é o DDD de ${state.capital}?`,
-      answer: `${state.capital}, capital de ${state.name}, usa o DDD ${capitalDdd}.`,
+      answer: isDF
+        ? `${state.capital}, capital federal, usa o DDD ${capitalDdd}.`
+        : `${state.capital}, capital ${deState}, usa o DDD ${capitalDdd}.`,
     },
     {
-      question: `Quantos DDDs ${state.name} tem?`,
+      question: `Quantos DDDs ${stateName(state)} tem?`,
       answer: plural
-        ? `${state.name} tem ${state.ddds.length} códigos de área: ${state.ddds.join(
-            ", "
+        ? `${subject} tem ${state.ddds.length} códigos de área: ${listCities(
+            state.ddds
           )}. Cada um cobre uma região do estado.`
-        : `${state.name} tem um único código de área, o ${state.ddds[0]}, que cobre todo o estado.`,
+        : `${subject} tem um único código de área, o ${state.ddds[0]}, que cobre ${
+            isDF ? "todo o DF" : "todo o estado"
+          }.`,
     },
     {
-      question: `Como ligar para ${state.name} de outro estado?`,
+      question: `Como ligar ${paraState} de outro estado?`,
       answer: `Disque 0, o código da operadora (por exemplo 15, 21 ou 41), o DDD e o número. Do exterior, use +55, o DDD e o número, sem o zero.`,
     },
     {
@@ -129,14 +150,16 @@ const StatePage = ({ uf }) => {
 
         <Box component="header" sx={{ mb: 3 }}>
           <Typography component="h1" variant="h1" sx={{ mb: 1 }}>
-            DDD de {state.name} ({state.uf})
+            DDD {deState} ({state.uf})
           </Typography>
           <Typography variant="subtitle1" color="text.secondary">
             {plural
-              ? `${state.name} tem ${state.ddds.length} códigos de área: ${listCities(
+              ? `${subject} tem ${state.ddds.length} códigos de área: ${listCities(
                   state.ddds
                 )}. A capital, ${state.capital}, usa o ${capitalDdd}.`
-              : `Todo o estado de ${state.name}, incluindo a capital ${state.capital}, usa o DDD ${state.ddds[0]}.`}
+              : isDF
+              ? `Todo o Distrito Federal, incluindo Brasília, usa o DDD ${state.ddds[0]}.`
+              : `Todo o estado ${deState}, incluindo a capital ${state.capital}, usa o DDD ${state.ddds[0]}.`}
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
             Região {state.region} · Atualizado em{" "}
@@ -184,7 +207,7 @@ const StatePage = ({ uf }) => {
 
         <Box component="section" sx={{ mb: 5, "& p": { color: "text.secondary", mb: 2 } }}>
           <Typography component="h2" variant="h2" sx={{ mb: 1.5 }}>
-            Como ligar para {state.name}
+            Como ligar {paraState}
           </Typography>
           <Typography>
             De outro estado, disque <strong>0 + operadora + DDD + número</strong>. Por exemplo, pela
